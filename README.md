@@ -1,7 +1,7 @@
 # personal-blog
 
 #### 介绍
-基于react-creat-app + next + ts + react-router 的 个人blog源码
+个人博客项目
 
 
 

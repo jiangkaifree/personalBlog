@@ -1,0 +1,20 @@
+.layoutWrap {
+  min-height: 100vh;
+  .siderWrap {
+    :global(.ant-layout-sider-children) {
+      display: flex;
+      flex-direction: column;
+    }
+    .avatarWrap {
+      margin: 20px auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .date {
+        margin: 10px auto;
+        color: #fff;
+        font-size: 17px;
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+/*
+ * @Author: jk 
+ * @Date: 2020-12-01 13:31:22 
+ * @Last Modified by: jk
+ * @Last Modified time: 2020-12-01 14:37:52
+ */
+
+.main {
+  margin-top: 0.5rem;
+  .left {
+    background-color: #fff;
+    padding: 0.3rem;
+    border-radius: 0.3rem;
+    border-bottom: 1px solid #eee;
+    .listWrap{
+     box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+     cursor: pointer;
+
+         .context {
+          color: #777;
+          margin: 0.5rem;
+          overflow: hidden;
+          word-break: break-all;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          -webkit-line-clamp: 7;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          font-weight: 500;
+        }
+        .infoWrap {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-top: .5rem;
+          // padding-top: .5rem;
+        }
+    }
+    
+  }
+  .right {
+    background-color: #fff;
+    margin-left: 0.5rem;
+    padding: 0.3rem;
+    border-radius: 0.3rem;
+    border-bottom: 1px solid #eee;
+  }
+}

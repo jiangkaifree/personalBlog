@@ -1,7 +1,7 @@
 import React from 'react'
 import { Row, Col } from 'antd';
 import styles from './header.module.scss'
-import { BankTwoTone, FireTwoTone, CustomerServiceTwoTone } from '@ant-design/icons'
+import { BankTwoTone, FireTwoTone, CustomerServiceTwoTone ,FlagTwoTone} from '@ant-design/icons'
 // import logo from '../../images/logo.svg'
 
 export default () => (
@@ -12,7 +12,7 @@ export default () => (
 			<Col  lg={2} md={4} sm={4}><BankTwoTone />文章博客</Col>
 			<Col  lg={2} md={4} sm={4}><CustomerServiceTwoTone />视频教程</Col>
 			<Col lg={2} md={4} sm={4}><FireTwoTone />工具推荐</Col>
-			<Col lg={2} md={4} sm={4}><FireTwoTone />关于</Col>
+			<Col lg={2} md={4} sm={4}><FlagTwoTone />关于</Col>
 		</Row>
 	</header>
 )

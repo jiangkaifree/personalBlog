@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Row, Col, List, Card, Divider } from "antd";
 import { VideoCameraTwoTone, EyeTwoTone, BellTwoTone } from "@ant-design/icons";
-
+import RightAside from 'components/RightAside/RightAside'
 import Header from "components/Header/Header";
 import styles from "styles/index.module.scss";
 
@@ -73,6 +73,7 @@ const Index = () => {
         {/* <Col className={styles.right} xs={0} sm={0} md={7} lg={5} xl={4}>
           右侧
         </Col> */}
+        <RightAside></RightAside>
       </Row>
     </>
   )

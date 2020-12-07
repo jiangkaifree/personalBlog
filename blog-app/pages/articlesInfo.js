@@ -2,14 +2,15 @@
  * @Author: jk
  * @Date: 2020-12-07 16:37:57
  * @Last Modified by: jk
- * @Last Modified time: 2020-12-07 17:57:15
+ * @Last Modified time: 2020-12-07 20:13:34
  */
 
 import React from "react";
 import { Row, Col, Breadcrumb,Divider  } from "antd";
-import { HomeOutlined, ReadOutlined,BellTwoTone,VideoCameraTwoTone,EyeTwoTone } from "@ant-design/icons";
+import { HomeOutlined, ReadOutlined,FieldTimeOutlined,VideoCameraTwoTone,EyeTwoTone } from "@ant-design/icons";
 import styles from "styles/articlesInfo.module.scss";
 import Header from "components/Header/Header";
+import RightAside from 'components/RightAside/RightAside'
 
 const articlesInfo = () => (
   <>
@@ -31,13 +32,13 @@ const articlesInfo = () => (
           <h5>文章标题文章标题文章标题文章标题</h5>
           <div className={styles.titleWrap}>
             <span>
-              <BellTwoTone /> 2019-06-28
+            <FieldTimeOutlined className={styles.time}/> 2019-06-28
             </span>
             <span>
-              <VideoCameraTwoTone /> 视频教程
+              <VideoCameraTwoTone twoToneColor='#fff3b2'/> 视频教程
             </span>
             <span>
-              <EyeTwoTone /> 5498人
+              <EyeTwoTone twoToneColor='#b088f9'/> 5498人
             </span>
           </div>
         </div>
@@ -49,6 +50,7 @@ const articlesInfo = () => (
         右侧
       </Col>
     </Row>
+    <RightAside></RightAside>
   </>
 );
 export default articlesInfo;

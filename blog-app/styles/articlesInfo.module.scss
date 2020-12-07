@@ -1,0 +1,51 @@
+/*
+ * @Author: jk 
+ * @Date: 2020-12-07 16:46:26 
+ * @Last Modified by: jk
+ * @Last Modified time: 2020-12-07 17:57:11
+ */
+ .main {
+    margin-top: 0.5rem;
+    .left {
+      background-color: #fff;
+      padding: 0.3rem;
+      border-radius: 0.3rem;
+      // border-bottom: 1px solid #eee;
+      box-shadow: 0 4px 8px 0 rgba(28,31,33,.08);
+      > .Breadcrumb{
+        margin: 1rem;
+      }
+      > .infoWrap{
+        margin: 1rem auto;
+        > h5{
+          font-size: 18px;
+          font-weight: 500;
+          columns: #333;
+          text-align: center;
+        }
+        > .titleWrap{
+          display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 0.5rem;
+        color: #999;
+        span{
+          margin: .5rem;
+        }
+        }
+      }
+      > .content{
+        margin: .5rem 1rem;
+        font-size: 16px;
+        color: #666;
+      }
+     
+    }
+    .right {
+      background-color: #f6f6f6;
+      margin-left: 0.5rem;
+      padding: 0.3rem;
+      border-radius: 0.3rem;
+    }
+  }
+  

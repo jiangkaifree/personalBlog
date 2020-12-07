@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Row, Col, List, Card ,Divider} from "antd";
+import { Row, Col, List, Card, Divider } from "antd";
 import { VideoCameraTwoTone, EyeTwoTone, BellTwoTone } from "@ant-design/icons";
 
 import Header from "components/Header/Header";
 import styles from "styles/index.module.scss";
 
-export default () => {
+const Index = () => {
   const [mylist, setMylist] = useState([
     {
       title: "50元加入小密圈 胖哥带你学一年",
@@ -33,9 +33,9 @@ export default () => {
     <>
       <Header></Header>
       <Row className={styles.main} type="flex" justify="center">
-        <Col className={styles.left} xs={24} sm={24} md={16} lg={18} xl={14}>
+        <Col className={styles.left} xs={24} sm={24} md={18} lg={20} xl={16}>
           {/* 列表 */}
-          <div >
+          <div>
             <List
               grid={{
                 gutter: 16,
@@ -50,7 +50,6 @@ export default () => {
               renderItem={(item) => (
                 <List.Item className={styles.listWrap}>
                   <Card title={item.title}>
-                   
                     <div className={styles.context}>{item.context}</div>
                     <Divider orientation="left">文章信息</Divider>
                     <div className={styles.infoWrap}>
@@ -69,14 +68,13 @@ export default () => {
               )}
             />
           </div>
-
-          
         </Col>
 
-        <Col className={styles.right} xs={0} sm={0} md={7} lg={5} xl={4}>
+        {/* <Col className={styles.right} xs={0} sm={0} md={7} lg={5} xl={4}>
           右侧
-        </Col>
+        </Col> */}
       </Row>
     </>
-  );
+  )
 };
+export default Index;

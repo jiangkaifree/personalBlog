@@ -2,7 +2,7 @@
  * @Author: jk 
  * @Date: 2020-12-01 13:31:22 
  * @Last Modified by: 小菜鸡
- * @Last Modified time: 2020-12-10 17:24:54
+ * @Last Modified time: 2020-12-10 18:56:17
  */
 
 .main {
@@ -21,6 +21,9 @@
       margin: .5rem auto;
       box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
       cursor: pointer;
+      // transform: scale(1.05);
+      transition: opacity 0.25s, transform .3s, box-shadow .4s,;
+
 
       .context {
         color: #777;
@@ -44,7 +47,8 @@
       }
     }
     .listWrap:hover{
-      transition: opacity 0.25s, transform .3s;
+      // transition: opacity 0.25s, transform .3s;
+      // box-shadow .4s,transform .4s
       transform: scale(1.05);
     }
   }

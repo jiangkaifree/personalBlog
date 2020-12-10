@@ -2,7 +2,7 @@
  * @Author: jk
  * @Date: 2020-12-07 16:37:57
  * @Last Modified by: 小菜鸡
- * @Last Modified time: 2020-12-10 17:41:31
+ * @Last Modified time: 2020-12-10 18:32:52
  */
 
 import React from "react";
@@ -25,7 +25,7 @@ const articlesInfo = () => (
     <Row className={styles.main} type="flex" justify="center">
       <Col className={styles.left} xs={24} sm={24} md={16} lg={18} xl={14}>
         <Breadcrumb className={styles.Breadcrumb}>
-          <Breadcrumb.Item href="">
+          <Breadcrumb.Item href="/">
             <HomeOutlined />
           </Breadcrumb.Item>
           <Breadcrumb.Item href="">

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Router from 'next/router'
 import { Row, Col, List, Card, Divider, Carousel } from "antd";
 import { VideoCameraTwoTone, EyeTwoTone, BellTwoTone } from "@ant-design/icons";
 import RightAside from "components/RightAside/RightAside";
@@ -7,6 +8,11 @@ import Banner from "components/Banner/Banner";
 import styles from "styles/index.module.scss";
 
 const Index = () => {
+  // 跳转文章详情页面
+  const goArticleInfo = ()=> {
+    Router.push('/articlesInfo')
+  }
+  
   const [myList, setMyList] = useState([
     {
       title: "50元加入小密圈 胖哥带你学一年",
@@ -51,7 +57,7 @@ const Index = () => {
               }}
               dataSource={myList}
               renderItem={(item) => (
-                <List.Item className={styles.listWrap}>
+                <List.Item className={styles.listWrap} onClick={goArticleInfo}>
                   <Card title={item.title}>
                     <div className={styles.context}>{item.context}</div>
                     <Divider orientation="left">文章信息</Divider>

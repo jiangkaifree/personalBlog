@@ -1,20 +1,24 @@
 /*
  * @Author: jk 
  * @Date: 2020-12-01 13:31:22 
- * @Last Modified by: jk
- * @Last Modified time: 2020-12-07 17:40:47
+ * @Last Modified by: 小菜鸡
+ * @Last Modified time: 2020-12-10 17:24:54
  */
 
 .main {
-  margin-top: 0.5rem;
+  // margin-top: 0.5rem;
+  
+  
   .left {
     background-color: #fff;
+    margin-top: 1rem;
     padding: 0.3rem;
     border-radius: 0.3rem;
     border-bottom: 1px solid #eee;
     box-shadow: 0 4px 8px 0 rgba(28,31,33,.08);
 
     .listWrap {
+      margin: .5rem auto;
       box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
       cursor: pointer;
 

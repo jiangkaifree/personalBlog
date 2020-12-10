@@ -1,0 +1,14 @@
+.bannerWrap {
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 2px 8px 0 rgba(7, 17, 27, 0.06);
+  .banner {
+    height: 300px;
+    color: #fff;
+    line-height: 300px;
+    margin: 2rem auto;
+    text-align: center;
+    background-color: #364d79;
+    border-radius: 1rem;
+  }
+}

@@ -9,6 +9,7 @@ const Header =()=> {
 		<Row align='middle' justify="space-around" >
 					
 			<Col  lg={16} md={12} sm={8} className={styles.headerItem}>
+        
  			</Col>
  			<Col  lg={2} md={4} sm={4} className={styles.headerItem}><span><EditTwoTone />文章Blog</span></Col>
 			<Col  lg={2} md={4} sm={4} className={styles.headerItem}><span><CustomerServiceTwoTone twoToneColor="#eb2f96" />视频教程</span></Col>

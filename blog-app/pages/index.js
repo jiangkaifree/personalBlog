@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { Row, Col, List, Card, Divider } from "antd";
+import { Row, Col, List, Card, Divider, Carousel } from "antd";
 import { VideoCameraTwoTone, EyeTwoTone, BellTwoTone } from "@ant-design/icons";
-import RightAside from 'components/RightAside/RightAside'
+import RightAside from "components/RightAside/RightAside";
 import Header from "components/Header/Header";
+import Banner from "components/Banner/Banner";
 import styles from "styles/index.module.scss";
 
 const Index = () => {
-  const [mylist, setMylist] = useState([
+  const [myList, setMyList] = useState([
     {
       title: "50元加入小密圈 胖哥带你学一年",
       context:
@@ -32,7 +33,9 @@ const Index = () => {
     // <div>
     <>
       <Header></Header>
+
       <Row className={styles.main} type="flex" justify="center">
+        <Banner></Banner>
         <Col className={styles.left} xs={24} sm={24} md={18} lg={20} xl={16}>
           {/* 列表 */}
           <div>
@@ -46,7 +49,7 @@ const Index = () => {
                 xl: 3,
                 xxl: 3,
               }}
-              dataSource={mylist}
+              dataSource={myList}
               renderItem={(item) => (
                 <List.Item className={styles.listWrap}>
                   <Card title={item.title}>
@@ -76,6 +79,6 @@ const Index = () => {
         <RightAside></RightAside>
       </Row>
     </>
-  )
+  );
 };
 export default Index;

@@ -1,12 +1,13 @@
 /*
  * @Author: jk
  * @Date: 2020-12-07 16:37:57
- * @Last Modified by: 小菜鸡
- * @Last Modified time: 2020-12-10 18:32:52
+ * @Last Modified by: jk
+ * @Last Modified time: 2020-12-11 10:51:16
  */
 
 import React from "react";
 import { Row, Col, Breadcrumb, Divider, Tag } from "antd";
+import ReactMarkdown from "react-markdown"; // 导入markdown
 import {
   HomeOutlined,
   ReadOutlined,
@@ -18,6 +19,42 @@ import styles from "styles/articlesInfo.module.scss";
 import Header from "components/Header/Header";
 import Indexs from "components/Indexs/Indexs";
 import RightAside from "components/RightAside/RightAside";
+
+let markdown =
+  "# P01:课程介绍和环境搭建\n" +
+  "[ **M** ] arkdown + E [ **ditor** ] = **Mditor**  \n" +
+  "> Mditor 是一个简洁、易于集成、方便扩展、期望舒服的编写 markdown 的编辑器，仅此而已... \n\n" +
+  "**这是加粗的文字**\n\n" +
+  "*这是倾斜的文字*`\n\n" +
+  "***这是斜体加粗的文字***\n\n" +
+  "~~这是加删除线的文字~~ \n\n" +
+  "`console.log(111)` \n\n" +
+  "# p02:来个Hello World 初始Vue3.0\n" +
+  "> aaaaaaaaa\n" +
+  ">> bbbbbbbbb\n" +
+  ">>> cccccccccc\n" +
+  "***\n\n\n" +
+  "# p03:Vue3.0基础知识讲解\n" +
+  "> aaaaaaaaa\n" +
+  ">> bbbbbbbbb\n" +
+  ">>> cccccccccc\n\n" +
+  "# p04:Vue3.0基础知识讲解\n" +
+  "> aaaaaaaaa\n" +
+  ">> bbbbbbbbb\n" +
+  ">>> cccccccccc\n\n" +
+  "#5 p05:Vue3.0基础知识讲解\n" +
+  "> aaaaaaaaa\n" +
+  ">> bbbbbbbbb\n" +
+  ">>> cccccccccc\n\n" +
+  "# p06:Vue3.0基础知识讲解\n" +
+  "> aaaaaaaaa\n" +
+  ">> bbbbbbbbb\n" +
+  ">>> cccccccccc\n\n" +
+  "# p07:Vue3.0基础知识讲解\n" +
+  "> aaaaaaaaa\n" +
+  ">> bbbbbbbbb\n" +
+  ">>> cccccccccc\n\n" +
+  "``` var a=11; ```";
 
 const articlesInfo = () => (
   <>
@@ -54,7 +91,9 @@ const articlesInfo = () => (
           <Tag color="volcano">volcano</Tag>
         </Divider>
         <section className={styles.content}>
-          内容内容内容内容内容内容内容内容
+          <div className={styles.markdown}>
+            <ReactMarkdown source={markdown} escapeHtml={false} />
+          </div>
         </section>
       </Col>
 

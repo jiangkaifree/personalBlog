@@ -1,10 +1,13 @@
 import React from "react";
-import { Collapse,Tree } from "antd";
+import { Collapse,Tree,Affix, } from "antd";
 import { DownOutlined } from '@ant-design/icons';
 const { Panel } = Collapse;
 import styles from "./Index.module.scss";
 const Indexs = () => {
+
   return (
+    <Affix offsetTop={50}>
+     
     <Collapse defaultActiveKey={["1"]} ghost>
       <Panel header="索引目录" key="1">
         {/* <p>文本没人</p> */}
@@ -67,6 +70,7 @@ const Indexs = () => {
       </Panel>
       
     </Collapse>
+    </Affix>
   );
 };
 

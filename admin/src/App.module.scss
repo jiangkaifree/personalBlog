@@ -1,0 +1,38 @@
+.App{
+    .layoutWrap {
+      min-height: 100vh;
+      .siderWrap {
+        :global(.ant-layout-sider-children) {
+          display: flex;
+          flex-direction: column;
+        }
+        .avatarWrap {
+          margin: 20px 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          .date {
+            margin: 10px auto;
+            color: #333;
+            font-size: .8rem;
+          }
+        }
+      }
+      .contentWrap{
+        margin: 0 16px;
+        .headerWrap{
+          margin: 16px 0;
+        }
+        .content{
+          padding: 24px;
+          background-color: #fff;
+          min-height: calc(100% - 40px);
+        }
+      
+      }
+      .footer{
+        text-align: center;
+      }
+    }
+    
+  }

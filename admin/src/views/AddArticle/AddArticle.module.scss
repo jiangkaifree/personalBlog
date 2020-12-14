@@ -1,0 +1,49 @@
+main {
+  width: 100vw;
+  overflow: hidden;
+  min-height: 100vh;
+  .titleWrap {
+    display: flex;
+    justify-content: space-between;
+    // align-items: center;
+    // padding: 0 20px;
+    // border-bottom:1px solid saddlebrown ;
+    .titleInput {
+      font-size: 18px;
+      color: #333;
+      letter-spacing: 2px;
+      font-weight: 600;
+      border: none;
+    }
+    .send {
+      margin: 10px 20px;
+    }
+    .avatar {
+      margin-right: 40px;
+      align-self: center;
+    }
+  }
+  .contextWrap {
+    min-height: calc(100vh - 60px);
+    font-size: 16px;
+    color: #666;
+    letter-spacing: 1px;
+    .codeWrap {
+      padding: 5px;
+      background-color: #f8f9fa;
+      border: 1px solid #eee;
+      //   min-height: calc(100vh - 60px);
+    }
+    .viewWrap {
+      padding: 5px;
+      border-right: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+      border-top: 1px solid #eee;
+    }
+  }
+
+//   表单抽屉
+  .timeWrap{
+      width: 100%;
+  }
+}

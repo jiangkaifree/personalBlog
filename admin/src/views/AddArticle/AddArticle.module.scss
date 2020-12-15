@@ -42,8 +42,11 @@ main {
     }
   }
 
-//   表单抽屉
-  .timeWrap{
+  //   表单抽屉
+  .drawerWrap {
+    font-size: 20px;
+    :global(.ant-picker) {
       width: 100%;
+    }
   }
 }

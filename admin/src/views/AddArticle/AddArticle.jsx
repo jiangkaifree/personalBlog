@@ -60,57 +60,70 @@ const AddArticle = () => {
         </Col>
       </Row>
 
-      {/* 发布抽屉 */}
-      <Drawer
-        title="发布"
-        placement="right"
-        closable={false}
-        onClose={onClose}
-        visible={visible}
-        width="400"
-      >
-        <Form size="large" layout="vertical">
-          <Form.Item
-            label="BLOG简介"
-            name="username"
-            rules={[{ required: true, message: "Please input your username!" }]}
-          >
-            <TextArea showCount maxLength={100} placeholder='文章简介......' autoSize={{minRows: 5,maxRows: 8}}/>
-          </Form.Item>
-
-          <Form.Item
-            label="发布时间"
-            rules={[{ required: true, message: "Please input your username!" }]}
-          >
-            <DatePicker className={styles.timeWrap} />
-          </Form.Item>
-          <Form.Item
-            label="标签"
-            rules={[{ required: true, message: "Please input your username!" }]}
-          >
-            <Select
-              mode="multiple"
-              allowClear
-              style={{ width: "100%" }}
-              placeholder="Please select"
-              defaultValue={tags}
-              onChange={(val) => setTags(val)}
+        {/* 发布抽屉 */}
+        <Drawer
+          title="发布"
+          placement="right"
+          closable={false}
+          onClose={onClose}
+          visible={visible}
+          width="400"
+          className={styles.drawerWrap}
+          getContainer={false}
+        >
+          <Form size="large" layout="vertical">
+            <Form.Item
+              label="BLOG简介"
+              name="username"
+              rules={[
+                { required: true, message: "Please input your username!" },
+              ]}
             >
-              {tagsList.map((item) => (
-                <Option key={item}>{item}</Option>
-              ))}
-            </Select>
-          </Form.Item>
-          <Form.Item>
-            <Button type="primary" block>
-              发布文章
-            </Button>
-            <Button type="dashed" block>
-              暂存草稿
-            </Button>
-          </Form.Item>
-        </Form>
-      </Drawer>
+              <TextArea
+                showCount
+                maxLength={100}
+                placeholder="BLOG简介......"
+                autoSize={{ minRows: 5, maxRows: 8 }}
+              />
+            </Form.Item>
+
+            <Form.Item
+              label="发布时间"
+              rules={[
+                { required: true, message: "Please input your username!" },
+              ]}
+            >
+              <DatePicker  />
+            </Form.Item>
+            <Form.Item
+              label="标签"
+              rules={[
+                { required: true, message: "Please input your username!" },
+              ]}
+            >
+              <Select
+                mode="multiple"
+                allowClear
+                style={{ width: "100%" }}
+                placeholder="Please select"
+                defaultValue={tags}
+                onChange={(val) => setTags(val)}
+              >
+                {tagsList.map((item) => (
+                  <Option key={item}>{item}</Option>
+                ))}
+              </Select>
+            </Form.Item>
+            <Form.Item>
+              <Button type="primary" block >
+                发布文章
+              </Button>
+              <Button type="dashed" block>
+                暂存草稿
+              </Button>
+            </Form.Item>
+          </Form>
+        </Drawer>
     </main>
   );
 };

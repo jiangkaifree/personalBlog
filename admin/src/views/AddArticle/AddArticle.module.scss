@@ -5,6 +5,9 @@ main {
   .titleWrap {
     display: flex;
     justify-content: space-between;
+    position: sticky;
+    top: 0;
+    left: 0;
     // align-items: center;
     // padding: 0 20px;
     // border-bottom:1px solid saddlebrown ;
@@ -32,13 +35,15 @@ main {
       padding: 5px;
       background-color: #f8f9fa;
       border: 1px solid #eee;
-      //   min-height: calc(100vh - 60px);
+      min-height: calc(100vh - 60px);
+      letter-spacing: 1px;
     }
     .viewWrap {
       padding: 5px;
       border-right: 1px solid #eee;
       border-bottom: 1px solid #eee;
       border-top: 1px solid #eee;
+      
     }
   }
 
@@ -49,4 +54,35 @@ main {
       width: 100%;
     }
   }
+
+  pre {
+    position: relative;
+    border-radius: 3px;
+    // border: 1px solid #c3ccd0;
+    overflow: hidden;
+    padding: 15px 12px;
+    margin: 0;
+    word-break: normal;
+    display: block;
+    overflow-x: auto;
+    color: #333;
+    background: #f8f8f8;
+    code{
+      background-color:transparent;
+    }
+  }
+  code {
+    // display: block;
+    margin: 0 3px;
+    padding: 5px 8px;
+    overflow-y: auto;
+    font-weight: 400;
+    word-break: break-word;
+    border-radius: 2px;
+    overflow-x: auto;
+    background-color: #fff5f5;
+    color: #ff502c;
+  }
+ 
+  
 }

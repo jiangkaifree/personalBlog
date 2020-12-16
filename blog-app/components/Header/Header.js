@@ -1,11 +1,12 @@
 import React from "react";
-import { Row, Col } from "antd";
+import { Row, Col ,Avatar} from "antd";
 import styles from "./header.module.scss";
 import {
   EditTwoTone,
   FireTwoTone,
   CustomerServiceTwoTone,
   FlagTwoTone,
+  UserOutlined
 } from "@ant-design/icons";
 // import logo from '../../images/logo.svg'
 
@@ -13,7 +14,9 @@ const Header = () => {
   return (
     <header className={styles.headerWrap}>
       <Row align="middle" justify="space-around">
-        <Col xl={16} lg={12} md={12} sm={24} xs={24}  className={styles.headerItem}></Col>
+        <Col xl={16} lg={12} md={12} sm={24} xs={24}  className={styles.headerItem}>
+        <Avatar icon={<UserOutlined />} />
+        </Col>
         <Col xl={2} lg={3} md={3} sm={0} xs={0} className={styles.headerItem}>
           <span>
             <EditTwoTone />

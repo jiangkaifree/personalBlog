@@ -31,18 +31,22 @@ export default () => {
                   placeholder="用户名"
                   prefix={<UserOutlined className={styles.iconColor} />}
                   onChange={(e) => { setUserName(e.target.value) }}
+                  className={styles.input}
                />
-               <br /><br />
                <Input.Password
                   id="password"
                   size="large"
                   placeholder="Enter your password"
                   prefix={<EditOutlined className={styles.iconColor} />}
                   onChange={(e) => { setPassword(e.target.value) }}
+                  className={styles.input}
                />
-               <br /><br />
                <Button type="primary" size="large" block onClick={checkLogin} > Login in </Button>
             </Card>
+
+            <footer className={styles}>
+
+            </footer>
          </Spin>
       </div>
    )

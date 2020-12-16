@@ -147,7 +147,10 @@ body {
   background: #fff;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  height: auto;
+  height: 100%;
+}
+#root{
+  height: 100%;
 }
 a,
 a:hover {

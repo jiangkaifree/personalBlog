@@ -2,12 +2,12 @@
  * @Author: jk
  * @Date: 2020-12-07 16:37:57
  * @Last Modified by: jk
- * @Last Modified time: 2020-12-11 10:51:16
+ * @Last Modified time: 2020-12-16 15:20:38
  */
 
 import React from "react";
 import { Row, Col, Breadcrumb, Divider, Tag } from "antd";
-import ReactMarkdown from "react-markdown"; // 导入markdown
+// import ReactMarkdown from "react-markdown"; // 导入markdown
 import {
   HomeOutlined,
   ReadOutlined,
@@ -15,10 +15,29 @@ import {
   VideoCameraTwoTone,
   EyeTwoTone,
 } from "@ant-design/icons";
+import marked from "marked"; // 导入marked
+import hljs from "highlight.js"; // 导入高亮插件
+import "highlight.js/styles/monokai-sublime.css"; //导入highlight的css
 import styles from "styles/articlesInfo.module.scss";
 import Header from "components/Header/Header";
 import Indexs from "components/Indexs/Indexs";
 import RightAside from "components/RightAside/RightAside";
+
+// marked配置
+marked.setOptions({
+  renderer: new marked.Renderer(),
+  pedantic: false,
+  gfm: true,
+  tables: true,
+  breaks: false,
+  sanitize: false,
+  smartLists: true,
+  smartypants: false,
+  xhtml: false,
+  highlight: function (code) {
+    return hljs.highlightAuto(code).value;
+  },
+});
 
 let markdown =
   "# P01:课程介绍和环境搭建\n" +
@@ -91,9 +110,8 @@ const articlesInfo = () => (
           <Tag color="volcano">volcano</Tag>
         </Divider>
         <section className={styles.content}>
-          <div className={styles.markdown}>
-            <ReactMarkdown source={markdown} escapeHtml={false} />
-          </div>
+          <div dangerouslySetInnerHTML={{ __html: marked(markdown) }}></div>
+          
         </section>
       </Col>
 

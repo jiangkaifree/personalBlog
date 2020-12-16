@@ -1,11 +1,11 @@
 /*
  * @Author: jk 
  * @Date: 2020-12-07 16:46:26 
- * @Last Modified by: 小菜鸡
- * @Last Modified time: 2020-12-10 18:10:00
+ * @Last Modified by: jk
+ * @Last Modified time: 2020-12-16 15:15:43
  */
 .main {
-  // margin-top: 0.5rem;
+  margin-top: 0.5rem;
   .left {
     background-color: #fff;
     padding: 0.3rem;
@@ -43,6 +43,35 @@
       margin: 0.5rem 1rem;
       font-size: 16px;
       color: #666;
+      
+  pre {
+    position: relative;
+    border-radius: 3px;
+    // border: 1px solid #c3ccd0;
+    overflow: hidden;
+    padding: 15px 12px;
+    margin: 0;
+    word-break: normal;
+    display: block;
+    overflow-x: auto;
+    color: #333;
+    background: #f8f8f8;
+    code{
+      background-color:transparent;
+    }
+  }
+  code {
+    // display: block;
+    margin: 0 3px;
+    padding: 5px 8px;
+    overflow-y: auto;
+    font-weight: 400;
+    word-break: break-word;
+    border-radius: 2px;
+    overflow-x: auto;
+    background-color: #fff5f5;
+    color: #ff502c;
+  }
     }
   }
   .right {

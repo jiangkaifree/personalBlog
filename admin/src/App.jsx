@@ -1,8 +1,8 @@
 /*
  * @Author: jk
  * @Date: 2020-12-14 10:57:56
- * @Last Modified by: 小菜鸡
- * @Last Modified time: 2020-12-15 19:42:38
+ * @Last Modified by: jk
+ * @Last Modified time: 2020-12-16 17:54:30
  */
 
 import { useState } from "react";
@@ -38,31 +38,83 @@ function App() {
   const { Content, Footer, Sider } = Layout;
   const { SubMenu } = Menu;
   const [collapsed, setCollapsed] = useState(false);
-  const [activeItem, setActiveItem] = useState(["data"]);
+  const [activeItem, setActiveItem] = useState(["data"]); // 路由
+  const [breadcrumbItem, setBreadcrumbItem] = useState("实时数据"); // 面包屑导航
   const history = useHistory();
 
-  const time = ''
-  if(new Date().getHours()>= 9){
-    const time = '早上好！'
-  }else if(new Date().getHours()>= 12){
-    const time = '上午好！'
-  }else if(new Date().getHours() >= 18){
-    const time = '下午好'
-  }else if(new Date().getHours() >= 24){
-    const time = '晚上好！！'
-  }else {
-    const time = '凌晨早！'
-  }
+  const menuList = [
+    {
+      path: "data",
+      title: "实时数据",
+      icon: <PieChartOutlined />,
+      children: [
+        {
+          path: "data",
+          title: "数据",
+          icon: <PieChartOutlined />,
+        },
+      ],
+    },
+    {
+      path: "",
+      title: "文章管理",
+      icon: <SettingOutlined />,
+      children: [
+        {
+          path: "addArticle",
+          title: "添加文章",
+          icon: <EditOutlined />,
+        },
+        {
+          path: "articlesList",
+          title: "文章列表",
+          icon: <OrderedListOutlined />,
+        },
+      ],
+    },
+    {
+      path: "chat",
+      title: "留言管理",
+      icon: <AudioOutlined />,
+      children: [
+        {
+          path: "chat",
+          title: "留言管理",
+          icon: <AudioOutlined />,
+        },
+      ],
+    },
+  ];
 
-  // 时间转换
-  
-  
+  // 时间输出
+  // const time = () => {
+  //   const time = "";
+  //   if (new Date().getHours() >= 9) {
+  //     time = "早上好！";
+  //   } else if (new Date().getHours() >= 12) {
+  //     time = "上午好！";
+  //   } else if (new Date().getHours() >= 18) {
+  //     time = "下午好";
+  //   } else if (new Date().getHours() >= 24) {
+  //     time = "晚上好！！";
+  //   } else {
+  //     time = "凌晨早！";
+  //   }
+  //   return (<span>{time}</span>);
+  // };
 
   // 跳转页面
-  const setPage = (key) => {
+  const setPage = (key, item) => {
+    console.log(key)
     history.push(key);
     setActiveItem([key]);
+    // setBreadcrumbItem()
   };
+  // 设置面包屑title
+  const changeBreadcrumbItem= ({key})=>{
+    // console.log(menuList,key)
+    setBreadcrumbItem(menuList[key].title)
+  }
 
   return (
     <div className={styles.App}>
@@ -83,34 +135,58 @@ function App() {
               <QueueAnim delay={550} type="left" leaveReverse>
                 <div className={styles.avatarWrap} key="0">
                   <Avatar size={48} icon={<UserOutlined />} />
-                  <p className={styles.date}>早上好！ 江凯</p>
-                  <p className={styles.date}>{new Date().toLocaleDateString()}</p>
+                  <p className={styles.date}>江凯</p>
+                  <p className={styles.date}>
+                    {new Date().toLocaleDateString()}
+                  </p>
                 </div>
                 <Menu
                   theme="light"
                   defaultSelectedKeys={activeItem}
                   mode="inline"
-                  onClick={({ key }) => setPage(key)}
+                  onClick={({ key, item }) => setPage(key, item)}
                   key="1"
                 >
+                  {menuList.map((item,index) => (
+                    //   <Menu.Item key={Item.path}>
+                    //   {item.icon}
+                    //   <span>{item.title}</span>
+                    // </Menu.Item>
 
-                  <Menu.Item key="data">
+                    <SubMenu
+                      key={index}
+                      title={
+                        <span>
+                          {item.icon}
+                          <span>{item.title}</span>
+                        </span>
+                      }
+                      onTitleClick={changeBreadcrumbItem}
+                    >
+                      {item.children.map((items) => (
+                        <Menu.Item key={items.path}>
+                          {items.icon}
+                          {items.title}
+                        </Menu.Item>
+                      ))}
+                    </SubMenu>
+                  ))}
+
+                  {/* <Menu.Item key="data">
                     <PieChartOutlined />
                     <span>实时数据</span>
                   </Menu.Item>
 
                   <SubMenu
-                  key='3'
+                    key="3"
                     title={
                       <span>
-                        {/* <Icon type="user" /> */}
                         <SettingOutlined />
                         <span>文章管理</span>
                       </span>
                     }
                   >
                     <Menu.Item key="addArticle">
-                      {" "}
                       <EditOutlined />
                       添加文章
                     </Menu.Item>
@@ -124,24 +200,26 @@ function App() {
                   <Menu.Item key="chat">
                     <AudioOutlined />
                     <span>留言管理</span>
-                  </Menu.Item>
-
+                  </Menu.Item> */}
                 </Menu>
               </QueueAnim>
             </Sider>
             <Layout>
               {/* <Header style={{ background: '#fff', padding: 0 }} /> */}
-                <Content className={styles.contentWrap}>
-                  <Breadcrumb className={styles.headerWrap}>
-                    <Breadcrumb.Item>
+              <Content className={styles.contentWrap}>
+                <Breadcrumb className={styles.headerWrap}>
+                  <Breadcrumb.Item>
+                    <a href="/admin">
                       <HomeOutlined />
-                    </Breadcrumb.Item>
-                    <Breadcrumb.Item>工作台</Breadcrumb.Item>
-                  </Breadcrumb>
-                  <div className={styles.content}>
-                    <Routes></Routes>
-                  </div>
-                </Content>
+                    </a>
+                  </Breadcrumb.Item>
+                  <Breadcrumb.Item>工作台</Breadcrumb.Item>
+                  <Breadcrumb.Item>{breadcrumbItem}</Breadcrumb.Item>
+                </Breadcrumb>
+                <div className={styles.content}>
+                  <Routes></Routes>
+                </div>
+              </Content>
               <Footer className={styles.footer}>BLOG 后台管理 By 2020</Footer>
             </Layout>
           </Layout>

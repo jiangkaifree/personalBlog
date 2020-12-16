@@ -1,13 +1,26 @@
 /* * @Author: jk  * @Date: 2020-11-30 15:07:35  * @Last Modified by:   jk  * @Last Modified time: 2020-11-30 15:07:35  */
 
 .loginDiv{
-   margin: 300px auto;
-   width: 400px;
+   // margin: 300px auto;
+   margin: 0 auto;
+   // width: 400px;
+   height: 100%;
+   padding-top: 200px;
    box-sizing: border-box;
+   background-color: #f0f2f5;
+   // background: url('../../assets/images/bg.svg') 0 0 no-repeat;
+   // background-image: url(https://gw.alipayobjects.com/zos/rmsportal/TVYTbAXWheQpRcWDaDMu.svg);
+   background-image: url(../../assets/images/bg.svg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
    .cardWrap{
       width: 400px;
+      margin: 0 auto;
       .iconColor{
          color: #1890ff;
+      }
+      .input{
+         margin-bottom: 20px;
       }
    }
 }

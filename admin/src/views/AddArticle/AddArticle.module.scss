@@ -53,6 +53,15 @@ main {
     :global(.ant-picker) {
       width: 100%;
     }
+    .addTag{
+      margin: 10px 0;
+      background: #fff;
+      border-style: dashed;
+    }
+    .tagList{
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
   }
 
   pre {

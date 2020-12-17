@@ -1,8 +1,8 @@
 /*
  * @Author: jk
  * @Date: 2020-12-14 10:57:56
- * @Last Modified by: jk
- * @Last Modified time: 2020-12-16 17:54:30
+ * @Last Modified by: 小菜鸡
+ * @Last Modified time: 2020-12-17 17:59:56
  */
 
 import { useState } from "react";
@@ -119,9 +119,9 @@ function App() {
   return (
     <div className={styles.App}>
       <Switch>
-        <Route path="/login" exact component={Login}></Route>
+        <Route path="/user/login" exact component={Login}></Route>
+        <Redirect to="/user/login" from="/" exact></Redirect>
         <Route exact path="/admin/addArticle" component={AddArticle}></Route>
-        <Redirect to="/login" from="/" exact></Redirect>
         <Redirect to="/admin/data" from="/admin" exact></Redirect>
         <Route path="/admin">
           <Layout className={styles.layoutWrap}>

@@ -14,6 +14,8 @@ export default () => {
    const [userName, setUserName] = useState('')
    const [password, setPassword] = useState('')
    const [isLoading, setIsLoading] = useState(false)
+
+   // 登录
    const checkLogin = () => {
       setIsLoading(true)
       setTimeout(() => {
@@ -41,6 +43,7 @@ export default () => {
                   onChange={(e) => { setPassword(e.target.value) }}
                   className={styles.input}
                />
+                
                <Button type="primary" size="large" block onClick={checkLogin} > Login in </Button>
             </Card>
 

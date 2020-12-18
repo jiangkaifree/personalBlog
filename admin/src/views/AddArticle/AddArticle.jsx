@@ -4,20 +4,22 @@ import {
   Col,
   Input,
   Button,
-  Avatar,
   Drawer,
   Form,
   DatePicker,
   Switch,
   Tag,
+  Upload,
+  message,
 } from "antd";
 import {
-  UserOutlined,
   PlusOutlined,
   SendOutlined,
   CloseOutlined,
   CheckOutlined,
+  UploadOutlined,
 } from "@ant-design/icons";
+import { useHistory } from "react-router-dom";
 import { TweenOneGroup } from "rc-tween-one";
 import randomcolor from "randomcolores";
 import styles from "./AddArticle.module.scss";
@@ -27,6 +29,7 @@ import "highlight.js/styles/monokai-sublime.css"; //导入highlight的css
 import "moment/locale/zh-cn"; // 时间选择时间格式
 import locale from "antd/es/date-picker/locale/zh_CN";
 const AddArticle = () => {
+  const history = useHistory();
   const { TextArea } = Input;
   const [visible, setVisible] = useState(false);
   const [desHTMLContent, setDesHTMLContent] = useState(
@@ -63,15 +66,16 @@ const AddArticle = () => {
 
   const tagItem = tags.map((item) => {
     const tagElem = (
-      <Tag closable key={item.color} color={item.color} className={styles.tagList}>
+      <Tag
+        closable
+        key={item.color}
+        color={item.color}
+        className={styles.tagList}
+      >
         {item.title}
       </Tag>
     );
-    return (
-      <span key={item.title} >
-        {tagElem}
-      </span>
-    );
+    return <span key={item.title}>{tagElem}</span>;
   });
 
   // 点击Tag展示输入框
@@ -82,19 +86,19 @@ const AddArticle = () => {
   // Tag输入框失焦或者回车事件
   const handleInputConfirm = () => {
     // for (let item of tags) {
-      if (inputValue) {
-        // console.log(item,inputValue);
-        const hexcolor = randomcolor.HEXColor;
-        tags.push({
-          title: inputValue,
-          color: hexcolor(),
-        });
-        setInputVisible(false);
-        setTags(tags);
-        setInputValue("");
-        console.log(tags);
-        // return;
-      } 
+    if (inputValue) {
+      // console.log(item,inputValue);
+      const hexcolor = randomcolor.HEXColor;
+      tags.push({
+        title: inputValue,
+        color: hexcolor(),
+      });
+      setInputVisible(false);
+      setTags(tags);
+      setInputValue("");
+      console.log(tags);
+      // return;
+    }
     // }
     // if (inputValue && tags.indexOf(inputValue) === -1) {
     // const hexcolor = randomcolor.HEXColor;
@@ -107,6 +111,25 @@ const AddArticle = () => {
     // setInputValue("");
     // console.log(tags);
     // }
+  };
+
+  // 导入markDown
+  const props = {
+    name: "file",
+    action: "https://www.mocky.io/v2/5cc8019d300000980a055e76",
+    headers: {
+      authorization: "authorization-text",
+    },
+    onChange(info) {
+      if (info.file.status !== "uploading") {
+        console.log(info.file, info.fileList);
+      }
+      if (info.file.status === "done") {
+        message.success(`${info.file.name} file uploaded successfully`);
+      } else if (info.file.status === "error") {
+        message.error(`${info.file.name} file upload failed.`);
+      }
+    },
   };
 
   /**
@@ -140,10 +163,24 @@ const AddArticle = () => {
   const onClose = () => {
     setVisible(false);
   };
+
+  // 返回上一页
+  const backPage = () => {
+    history.goBack();
+  };
   return (
     <main>
       <div className={styles.titleWrap}>
         <Input className={styles.titleInput} placeholder="输入文章标题......" />
+        <Button type="link" onClick={backPage}>
+          返回
+        </Button>
+
+        <Upload {...props}>
+          <Button type="text" icon={<UploadOutlined />}>
+            导入MarkDown
+          </Button>
+        </Upload>
         <Button
           type="primary"
           size="large"
@@ -154,11 +191,6 @@ const AddArticle = () => {
         >
           发布
         </Button>
-        <Avatar
-          className={styles.avatar}
-          shape="square"
-          icon={<UserOutlined />}
-        />
       </div>
       <Row gutter={5} className={styles.contextWrap}>
         <Col span={12}>
@@ -219,22 +251,21 @@ const AddArticle = () => {
           </Form.Item>
 
           <Form.Item label="文章标签">
-          <TweenOneGroup
-                enter={{
-                  scale: 0.8,
-                  opacity: 0,
-                  type: "from",
-                  duration: 400,
-                  onComplete: (e) => {
-                    e.target.style = "";
-                  },
-                }}
-                leave={{ opacity: 0, width: 0, scale: 0, duration: 400 }}
-                appear={false}
-              >
-               
+            <TweenOneGroup
+              enter={{
+                scale: 0.8,
+                opacity: 0,
+                type: "from",
+                duration: 400,
+                onComplete: (e) => {
+                  e.target.style = "";
+                },
+              }}
+              leave={{ opacity: 0, width: 0, scale: 0, duration: 400 }}
+              appear={false}
+            >
               {tagItem}
-              </TweenOneGroup>
+            </TweenOneGroup>
             {/* {tags.map((item) => (
               
                  <Tag closable key={item.color} color={item.color}>

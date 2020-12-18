@@ -2,7 +2,7 @@
  * @Author: jk
  * @Date: 2020-12-16 19:08:00
  * @Last Modified by: jk
- * @Last Modified time: 2020-12-18 14:05:32
+ * @Last Modified time: 2020-12-18 14:08:23
  */
 /**
  * 导入axios
@@ -35,29 +35,20 @@ axios.interceptors.request.use(
 axios.interceptors.response.use(
   (res) => {
     console.log(res, 'res')
-    return new Promise((resolve, reject) => {
-      if(res.data.data === 0){
-        resolve(res.data);
-
-      }else {
-        reject(err);
-
-      }
-      if (res.data.data === 0) resolve(res.data)
-      else  reject(res.data)
-    });
+    
     
     // 请求成功但有code
     if (res.data.code === 0) {
       // console.log("过期");
     
-      // notification.error({
-      //   message: '操作失败',
-      //   description: res.data.data,
-      // });
+      notification.error({
+        message: '操作失败',
+        description: res.data.data,
+      });
       return
+    }else {
+    return res.data
     }
-    return res;
   },
   (error) => {
     // 请求失败

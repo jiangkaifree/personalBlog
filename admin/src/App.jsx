@@ -2,7 +2,7 @@
  * @Author: jk
  * @Date: 2020-12-14 10:57:56
  * @Last Modified by: jk
- * @Last Modified time: 2020-12-18 13:07:46
+ * @Last Modified time: 2020-12-21 14:02:34
  */
 
 import { useState } from "react";
@@ -10,8 +10,7 @@ import {
   Route,
   Switch,
   Redirect,
-  useHistory,
-  // withRouter
+  withRouter
 } from "react-router-dom";
 import QueueAnim from "rc-queue-anim";
 import { Layout, Menu, Breadcrumb, Avatar } from "antd";
@@ -41,7 +40,6 @@ function App(props) {
   const [collapsed, setCollapsed] = useState(false);
   const [activeItem, setActiveItem] = useState(["data"]); // 路由
   const [breadcrumbItem, setBreadcrumbItem] = useState("实时数据"); // 面包屑导航
-  const history = useHistory();
 
   const menuList = [
     {
@@ -107,10 +105,10 @@ function App(props) {
   // 跳转页面
   const setPage = (key, item) => {
     console.log(key)
-    props.history.push(key);
     setActiveItem([key]);
-    // setBreadcrumbItem()
+    props.history.push(key);
   };
+  
   // 设置面包屑title
   const changeBreadcrumbItem= ({key})=>{
     // console.log(menuList,key)
@@ -230,4 +228,4 @@ function App(props) {
   );
 }
 
-export default App;
+export default withRouter(App);

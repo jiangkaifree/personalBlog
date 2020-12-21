@@ -2,7 +2,7 @@
  * @Author: jk
  * @Date: 2020-12-16 19:08:00
  * @Last Modified by: jk
- * @Last Modified time: 2020-12-21 11:54:08
+ * @Last Modified time: 2020-12-18 14:08:23
  */
 /**
  * 导入axios
@@ -40,13 +40,13 @@ axios.interceptors.response.use(
     // 请求成功但有code
     if (res.data.code === 0) {
       // console.log("过期");
+    
       notification.error({
         message: '操作失败',
         description: res.data.data,
       });
       return
     }else {
-      // 返回请求结果
     return res.data
     }
   },
@@ -103,10 +103,12 @@ axios.interceptors.response.use(
 );
 
 
+// 封装post请求
 /**
  * 封装post请求
- * @param(String) url 请求地址
- * @param(Object) data  请求数据
+ * @param url
+ * @param data
+ * @returns {Promise}
  */
 
 export const post=(url, data) => {
@@ -120,7 +122,7 @@ export const post=(url, data) => {
   //     }
   //   );
   // });
-  return axios.post(url, data).then(
+  return  axios.post(url, data).then(
         (res) => {
           // resolve(res.data);
           return res.data

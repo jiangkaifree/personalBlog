@@ -2,9 +2,10 @@ import { Button } from "antd";
 import React from "react";
 // import styles from "./Data.module.scss";
 // import { getArticleList } from "../../utils/api";
-
+const data = ['11','122']
 const Data = () => {
-  const aa = () => {
+  const aa = (id) => {
+    console.log(id)
     // getArticleList({
     //   endTime: 1608134400000,
     //   pageIndex: 1,
@@ -17,7 +18,12 @@ const Data = () => {
   return (
     <div>
       数据页面
-      <Button onClick={aa}>aaaa</Button>
+      {/* <Button onClick={aa(data[1])}>aaaa</Button> */}
+      {
+        data.map(item => (
+          <Button onClick={() => {aa(item)}}>aaaa</Button>
+        ))
+      }
     </div>
   );
 };

@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { Row, Col, List } from "antd";
 import Header from "components/Header/Header";
 import styles from "styles/List.module.scss";
 
-export default () => {
-  
+const ArticlesList = () => {
   return (
     <>
       <Header></Header>
@@ -14,9 +13,18 @@ export default () => {
         </Col>
 
         <Col className={styles.right} xs={0} sm={0} md={7} lg={5} xl={4}>
-          右侧
+          <p>右侧</p>
         </Col>
       </Row>
+      <style jsx>
+        {`
+          p {
+            color: red;
+          }
+        `}
+      </style>
     </>
   );
 };
+
+export default ArticlesList

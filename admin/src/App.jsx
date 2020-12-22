@@ -2,7 +2,7 @@
  * @Author: jk
  * @Date: 2020-12-14 10:57:56
  * @Last Modified by: 小菜鸡
- * @Last Modified time: 2020-12-22 15:15:42
+ * @Last Modified time: 2020-12-22 15:23:34
  */
 
 import { useState } from "react";
@@ -23,6 +23,7 @@ import {
   UserOutlined,
   OrderedListOutlined,
   HomeOutlined,
+  RadarChartOutlined,
 } from "@ant-design/icons";
 
 import styles from "./App.module.scss";
@@ -34,7 +35,7 @@ import AddArticle from "./views/AddArticle/AddArticle"; // 添加文章页面
 // import Data from "./views/Data/Data";
 // import AddArticle from "./views/AddArticle/AddArticle";
 
-function App() {
+function App(props) {
   const { Content, Footer, Sider } = Layout;
   const { SubMenu } = Menu;
   const [collapsed, setCollapsed] = useState(false);
@@ -45,13 +46,13 @@ function App() {
   const menuList = [
     {
       path: "data",
-      title: "实时数据",
+      title: "数据台",
       icon: <PieChartOutlined />,
       children: [
         {
           path: "data",
-          title: "数据",
-          icon: <PieChartOutlined />,
+          title: "实时数据",
+          icon: <RadarChartOutlined />,
         },
       ],
     },
@@ -106,7 +107,7 @@ function App() {
   // 跳转页面
   const setPage = (key, item) => {
     console.log(key)
-    history.push(key);
+    props.history.push(key);
     setActiveItem([key]);
     // setBreadcrumbItem()
   };

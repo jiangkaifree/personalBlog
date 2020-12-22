@@ -2,7 +2,7 @@
  * @Author: jk
  * @Date: 2020-12-16 19:08:00
  * @Last Modified by: jk
- * @Last Modified time: 2020-12-16 21:04:38
+ * @Last Modified time: 2020-12-18 14:08:23
  */
 /**
  * 导入axios
@@ -13,7 +13,7 @@ import { notification} from 'antd'
   /** 创建axios实例 */
 
 axios.defaults.timeout = 3000; // 请求超时
-axios.defaults.baseURL = "http://47.97.2.236:8088"; // 请求根地址
+axios.defaults.baseURL = "http://127.0.0.1:7001"; // 请求根地址
 
 // request请求拦截器
 axios.interceptors.request.use(
@@ -35,16 +35,20 @@ axios.interceptors.request.use(
 axios.interceptors.response.use(
   (res) => {
     console.log(res, 'res')
+    
+    
     // 请求成功但有code
     if (res.data.code === 0) {
       // console.log("过期");
+    
       notification.error({
         message: '操作失败',
-        description: res.data.message,
+        description: res.data.data,
       });
-
+      return
+    }else {
+    return res.data
     }
-    return res;
   },
   (error) => {
     // 请求失败

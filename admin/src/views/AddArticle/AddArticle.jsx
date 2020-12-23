@@ -19,6 +19,7 @@ import {
   CloseOutlined,
   CheckOutlined,
   UploadOutlined,
+  DeleteOutlined
 } from "@ant-design/icons";
 import { useHistory } from "react-router-dom";
 import { TweenOneGroup } from "rc-tween-one";
@@ -185,12 +186,13 @@ const AddArticle = () => {
         <Button type="link" onClick={backPage}>
           返回
         </Button>
-
         <Upload {...props}>
           <Button type="text" icon={<UploadOutlined />}>
             导入MarkDown
           </Button>
         </Upload>
+        <Button type="primary" shape="round"  icon={<DeleteOutlined />}  >草稿</Button>
+
         <Button
           type="primary"
           size="large"

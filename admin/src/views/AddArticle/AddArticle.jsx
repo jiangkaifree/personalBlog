@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect} from "react";
 import {
   Row,
   Col,
@@ -11,6 +11,7 @@ import {
   Tag,
   Upload,
   message,
+  Select,
 } from "antd";
 import {
   PlusOutlined,
@@ -23,12 +24,14 @@ import { useHistory } from "react-router-dom";
 import { TweenOneGroup } from "rc-tween-one";
 import randomcolor from "randomcolores";
 import styles from "./AddArticle.module.scss";
-import marked from "marked"; // 导入marked
+import marked   from "marked"; // 导入marked
 import hljs from "highlight.js"; // 导入高亮插件
 import "highlight.js/styles/monokai-sublime.css"; //导入highlight的css
 import "moment/locale/zh-cn"; // 时间选择时间格式
 import locale from "antd/es/date-picker/locale/zh_CN";
+import { articleTypeApi } from "../../api/api";
 const AddArticle = () => {
+  const { Option } = Select;
   const history = useHistory();
   const { TextArea } = Input;
   const [visible, setVisible] = useState(false);
@@ -53,16 +56,9 @@ const AddArticle = () => {
 
   const [inputVisible, setInputVisible] = useState(false);
   const [inputValue, setInputValue] = useState("");
-  const [tags, setTags] = useState([
-    // {
-    //   title: "Vue",
-    //   color: "#2db7f5",
-    // },
-    // {
-    //   title: "React",
-    //   color: "#87d068",
-    // },
-  ]);
+  const [tags, setTags] = useState([]);
+  const [articleType,setArticleType] = useState()  // 选中文章类别
+  const [typeList,setTypeList] = useState([])
 
   const tagItem = tags.map((item) => {
     const tagElem = (
@@ -152,7 +148,21 @@ const AddArticle = () => {
     setDesHTMLContent(html);
   };
 
-  // 获取标签内容
+  // 发布文章
+  const postArticle = ()=> {
+    articleTypeApi().then(res => {
+      console.log(res,'res')
+      const typeList = res
+    })
+  }
+
+  // 获取文章类型
+  useEffect(()=>{
+    articleTypeApi().then(res => {
+      // console.log(res,'res')
+      setTypeList(res)
+    })
+  },[])
 
   //  开启Drawer
   const showDrawer = () => {
@@ -242,6 +252,15 @@ const AddArticle = () => {
           >
             <DatePicker locale={locale} />
           </Form.Item>
+          <Form.Item>
+            <Select defaultValue={articleType}   placeholder='选择文章类别' onChange={(value)=>{setArticleType(value)}} allowClear>
+              {
+                typeList.map(item => (
+                  <Option key={item.typeId} value={item.typeId}>{item.title}</Option> 
+                ))
+              }
+            </Select>
+          </Form.Item>
           <Form.Item label="是否置顶显示">
             <Switch
               checkedChildren={<CheckOutlined />}
@@ -293,7 +312,7 @@ const AddArticle = () => {
             )}
           </Form.Item>
           <Form.Item>
-            <Button type="primary" block>
+            <Button type="primary" block onClick={postArticle}>
               发布文章
             </Button>
             <Button type="dashed" block>

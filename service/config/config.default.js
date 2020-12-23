@@ -21,7 +21,7 @@ module.exports = (appInfo) => {
     domainWhiteList: ['http://localhost:3000']//[]中放放出的白名单，*代表所有
   };
   config.cors = {
-    origin:'*',
+    origin:'http://localhost:3000',
     credentials: true,  //允许Cook可以跨域
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
   };

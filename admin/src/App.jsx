@@ -1,8 +1,8 @@
 /*
  * @Author: jk
  * @Date: 2020-12-14 10:57:56
- * @Last Modified by: 小菜鸡
- * @Last Modified time: 2020-12-22 15:23:34
+ * @Last Modified by: jk
+ * @Last Modified time: 2020-12-23 20:42:20
  */
 
 import { useState } from "react";
@@ -120,7 +120,7 @@ function App(props) {
       <Switch>
         <Route path="/user/login" exact component={Login}></Route>
         <Redirect to="/user/login" from="/" exact></Redirect>
-        <Route exact path="/admin/addArticle" component={AddArticle}></Route>
+        <Route exact path="/admin/addArticle" component={AddArticle} ></Route>
         <Redirect to="/admin/data" from="/admin" exact></Redirect>
         <Route path="/admin">
           <Layout className={styles.layoutWrap}>

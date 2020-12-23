@@ -2,7 +2,7 @@
  * @Author: jk
  * @Date: 2020-12-16 19:08:00
  * @Last Modified by: jk
- * @Last Modified time: 2020-12-23 11:11:23
+ * @Last Modified time: 2020-12-23 20:43:54
  */
 /**
  * 导入axios
@@ -13,17 +13,18 @@ import { notification } from "antd";
 /** 创建axios实例 */
 
 axios.defaults.timeout = 3000; // 请求超时
-axios.defaults.baseURL = "http://127.0.0.1:7001"; // 请求根地址
+axios.defaults.baseURL = process.env.REACT_APP_BASEURL; // 请求根地址
+axios.defaults.withCredentials = true;        // 表示跨域请求时是否需要使用凭证
 
 // request请求拦截器
 axios.interceptors.request.use(
   (config) => {
-    config.data = JSON.stringify(config.data);
+    // config.data = JSON.stringify(config.data);
     config.headers = {
       "Content-Type": "application/json",
     };
     // config.headers.x-auth-token = "a7d5e2660c064f85aea0632eeddce0cb"
-    config.headers["x-auth-token"] = "a7d5e2660c064f85aea0632eeddce0cb";
+    // config.headers["x-auth-token"] = "a7d5e2660c064f85aea0632eeddce0cb";
     return config;
   },
   (error) => {
@@ -34,7 +35,7 @@ axios.interceptors.request.use(
 // response响应拦截器
 axios.interceptors.response.use(
   (res) => {
-    console.log(res, "axios");
+    // console.log(res, "axios");
 
     // 请求成功但不能操作
     if (res.data.code === 0) {
@@ -106,7 +107,7 @@ axios.interceptors.response.use(
  * @param(Object) data  请求数据
  */
 
-export const post = (url, data) => {
+export const post = async (url, data) => {
   // return new Promise((resolve, reject) => {
   //   axios.post(url, data).then(
   //     (res) => {
@@ -117,22 +118,14 @@ export const post = (url, data) => {
   //     }
   //   );
   // });
-  return axios.post(url, data).then(
-    (res) => {
-      // console.log(res)
-      if(res) return res.data
-    }
-  ).catch(err => {
-
-  })
+    const res = await axios.post(url, data);
+    // console.log(res)
+    if (res)
+      return res.data;
 };
 
-export const get = (url,data) => {
-  return axios.get(url,data).then(
-    res => {
-      if(res) return  res.data
-    }
-  ).catch(err => {
-    console.log(err)
-  })
+export const get =  async (url) => {
+    const res = await axios.get(url,{});
+    if (res)
+      return res.data;
 }

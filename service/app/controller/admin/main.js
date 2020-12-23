@@ -12,7 +12,6 @@ class MainController extends Controller{
         let password = ctx.request.body.password
         const sql = `SELECT userName FROM admin_user WHERE userName =${userName} AND password = ${password}`
         const res = await app.mysql.query(sql)
-        console.log(res)
         if(res.length>0){
             //登录成功,进行session缓存
             let openId=new Date().getTime()
@@ -33,6 +32,19 @@ class MainController extends Controller{
                 }
             }
         } 
+    }
+
+    /**
+     * 获取文章分类
+     * 
+     */
+    async getArticleType(){
+        const {ctx,app} = this
+        const result = await app.mysql.select("blog_type")
+        ctx.body = {
+            code: 1,
+            data: result
+        }
     }
 
     /**

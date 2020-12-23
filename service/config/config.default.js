@@ -22,6 +22,7 @@ module.exports = (appInfo) => {
   };
   config.cors = {
     origin:'*',
+    credentials: true,  //允许Cook可以跨域
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
   };
 
@@ -47,7 +48,7 @@ module.exports = (appInfo) => {
       // password
       password: "123456",
       // database
-      database: "blog-client",
+      database: "blog",
     },
     // load into app, default is open
   };

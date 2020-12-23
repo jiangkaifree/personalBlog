@@ -3,5 +3,5 @@ import { post } from '../utils/request'
 
 export const userLoginApi = async (data) => {
     const res = await post('admin/login', data)
-    return res.data
+    return res
   }

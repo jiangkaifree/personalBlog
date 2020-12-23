@@ -1,15 +1,18 @@
 /* * @Author: undefined  * @Date: 2020-11-30 15:06:29  * @Last Modified by:   jk  * @Last Modified time: 2020-11-30 15:06:29  */
 import React, { useState } from "react";
-import { Card, Input, Button, Spin, message } from "antd";
+import { Card, Input, Button, Spin, message,notification } from "antd";
 import styles from "./Login.module.scss";
 import { UserOutlined, EditOutlined } from "@ant-design/icons";
 import { userLoginApi } from "../../api/api";
 
-const Login = () => {
+const Login = (props) => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
+  const onKeyup = (e)=>{
+    console.log(e)
+  }
   // 登录
   const checkLogin = () => {
     setIsLoading(true);
@@ -22,15 +25,22 @@ const Login = () => {
       setIsLoading(false);
       return false;
     }
-
+    /**请求登录接口 */
     userLoginApi({
       userName,
       password,
-    })
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {});
+    }).then((res) => {
+      setIsLoading(false);
+      if(res) {
+        notification.success({
+          message: '登录成功',
+          description: "欢迎回来",
+        });
+
+        localStorage.setItem("openId",res.openId)
+        props.history.push('/admin/data');
+      }
+    });
   };
   return (
     <div className={styles.loginDiv}>
@@ -57,8 +67,8 @@ const Login = () => {
             className={styles.input}
           />
 
-          <Button type="primary" size="large" block onClick={checkLogin}>
-            Login in
+          <Button type="primary" size="large" block onClick={checkLogin}  onKeyUp={(e) =>onKeyup(e)}>
+            Login In
           </Button>
         </Card>
 

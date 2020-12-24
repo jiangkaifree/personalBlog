@@ -153,7 +153,8 @@ const AddArticle = () => {
   const postArticle = ()=> {
     articleTypeApi().then(res => {
       console.log(res,'res')
-      const typeList = res
+      setTypeList(res)
+      // const typeList = res
     })
   }
 

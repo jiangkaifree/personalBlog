@@ -1,8 +1,8 @@
 /*
  * @Author: jk
  * @Date: 2020-12-14 10:57:56
- * @Last Modified by: jk
- * @Last Modified time: 2020-12-23 20:42:20
+ * @Last Modified by: 小菜鸡
+ * @Last Modified time: 2020-12-24 17:27:18
  */
 
 import { useState } from "react";
@@ -10,7 +10,7 @@ import {
   Route,
   Switch,
   Redirect,
-  withRouter
+  withRouter,
 } from "react-router-dom";
 import QueueAnim from "rc-queue-anim";
 import { Layout, Menu, Breadcrumb, Avatar } from "antd";
@@ -223,6 +223,7 @@ function App(props) {
             </Layout>
           </Layout>
         </Route>
+      
       </Switch>
     </div>
   );

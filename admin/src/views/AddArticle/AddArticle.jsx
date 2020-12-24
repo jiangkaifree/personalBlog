@@ -233,12 +233,12 @@ const AddArticle = () => {
   }
 
   // 获取文章类型
-  // useEffect(()=>{
-  //   articleTypeApi().then(res => {
-  //     // console.log(res,'res')
-  //     setTypeList(res)
-  //   })
-  // },[])
+  useEffect(()=>{
+    articleTypeApi().then(res => {
+      // console.log(res,'res')
+      setTypeList(res)
+    })
+  },[])
 
   //  开启Drawer
   const showDrawer = () => {

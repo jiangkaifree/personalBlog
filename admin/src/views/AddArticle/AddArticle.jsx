@@ -25,7 +25,7 @@ import { useHistory } from "react-router-dom";
 import { TweenOneGroup } from "rc-tween-one";
 import randomcolor from "randomcolores";
 import styles from "./AddArticle.module.scss";
-import marked, { use }   from "marked"; // 导入marked
+import marked  from "marked"; // 导入marked
 import hljs from "highlight.js"; // 导入高亮插件
 import "highlight.js/styles/monokai-sublime.css"; //导入highlight的css
 import "moment/locale/zh-cn"; // 时间选择时间格式

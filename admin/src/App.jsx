@@ -2,16 +2,11 @@
  * @Author: jk
  * @Date: 2020-12-14 10:57:56
  * @Last Modified by: 小菜鸡
- * @Last Modified time: 2020-12-24 17:27:18
+ * @Last Modified time: 2020-12-24 17:56:05
  */
 
 import { useState } from "react";
-import {
-  Route,
-  Switch,
-  Redirect,
-  withRouter,
-} from "react-router-dom";
+import { Route, Switch, Redirect, withRouter } from "react-router-dom";
 import QueueAnim from "rc-queue-anim";
 import { Layout, Menu, Breadcrumb, Avatar } from "antd";
 import {
@@ -30,6 +25,7 @@ import Routes from "./router";
 // 登录页面
 import Login from "./views/Login/Login";
 import AddArticle from "./views/AddArticle/AddArticle"; // 添加文章页面
+import NotFound from "./views/NotFound/NotFound"; //404
 
 // import Data from "./views/Data/Data";
 // import AddArticle from "./views/AddArticle/AddArticle";
@@ -104,23 +100,23 @@ function App(props) {
 
   // 跳转页面
   const setPage = (key, item) => {
-    console.log(key)
+    console.log(key);
     setActiveItem([key]);
     props.history.push(key);
   };
-  
+
   // 设置面包屑title
-  const changeBreadcrumbItem= ({key})=>{
+  const changeBreadcrumbItem = ({ key }) => {
     // console.log(menuList,key)
-    setBreadcrumbItem(menuList[key].title)
-  }
+    setBreadcrumbItem(menuList[key].title);
+  };
 
   return (
     <div className={styles.App}>
       <Switch>
         <Route path="/user/login" exact component={Login}></Route>
         <Redirect to="/user/login" from="/" exact></Redirect>
-        <Route exact path="/admin/addArticle" component={AddArticle} ></Route>
+        <Route exact path="/admin/addArticle" component={AddArticle}></Route>
         <Redirect to="/admin/data" from="/admin" exact></Redirect>
         <Route path="/admin">
           <Layout className={styles.layoutWrap}>
@@ -146,7 +142,7 @@ function App(props) {
                   onClick={({ key, item }) => setPage(key, item)}
                   key="1"
                 >
-                  {menuList.map((item,index) => (
+                  {menuList.map((item, index) => (
                     //   <Menu.Item key={Item.path}>
                     //   {item.icon}
                     //   <span>{item.title}</span>
@@ -223,7 +219,9 @@ function App(props) {
             </Layout>
           </Layout>
         </Route>
-      
+
+        <Route path="/404" component={NotFound} />
+        <Redirect from="*" to="/404" />
       </Switch>
     </div>
   );

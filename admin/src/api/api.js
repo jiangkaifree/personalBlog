@@ -27,6 +27,6 @@ export const postArticleApi = async (data)=> {
  * 暂存文章接口
  */
 export const saveArticleApi = async (data)=> {
-  const res = await post('admin/saveArticle',data)
+  const res = await post('admin/postArticle',data)
   return res
 }

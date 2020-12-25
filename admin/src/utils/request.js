@@ -2,7 +2,7 @@
  * @Author: jk
  * @Date: 2020-12-16 19:08:00
  * @Last Modified by: jk
- * @Last Modified time: 2020-12-23 20:43:54
+ * @Last Modified time: 2020-12-25 15:15:12
  */
 /**
  * 导入axios
@@ -35,7 +35,7 @@ axios.interceptors.request.use(
 // response响应拦截器
 axios.interceptors.response.use(
   (res) => {
-    // console.log(res, "axios");
+    console.log(res, "axios");
 
     // 请求成功但不能操作
     if (res.data.code === 0) {
@@ -51,8 +51,9 @@ axios.interceptors.response.use(
     }
   },
   (error) => {
+    console.log(error,'err')
     // 请求失败
-    switch (error.response.status) {
+    switch (error.status) {
       case 400:
         error.message = "错误请求";
         break;

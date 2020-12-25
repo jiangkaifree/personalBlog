@@ -1,8 +1,8 @@
 /*
  * @Author: jk
  * @Date: 2020-12-14 10:57:56
- * @Last Modified by: 小菜鸡
- * @Last Modified time: 2020-12-24 17:56:05
+ * @Last Modified by: jk
+ * @Last Modified time: 2020-12-25 14:17:33
  */
 
 import { useState } from "react";
@@ -26,6 +26,7 @@ import Routes from "./router";
 import Login from "./views/Login/Login";
 import AddArticle from "./views/AddArticle/AddArticle"; // 添加文章页面
 import NotFound from "./views/NotFound/NotFound"; //404
+import ResultPage from "./views/ResultPage/ResultPage";     // 结果页面
 
 // import Data from "./views/Data/Data";
 // import AddArticle from "./views/AddArticle/AddArticle";
@@ -117,6 +118,7 @@ function App(props) {
         <Route path="/user/login" exact component={Login}></Route>
         <Redirect to="/user/login" from="/" exact></Redirect>
         <Route exact path="/admin/addArticle" component={AddArticle}></Route>
+        <Route exact path="/admin/result" component={ResultPage}></Route>
         <Redirect to="/admin/data" from="/admin" exact></Redirect>
         <Route path="/admin">
           <Layout className={styles.layoutWrap}>
@@ -220,6 +222,7 @@ function App(props) {
           </Layout>
         </Route>
 
+          {/* 暂时注释 */}
         <Route path="/404" component={NotFound} />
         <Redirect from="*" to="/404" />
       </Switch>

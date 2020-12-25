@@ -12,6 +12,7 @@ import {
   Upload,
   message,
   Select,
+  notification,
 } from "antd";
 import {
   PlusOutlined,
@@ -56,7 +57,7 @@ const AddArticle = () => {
     "这里是简介markDown预览"
   ); // 简介HTML内容
   const [desContent,setDesContent] = useState('')
-  const [markDown,setMarkDown] = useState('')       //文章内容
+  const [articleContent,setArticleContent] = useState('')       //文章内容
   const [HTMLContent, setHTMLContent] = useState("这里预览markDown");   // markDown转换后文本
   
 
@@ -69,13 +70,21 @@ const AddArticle = () => {
   const [title,setTitle] = useState('')     // 文字标题
   const [articleOrder,setArticleOrder] = useState(true)
 
-  const tagItem = tags.map((item) => {
+  /**删除标签 */
+    const cutTags =(idx)=>{
+      tags.splice(idx,1)
+      setTags([...tags])
+    }
+
+    /**标签列表 */
+  const tagItem = tags.map((item,index) => {
     const tagElem = (
       <Tag
         closable
         key={item.color}
         color={item.color}
         className={styles.tagList}
+        onClose={e => cutTags(index)}
       >
         {item.title}
       </Tag>
@@ -149,7 +158,7 @@ const AddArticle = () => {
    */
   const changeMdContent = (e) => {
     // console.log(e.target.value);
-    setMarkDown(e.target.value)
+    setArticleContent(e.target.value)
     let html = marked(e.target.value);
     setHTMLContent(html);
   };
@@ -168,8 +177,8 @@ const AddArticle = () => {
   /**
    * 发布文章
    * @param(Array) tags 文章标签
-   * @param(String) desHTMLContent 文章简介
-   * @param(String) HTMLContent 内容简介
+   * @param(String) desContent 文章简介
+   * @param(String) articleContent 内容简介
    * @param(String) title 文章标题
    * @param(String) date  文章发布日期
    * @param(Number) articleType 文章类别 
@@ -177,13 +186,13 @@ const AddArticle = () => {
    */
   const postArticle = ()=> {
     console.log(tags)  // 文字标签
-    console.log(desHTMLContent)  // 文字标签
-    console.log(markDown)  // 文字标签
+    console.log(desContent)  // 文字标签
+    console.log(articleContent)  // 文字标签
     console.log(title)  
     console.log(date)
     console.log(articleType)
     console.log(articleOrder)
-    if(!markDown){
+    if(!articleContent){
       message.info('请填写文章内容~~')
       return
     }else if(!tags.length) {
@@ -203,39 +212,51 @@ const AddArticle = () => {
       /**请求接口 */
     postArticleApi({
       articleTitle: title,
+      articleContent: articleContent,
+      articleDesc: desContent,
+      articleOrder,
+      articleType,
+      articleDate: date,
+      articleTags: JSON.stringify(tags)
 
     }).then(res => {
-      console.log(res,'res')
+      // console.log(res,'res')
+      notification.success({
+        message: '发布成功'
+      })
+      // alert('aa')
     })
   }
 
   /**
    * 文章暂存
-   * @param {}
+   * @param {String} title 文章标题
+   * @param {String} articleContent 文章内容
    */
   const addDrafts = ()=> {
       /**内容校验 */
       if(!title){
         message.info('请输入文章标题~~')
         return
-      }else if (!markDown){
+      }else if (!articleContent){
         message.info('请填写文章内容~~')
         return
       }
       /**请求接口 */
       saveArticleApi({
         articleTitle:title,
-        articleContent: markDown
-        
+        articleContent: articleContent
       }).then(res => {
-        console.log(res)
+        console.log(res.message)
+        notification.success({
+          message: res.message
+        })
       })
   }
 
   // 获取文章类型
   useEffect(()=>{
     articleTypeApi().then(res => {
-      // console.log(res,'res')
       setTypeList(res)
     })
   },[])
@@ -266,7 +287,7 @@ const AddArticle = () => {
             导入MarkDown
           </Button>
         </Upload>
-        <Button type="primary" shape="round"  icon={<DeleteOutlined />}  >草稿</Button>
+        <Button type="primary" shape="round"  icon={<DeleteOutlined />}   onClick={addDrafts}>保存</Button>
 
         <Button
           type="primary"
@@ -282,7 +303,7 @@ const AddArticle = () => {
       <Row gutter={5} className={styles.contextWrap}>
         <Col span={12}>
           <TextArea
-          value={markDown}
+          value={articleContent}
             className={styles.codeWrap}
             placeholder="BLOG内容......"
             onChange={changeMdContent}
@@ -392,9 +413,6 @@ const AddArticle = () => {
           <Form.Item>
             <Button type="primary" block onClick={postArticle}>
               发布文章
-            </Button>
-            <Button type="dashed" block onClick={addDrafts}>
-              暂存草稿
             </Button>
           </Form.Item>
         </Form>

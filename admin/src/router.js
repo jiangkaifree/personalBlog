@@ -1,15 +1,16 @@
 /*
  * @Author: jk
  * @Date: 2020-12-14 11:15:30
- * @Last Modified by: 小菜鸡
- * @Last Modified time: 2020-12-24 17:49:32
+ * @Last Modified by: jk
+ * @Last Modified time: 2020-12-25 15:16:49
  */
 import React from "react";
-import { Route, Switch,Redirect  } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 
 import Data from "./views/Data/Data"; // 数据添加页面
 import ArticlesList from "./views/ArticlesList/ArticlesList"; // 文章列表页面
 import Chat from "./views/Chat/Chat"; // 理由列表页面
+// import ResultPage from "./views/ResultPage/ResultPage";
 const Routes = () => {
   return (
     <Switch>
@@ -18,7 +19,7 @@ const Routes = () => {
       <Route exact path="/admin/data" component={Data}></Route>
       <Route exact path="/admin/chat" component={Chat} />
       <Route exact path="/admin/articlesList" component={ArticlesList} />
-      <Redirect from='*' to='/404' />
+      <Redirect from="*" to="/404" />
     </Switch>
   );
 };

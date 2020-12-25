@@ -47,7 +47,7 @@ class MainController extends Controller {
   }
 
   /**
-   * 发布文章
+   * 发布编辑文章
    * @param(String) title 文章标题
    * @param(String) desc 文章简介
    * @param(String) content 文章内容
@@ -58,14 +58,30 @@ class MainController extends Controller {
   async postArticle() {
     const { ctx, app } = this;
     let articleInfo = ctx.request.body;
-    console.log(articleInfo)
-    const result = await app.mysql.insert("article_info", articleInfo);
-    ctx.body = {
-        code: result.affectedRows === 1? 1:0,
+    console.log(articleInfo.articleId);
+    if (articleInfo.articleId) {
+      // articleId存在则是修改编辑
+      const result = await app.mysql.update("article_info", articleInfo,{where:{articleId:articleInfo.articleId}});
+      console.log(result,'gx')
+      ctx.body = {
+        code: result.affectedRows === 1 ? 1 : 0,
         data: {
-            message: result.affectedRows === 1? "成功":"失败"
+          message: result.affectedRows === 1 ? "修改成功" : "修改失败",
         },
       };
+      return
+    } else {
+      articleInfo.articleId = new Date().getTime()    // 生成文章id
+      const result = await app.mysql.insert("article_info", articleInfo);
+      console.log(result,articleInfo.articleId,'fab')
+      ctx.body = {
+        code: result.affectedRows === 1 ? 1 : 0,
+        data: {
+          message: result.affectedRows === 1 ? "发布成功" : "发布失败",
+        },
+      };
+      return
+    }
   }
 
   /**测试 */

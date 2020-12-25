@@ -211,6 +211,7 @@ const AddArticle = () => {
 
       /**请求接口 */
     postArticleApi({
+      // articleId: "11",
       articleTitle: title,
       articleContent: articleContent,
       articleDesc: desContent,
@@ -222,7 +223,7 @@ const AddArticle = () => {
     }).then(res => {
       // console.log(res,'res')
       notification.success({
-        message: '发布成功'
+        message: res.message
       })
       // alert('aa')
     })
@@ -287,6 +288,7 @@ const AddArticle = () => {
             导入MarkDown
           </Button>
         </Upload>
+       
         <Button type="primary" shape="round"  icon={<DeleteOutlined />}   onClick={addDrafts}>保存</Button>
 
         <Button

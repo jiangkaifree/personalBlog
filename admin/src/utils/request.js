@@ -2,16 +2,19 @@
  * @Author: jk
  * @Date: 2020-12-16 19:08:00
  * @Last Modified by: jk
- * @Last Modified time: 2020-12-25 15:15:12
+ * @Last Modified time: 2020-12-25 19:20:56
  */
 /**
  * 导入axios
  */
 import axios from "axios";
+// import {useHistory} from 'react-router-dom'
 import { notification } from "antd";
 
-/** 创建axios实例 */
+/**路由跳转 */
+// const history = useHistory()
 
+/** 创建axios实例 */
 axios.defaults.timeout = 3000; // 请求超时
 axios.defaults.baseURL = process.env.REACT_APP_BASEURL; // 请求根地址
 axios.defaults.withCredentials = true;        // 表示跨域请求时是否需要使用凭证
@@ -51,9 +54,10 @@ axios.interceptors.response.use(
     }
   },
   (error) => {
-    console.log(error,'err')
+    // console.log(error,'err')
+    const { status } = error.response
     // 请求失败
-    switch (error.status) {
+    switch (status) {
       case 400:
         error.message = "错误请求";
         break;
@@ -98,6 +102,9 @@ axios.interceptors.response.use(
     notification.error({
       message: "请求失败",
       description: error.message,
+      onClose: ()=>{
+        // history.replace('/r')
+      }
     });
   }
 );

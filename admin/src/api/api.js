@@ -30,3 +30,20 @@ export const saveArticleApi = async (data)=> {
   const res = await post('admin/postArticle',data)
   return res
 }
+
+/**
+ * 获取文章列表
+ */
+export const articleListApi = async () => {
+  const res = await get('admin/articleList')
+  return res
+}
+
+
+/**
+ * 获取文章详情
+ */
+export const articleListApi = async () => {
+  const res = await get('admin/getArticleById/:id')
+  return res
+}

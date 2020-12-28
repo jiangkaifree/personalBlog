@@ -22,7 +22,6 @@ import {
   UploadOutlined,
   DeleteOutlined
 } from "@ant-design/icons";
-import { useHistory } from "react-router-dom";
 import { TweenOneGroup } from "rc-tween-one";
 import randomcolor from "randomcolores";
 import styles from "./AddArticle.module.scss";
@@ -32,9 +31,9 @@ import "highlight.js/styles/monokai-sublime.css"; //导入highlight的css
 import "moment/locale/zh-cn"; // 时间选择时间格式
 import locale from "antd/es/date-picker/locale/zh_CN";
 import { articleTypeApi,postArticleApi,saveArticleApi } from "../../api/api";
-const AddArticle = () => {
+const AddArticle = (props) => {
   const { Option } = Select;
-  const history = useHistory();
+  // const history = useHistory();
   const { TextArea } = Input;
 
   /** mark配置*/
@@ -253,7 +252,14 @@ const AddArticle = () => {
           message: res.message
         })
       })
+      
   }
+
+  // 获取文章内容
+  useEffect(() => {
+   console.log(props.match.params)
+   
+  }, [])
 
   // 获取文章类型
   useEffect(()=>{
@@ -274,7 +280,7 @@ const AddArticle = () => {
 
   // 返回上一页
   const backPage = () => {
-    history.goBack();
+    props.history.goBack();
   };
   return (
     <main>

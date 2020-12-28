@@ -1,10 +1,10 @@
 /*
  * @Author: 小菜鸡
  * @Date: 2020-12-24 17:29:06
- * @Last Modified by: 小菜鸡
- * @Last Modified time: 2020-12-24 18:14:29
+ * @Last Modified by: jk
+ * @Last Modified time: 2020-12-28 15:49:40
  */
-import React from "react";
+// import {useEffect} from "react";
 import { Result, Button } from 'antd';
 import styles from "./NotFound.module.scss";
 

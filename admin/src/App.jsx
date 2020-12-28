@@ -2,7 +2,7 @@
  * @Author: jk
  * @Date: 2020-12-14 10:57:56
  * @Last Modified by: jk
- * @Last Modified time: 2020-12-25 14:17:33
+ * @Last Modified time: 2020-12-28 17:31:30
  */
 
 import { useState } from "react";
@@ -57,7 +57,7 @@ function App(props) {
       icon: <SettingOutlined />,
       children: [
         {
-          path: "addArticle",
+          path: "/admin/addArticle",
           title: "添加文章",
           icon: <EditOutlined />,
         },
@@ -74,7 +74,7 @@ function App(props) {
       icon: <AudioOutlined />,
       children: [
         {
-          path: "chat",
+          path: "/admin/chat",
           title: "留言管理",
           icon: <AudioOutlined />,
         },
@@ -100,7 +100,7 @@ function App(props) {
   // };
 
   // 跳转页面
-  const setPage = (key, item) => {
+  const setPage = (key) => {
     console.log(key);
     setActiveItem([key]);
     props.history.push(key);
@@ -117,7 +117,7 @@ function App(props) {
       <Switch>
         <Route path="/user/login" exact component={Login}></Route>
         <Redirect to="/user/login" from="/" exact></Redirect>
-        <Route exact path="/admin/addArticle" component={AddArticle}></Route>
+        <Route  path="/admin/addArticle/:id?" component={AddArticle}></Route>
         <Route exact path="/admin/result" component={ResultPage}></Route>
         <Redirect to="/admin/data" from="/admin" exact></Redirect>
         <Route path="/admin">
@@ -141,7 +141,7 @@ function App(props) {
                   theme="light"
                   defaultSelectedKeys={activeItem}
                   mode="inline"
-                  onClick={({ key, item }) => setPage(key, item)}
+                  onClick={({ key }) => setPage(key)}
                   key="1"
                 >
                   {menuList.map((item, index) => (

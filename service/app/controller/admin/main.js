@@ -39,10 +39,10 @@ class MainController extends Controller {
    */
   async getArticleType() {
     const { ctx, app } = this;
-    const result = await app.mysql.select("article_type");
+    const data = await app.mysql.select("article_type");
     ctx.body = {
       code: 1,
-      data: result,
+      data: data,
     };
   }
 
@@ -61,27 +61,63 @@ class MainController extends Controller {
     console.log(articleInfo.articleId);
     if (articleInfo.articleId) {
       // articleId存在则是修改编辑
-      const result = await app.mysql.update("article_info", articleInfo,{where:{articleId:articleInfo.articleId}});
-      console.log(result,'gx')
+      const result = await app.mysql.update("article_info", articleInfo, {
+        where: { articleId: articleInfo.articleId },
+      });
+      console.log(result, "gx");
       ctx.body = {
         code: result.affectedRows === 1 ? 1 : 0,
         data: {
           message: result.affectedRows === 1 ? "修改成功" : "修改失败",
         },
       };
-      return
+      return;
     } else {
-      articleInfo.articleId = new Date().getTime()    // 生成文章id
+      articleInfo.articleId = new Date().getTime(); // 生成文章id
       const result = await app.mysql.insert("article_info", articleInfo);
-      console.log(result,articleInfo.articleId,'fab')
+      console.log(result, articleInfo.articleId, "fab");
       ctx.body = {
         code: result.affectedRows === 1 ? 1 : 0,
         data: {
           message: result.affectedRows === 1 ? "发布成功" : "发布失败",
         },
       };
-      return
+      return;
     }
+  }
+
+  //获得文章列表
+  async getArticleList() {
+    let sql = `SELECT articleTitle,articleId,articleType,articleDate,articleTags,viewCount FROM article_info`;
+    const data = await this.app.mysql.query(sql);
+    // 处理数据
+    for (let item of data) {
+      item.articleTags = JSON.parse(item.articleTags);
+    }
+    this.ctx.body = {
+      code: 1,
+      data,
+    };
+  }
+
+  //删除文章
+  async delArticle() {
+    let id = this.ctx.params.id;
+    const result = await this.app.mysql.delete("article_info", { id });
+    console.log(result);
+    this.ctx.body = {
+      code: 1,
+      data: {},
+    };
+  }
+
+  //根据文章ID得到文章详情，用于修改文章
+  async getArticleById() {
+    let id = this.ctx.params.id;
+    const result = await this.app.mysql.query(
+      `SELECT articleTitle,articleId,articleType,articleDate,articleTags,viewCount FROM article_info WHERE articleId=${id}`
+    );
+    this.ctx.body = { data: result };
   }
 
   /**测试 */

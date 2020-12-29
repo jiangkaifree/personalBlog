@@ -1,8 +1,8 @@
 /*
  * @Author: jk
  * @Date: 2020-12-16 19:08:00
- * @Last Modified by: jk
- * @Last Modified time: 2020-12-25 19:20:56
+ * @Last Modified by: 小菜鸡
+ * @Last Modified time: 2020-12-29 15:53:10
  */
 /**
  * 导入axios
@@ -132,6 +132,8 @@ export const post = async (url, data) => {
       return res.data;
 };
 
+
+// 封装get请求
 export const get =  async (url) => {
     const res = await axios.get(url,{});
     if (res)

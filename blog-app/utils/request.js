@@ -1,8 +1,8 @@
 /*
  * @Author: jk
  * @Date: 2020-12-16 19:08:00
- * @Last Modified by: jk
- * @Last Modified time: 2020-12-18 14:08:23
+ * @Last Modified by: 小菜鸡
+ * @Last Modified time: 2020-12-29 15:53:43
  */
 /**
  * 导入axios
@@ -111,26 +111,16 @@ axios.interceptors.response.use(
  * @returns {Promise}
  */
 
-export const post=(url, data) => {
-  // return new Promise((resolve, reject) => {
-  //   axios.post(url, data).then(
-  //     (res) => {
-  //       resolve(res.data);
-  //     },
-  //     (err) => {
-  //       reject(err);
-  //     }
-  //   );
-  // });
-  return  axios.post(url, data).then(
-        (res) => {
-          // resolve(res.data);
-          return res.data
-        },
-        (err) => {
-          // reject(err);
-          return err
-        }
-      );
+export const post= async(url, data) => {
+  const res = await axios.post(url, data);
+    if (res)
+      return res.data;
 }
 
+
+// 封装get请求
+export const get =  async (url) => {
+  const res = await axios.get(url,{});
+  if (res)
+    return res.data;
+}

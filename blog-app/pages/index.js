@@ -8,7 +8,10 @@ import Banner from "components/Banner/Banner";
 import styles from "styles/index.module.scss";
 
 const Index = () => {
+  
+  // 进入详情页面
   const goArticleInfo = (id)=>{
+    console.log(process.env.customKey)
     Router.push({
       pathname: './articlesInfo',
       query: {
@@ -97,4 +100,11 @@ const Index = () => {
     </>
   );
 };
+
+// 获取页面数据
+// Index.getServerSideProps = async (ctx) => {
+  // console.log(ctx,'ctx')
+  // const {data} = await 
+// }
+
 export default Index;

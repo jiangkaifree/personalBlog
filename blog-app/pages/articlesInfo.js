@@ -1,12 +1,12 @@
 /*
  * @Author: jk
  * @Date: 2020-12-07 16:37:57
- * @Last Modified by: jk
- * @Last Modified time: 2020-12-21 15:53:36
+ * @Last Modified by: 小菜鸡
+ * @Last Modified time: 2020-12-29 16:59:36
  */
 
 import React from "react";
-import { Row, Col, Breadcrumb, Divider, Tag } from "antd";
+import { Row, Col, Breadcrumb, Divider, Tag,BackTop } from "antd";
 // import ReactMarkdown from "react-markdown"; // 导入markdown
 import {
   HomeOutlined,
@@ -111,13 +111,14 @@ const articlesInfo = () => (
         </Divider>
         <section className={styles.content}>
           <div dangerouslySetInnerHTML={{ __html: marked(markdown) }}></div>
-          
+
         </section>
       </Col>
 
       <Col className={styles.right} xs={0} sm={0} md={7} lg={5} xl={4}>
         {/* 右侧 */}
         <Indexs></Indexs>
+
       </Col>
     </Row>
     <RightAside></RightAside>

@@ -1,17 +1,20 @@
-.headerWrap{
-     position: sticky;
-     top: 0;
-     padding: 15px 0;
-     background-color: #f7d794;
-     font-size: 1rem;
-     z-index: 1;
-      box-shadow: 0 4px 8px 0 rgba(7, 17, 27, 0.1);
-      .headerItem{
-        span{
-            margin: 0 .5rem;
-        cursor: pointer;
-
-        }
-      }
-      
+.headerWrap {
+  position: sticky;
+  top: 0;
+  padding: 15px 0;
+  background-color: #fff;
+  font-size: 1rem;
+  z-index: 1;
+  box-shadow: 0 4px 8px 0 rgba(7, 17, 27, 0.1);
+  .headerItem {
+    span {
+      margin: 0 0.5rem;
+      cursor: pointer;
+    }
+  }
+}
+@media screen and (max-width: 500px) {
+  .headerWrap {
+    display: none;
+  }
 }

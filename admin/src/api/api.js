@@ -43,7 +43,7 @@ export const articleListApi = async () => {
 /**
  * 获取文章详情
  */
-export const articleListApi = async () => {
+export const articleInfoApi = async () => {
   const res = await get('admin/getArticleById/:id')
   return res
 }

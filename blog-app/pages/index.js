@@ -5,6 +5,7 @@ import { VideoCameraTwoTone, EyeTwoTone, BellTwoTone } from "@ant-design/icons";
 import RightAside from "components/RightAside/RightAside";
 import Header from "components/Header/Header";
 import Banner from "components/Banner/Banner";
+import PersonInfo from "components/PersonInfo/PersonInfo";
 import styles from "styles/index.module.scss";
 
 const Index = () => {
@@ -96,6 +97,7 @@ const Index = () => {
           右侧
         </Col> */}
         <RightAside></RightAside>
+        {/* <PersonInfo></PersonInfo> */}
       </Row>
     </>
   );

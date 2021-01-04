@@ -2,7 +2,7 @@
  * @Author: jk
  * @Date: 2020-12-14 10:57:56
  * @Last Modified by: jk
- * @Last Modified time: 2020-12-28 17:31:30
+ * @Last Modified time: 2021-01-04 17:05:20
  */
 
 import { useState } from "react";
@@ -37,7 +37,9 @@ function App(props) {
   const [collapsed, setCollapsed] = useState(false);
   const [activeItem, setActiveItem] = useState(["data"]); // 路由
   const [breadcrumbItem, setBreadcrumbItem] = useState("实时数据"); // 面包屑导航
-
+  // console.log(props.history.listen(route => {
+  //   console.log(route)
+  // }),'props')
   const menuList = [
     {
       path: "data",

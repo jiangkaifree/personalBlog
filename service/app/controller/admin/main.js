@@ -42,7 +42,7 @@ class MainController extends Controller {
     const data = await app.mysql.select("article_type");
     ctx.body = {
       code: 1,
-      data: data,
+      data,
     };
   }
 

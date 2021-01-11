@@ -25,8 +25,7 @@
     "node": ">=10.0.0"
   },
   "scripts": {
-    "dev": "egg-bin dev",
-    "prod": "egg-bin --env=prod dev",
+    "dev": "egg-scripts start --env=local --daemon",
     "start": "egg-scripts start --daemon",
     "stop": "egg-scripts stop",
     "debug": "egg-bin debug",

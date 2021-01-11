@@ -42,8 +42,18 @@ export const articleListApi = async () => {
 
 /**
  * 获取文章详情
+ * @param {Number} id 文章id
  */
-export const articleInfoApi = async () => {
-  const res = await get('admin/getArticleById/:id')
+export const articleInfoApi = async (id) => {
+  const res = await get(`admin/getArticleById/${id}`)
+  return res
+}
+
+/**
+ * 删除文章
+ * @param {Number} id 文章id
+ */
+export const delArticleApi = async (id) => {
+  const res = await get(`/admin/delArticle/${id}`)
   return res
 }

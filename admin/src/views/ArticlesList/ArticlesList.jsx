@@ -2,20 +2,25 @@
  * @Author: jk
  * @Date: 2020-12-14 12:18:43
  * @Last Modified by: jk
- * @Last Modified time: 2020-12-28 19:41:10
+ * @Last Modified time: 2021-01-11 16:45:25
  */
 import { useEffect, useState } from "react";
-import { Table, Tag, Popconfirm, Space, Button } from "antd";
+import { Table, Tag, Popconfirm, notification, Space, Button } from "antd";
 import styles from "./ArticlesList.module.scss";
-import { articleListApi } from "../../api/api";
+import { articleListApi, delArticleApi } from "../../api/api";
 
 const ArticlesList = (props) => {
   const [articleList, setArticleList] = useState([]);
   // 获取文章列表列表数据
-  useEffect(() => {
+  const getArticleList = () => {
     articleListApi().then((res) => {
       setArticleList(res);
     });
+  };
+  
+
+  useEffect(() => {
+    getArticleList()
   }, []);
 
   // 进入编辑页面
@@ -23,13 +28,20 @@ const ArticlesList = (props) => {
     console.log(id);
     props.history.push({
       pathname: `/admin/addArticle/${id}`,
-     
     });
   };
 
   // 删除文章
-  const delArticle = (e) => {
-    console.log(e);
+  const delArticle = (id) => {
+    console.log(id);
+    delArticleApi(id).then((res) => {
+      // console.log(res)
+      notification.success({
+        message: res.message,
+      });
+      // 刷新列表
+      getArticleList()
+    });
   };
 
   // 表格头部

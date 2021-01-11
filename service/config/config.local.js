@@ -1,11 +1,3 @@
-/*
- * @Author: jk 
- * @Date: 2021-01-08 15:57:24 
- * @Last Modified by: jk
- * @Last Modified time: 2021-01-11 14:43:32
- * @desc 这是成产环境配置
- */
-
 /* eslint valid-jsdoc: "off" */
 
 "use strict";
@@ -49,7 +41,6 @@ module.exports = (appInfo) => {
     client: {
       // host
       host: "localhost",
-    //   host: "39.104.66.213",
       // port
       port: "3306",
       // username
@@ -58,7 +49,7 @@ module.exports = (appInfo) => {
       // password
       password: "123456",
       // database
-      database: "blog",
+      database: "blog_test",
     },
     // load into app, default is open
   };

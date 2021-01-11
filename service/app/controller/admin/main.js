@@ -102,12 +102,15 @@ class MainController extends Controller {
 
   //删除文章
   async delArticle() {
-    let id = this.ctx.params.id;
-    const result = await this.app.mysql.delete("article_info", { id });
-    console.log(result);
+    let articleId = this.ctx.params.id;
+    const result = await this.app.mysql.delete("article_info", { articleId });
+    // console.log(result);
     this.ctx.body = {
       code: 1,
-      data: {},
+      data: {
+        code: result.fieldCount === 0? 1:0,
+        message: result.fieldCount === 0? '删除成功': '删除失败'
+      },
     };
   }
 
@@ -115,9 +118,16 @@ class MainController extends Controller {
   async getArticleById() {
     let id = this.ctx.params.id;
     const result = await this.app.mysql.query(
-      `SELECT articleTitle,articleId,articleType,articleDate,articleTags,viewCount FROM article_info WHERE articleId=${id}`
+      `SELECT articleContent,articleTitle,articleDesc,articleId,articleType,articleDate,articleTags FROM article_info WHERE articleId=${id}`
     );
-    this.ctx.body = { data: result };
+    // 处理数据
+    for (let item of result) {
+      item.articleTags = JSON.parse(item.articleTags);
+    }
+    this.ctx.body = { 
+      code: 1,
+      data: result
+     };
   }
 
   /**测试 */

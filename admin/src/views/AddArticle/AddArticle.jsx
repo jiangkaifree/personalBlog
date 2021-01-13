@@ -287,19 +287,19 @@ const AddArticle = (props) => {
     });
   };
 
+
   // 获取文章类型
-  const getArticleType = () => {
+  const getArticleType = ()=>{
     articleTypeApi().then((res) => {
       setTypeList(res);
     });
-  };
+  }
   // 获取文章类型
   useEffect(() => {
     getArticleType();
-    if (props.match.params.id) {
-      getArticleInfo();
-    }
-  }, []);
+    getArticleInfo();
+
+  }, [props.match.params.id]);
 
   //  开启Drawer
   const showDrawer = () => {

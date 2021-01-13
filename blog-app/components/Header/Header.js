@@ -1,5 +1,6 @@
 import React from "react";
-import { Row, Col ,Avatar} from "antd";
+import Router from 'next/router'
+import { Row, Col ,Avatar,notification } from "antd";
 import styles from "./header.module.scss";
 import {
   EditTwoTone,
@@ -11,6 +12,26 @@ import {
 // import logo from '../../images/logo.svg'
 
 const Header = () => {
+
+  // 进入BLOG页面
+  const goBlogPages = () =>{
+    Router.push({
+      pathname: './blogList',
+    })
+  }
+
+  // 进入视频教程页面
+  const goVideoPage = () =>{
+    notification.info({
+      message: '暂未开通!',
+      description: '对不起 ,该板块暂未开通服务,后续更新推出，请耐心等待!'
+    })
+    // Router.push({
+    //   pathname
+    // })
+  }
+  
+
   return (
     <header className={styles.headerWrap}>
       <Row align="middle" justify="space-around">
@@ -18,13 +39,13 @@ const Header = () => {
         <Avatar icon={<UserOutlined />} />
         </Col>
         <Col xxl={2} xl={3} lg={3} md={4} sm={0} xs={0} className={styles.headerItem}>
-          <span>
+          <span onClick={goBlogPages}>
             <EditTwoTone />
-            文章Blog
+            文章BLOG
           </span>
         </Col>
         <Col xxl={2} xl={3} lg={3} md={4} sm={0} xs={0}  className={styles.headerItem}>
-          <span>
+          <span onClick={goVideoPage}>
             <CustomerServiceTwoTone twoToneColor="#eb2f96" />
             视频教程
           </span>

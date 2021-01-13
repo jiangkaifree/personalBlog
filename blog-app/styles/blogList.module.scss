@@ -1,0 +1,50 @@
+/*
+ * @Author: jk 
+ * @Date: 2021-01-13 10:12:14 
+ * @Last Modified by: jk
+ * @Last Modified time: 2021-01-13 10:24:59
+ */
+ .left {
+    background-color: #fff;
+    margin-top: 1rem;
+    padding: 2rem 1rem;
+    border-radius: 0.3rem;
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 4px 8px 0 rgba(28,31,33,.08);
+    .listWrap {
+        margin: .5rem auto;
+        box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        // transform: scale(1.05);
+        transition: opacity 0.25s, transform .3s, box-shadow .4s,;
+    
+    
+        .context {
+          color: #777;
+          margin: 0.5rem;
+          overflow: hidden;
+          word-break: break-all;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          -webkit-line-clamp: 7;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          font-weight: 500;
+        }
+        .infoWrap {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-top: 0.5rem;
+        
+          // padding-top: .5rem;
+        }
+      }
+      .listWrap:hover{
+        // transition: opacity 0.25s, transform .3s;
+        // box-shadow .4s,transform .4s
+        transform: scale(1.05);
+      }
+    
+  }
+ 

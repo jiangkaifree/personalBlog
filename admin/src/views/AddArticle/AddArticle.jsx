@@ -190,7 +190,6 @@ const AddArticle = (props) => {
    */
   const postArticle = () => {
     console.log(tags); // 文字标签
-    console.log(desContent); // 文字标签
     console.log(articleContent); // 文字标签
     console.log(title);
     console.log(date);
@@ -202,10 +201,7 @@ const AddArticle = (props) => {
     } else if (!tags.length) {
       message.info("请输入文章标签~~");
       return;
-    } else if (!desContent) {
-      message.info("请输入文章简介~~");
-      return;
-    } else if (!title) {
+    }  else if (!title) {
       message.info("请输入文章标题~~");
       return;
     } else if (!articleType) {
@@ -224,7 +220,7 @@ const AddArticle = (props) => {
       articleDate: date,
       articleTags: JSON.stringify(tags),
     }).then((res) => {
-      // console.log(res,'res')
+      console.log(res,'res')
       notification.success({
         message: res.message,
       });
@@ -240,8 +236,8 @@ const AddArticle = (props) => {
       setTitle("");
       setArticleOrder(true);
       setHTMLContent("");
-      setDesContent("");
-      setDesHTMLContent("");
+      // setDesContent("");
+      // setDesHTMLContent("");
     });
   };
 
@@ -273,6 +269,7 @@ const AddArticle = (props) => {
 
   // 获取文章内容
   const getArticleInfo = async () => {
+    if(props.match.params.id) {
     await articleInfoApi(props.match.params.id).then((res) => {
       const result = res[0];
       console.log(result.articleDesc);
@@ -285,12 +282,13 @@ const AddArticle = (props) => {
       setArticleType(result.articleType);
       setDate(result.articleDate);
     });
+  }
   };
 
 
   // 获取文章类型
-  const getArticleType = ()=>{
-    articleTypeApi().then((res) => {
+  const getArticleType = async()=>{
+    await articleTypeApi().then((res) => {
       setTypeList(res);
     });
   }
@@ -391,7 +389,7 @@ const AddArticle = (props) => {
               maxLength={100}
               value={desContent}
               placeholder="BLOG简介......"
-              autoSize={{ minRows: 5, maxRows: 8 }}
+              autoSize={{ minRows: 3, maxRows: 5 }}
               onChange={changeDescContent}
             />
           </Form.Item>

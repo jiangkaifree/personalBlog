@@ -19,7 +19,8 @@
 1.  npm i 或者 使用yarn 
 2.  admin 运行使用yarn start 或者npm run start
 3.  blog-app 运行使用yarn dev 或者 npm run dev
-4.  servece 需要连接数据库 数据库使用的是mysql,需要本地有数据库 。如果使用其他数据库可参照egg.js官方文档自行更改。
+4.  servece 运行命令yarn start  后台运行 yarn debug 具体查看package.json
+运行需要连接数据库 数据库使用的是mysql,需要本地有数据库 。如果使用其他数据库可参照egg.js官方文档自行更改。
 
 #### 后续慢慢更新新功能与页面，敬请期待 感谢
 

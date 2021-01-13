@@ -1,6 +1,6 @@
 module.exports = {
     env: {
-      baseURL: 'my-value',
+      baseURL: 'http://39.104.66.213:7001',
     },
-    // compress: false,    //压缩
+    compress: false,    //压缩
   }

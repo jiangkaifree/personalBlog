@@ -1,8 +1,8 @@
 /*
  * @Author: jk
  * @Date: 2020-12-16 19:08:00
- * @Last Modified by: 小菜鸡
- * @Last Modified time: 2020-12-29 15:53:10
+ * @Last Modified by: jk
+ * @Last Modified time: 2021-01-13 19:36:57
  */
 /**
  * 导入axios
@@ -54,7 +54,7 @@ axios.interceptors.response.use(
     }
   },
   (error) => {
-    // console.log(error,'err')
+    console.log(error.response,'err')
     const { status } = error.response
     // 请求失败
     switch (status) {

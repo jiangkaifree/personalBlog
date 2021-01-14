@@ -6,7 +6,7 @@ import Header from "components/Header/Header";
 import Banner from "components/Banner/Banner";
 import styles from "styles/index.module.scss";
 
-const Index = () => {
+const Index = ({articleList}) => {
   // 进入详情页面
   const goArticleInfo = (id) => {
     // console.log(process.env.customKey)
@@ -18,36 +18,6 @@ const Index = () => {
     });
   };
 
-  // 列表数据
-  const blogList = [
-    {
-      id: "00001",
-      img:
-        "https://www.minimamente.com/wp-content/uploads/2020/12/google_foto_export.gif",
-      title:
-        "这是文章标题这是文章标题这是文章标题这是文章标题这是文章标题这是文章标题这是文章标题这是文章标题这是文章标题",
-      tagsList: ["CSS", "React", "Web"],
-      date: "2020-02-11",
-    },
-    {
-      id: "000201",
-      img:
-        "https://www.minimamente.com/wp-content/uploads/2020/09/checkout_woo.gif",
-      title:
-        "这是文章标题这是文章标题这是文章标题这是文章标题这是文章标题这是文章标题这是文章标题这是文章标题这是文章标题",
-      tagsList: ["CSS", "React", "Web"],
-      date: "2020-02-11",
-    },
-    {
-      id: "00003",
-      img:
-        "https://www.minimamente.com/wp-content/uploads/2020/10/gutenberg.gif",
-      title:
-        "这是文章标题这是文章标题这是文章标题这是文章标题这是文章标题这是文章标题这是文章标题这是文章标题这是文章标题",
-      tagsList: ["CSS", "React", "Web"],
-      date: "2020-02-11",
-    },
-  ];
   return (
     // <div>
     <>
@@ -57,8 +27,8 @@ const Index = () => {
       <Row className={styles.main} type="flex" justify="center">
         <Banner></Banner>
         <Col className={styles.left} xs={24} sm={24} md={18} lg={20} xl={16}>
-          {blogList.map((item) => (
-            <div className={styles.listWrap} key={item.id} onClick={goArticleInfo}>
+          {articleList.map((item) => (
+            <div className={styles.listWrap} key={item.articleId} onClick={goArticleInfo}>
               <Image
                 className={styles.img}
                 width={200}
@@ -72,12 +42,12 @@ const Index = () => {
                   {/* <Tag color="magenta">magenta</Tag>
                 <Tag color="volcano">volcano</Tag>
                 <Tag color="cyan">cyan</Tag> */}
-                  {item.tagsList.map((tags) => (
-                    <Tag color="cyan">{tags}</Tag>
+                  {item.articleTags.map((tags,idx) => (
+                    <Tag color={tags.color} key={idx}>{tags.title}</Tag>
                   ))}
                 </p>
-                <p className={styles.title}>{item.title}</p>
-                <p className={styles.date}>{item.date}</p>
+                <p className={styles.title}>{item.articleTitle}</p>
+                <p className={styles.date}>{item.articleDate}</p>
               </div>
             </div>
           ))}
@@ -93,9 +63,17 @@ const Index = () => {
 };
 
 // 获取页面数据
-// Index.getServerSideProps = async (ctx) => {
-// console.log(ctx,'ctx')
-// const {data} = await
-// }
+export const getStaticProps = async ({}) => {
+
+  const res = await fetch(process.env.baseURL + '/admin/articleList')
+  const data = await res.json()
+  console.log(data)
+  return {
+      props: {
+          articleList: data.data
+      }
+  }
+}
 
 export default Index;
+

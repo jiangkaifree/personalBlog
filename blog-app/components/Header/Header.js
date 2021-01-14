@@ -36,7 +36,7 @@ const Header = () => {
     <header className={styles.headerWrap}>
       <Row align="middle" justify="space-around">
         <Col xxl={16} xl={12} lg={12} md={8} sm={24} xs={24}  className={styles.headerItem}>
-        <Avatar icon={<UserOutlined />} />
+        {/* <Avatar icon={<UserOutlined />} /> */}
         </Col>
         <Col xxl={2} xl={3} lg={3} md={4} sm={0} xs={0} className={styles.headerItem}>
           <span onClick={goBlogPages}>

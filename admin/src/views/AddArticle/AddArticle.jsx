@@ -201,13 +201,14 @@ const AddArticle = (props) => {
     } else if (!tags.length) {
       message.info("请输入文章标签~~");
       return;
-    }  else if (!title) {
+    } else if (!title) {
       message.info("请输入文章标题~~");
       return;
     } else if (!articleType) {
       message.info("请输入文章类别~~");
       return;
     }
+
 
     /**请求接口 */
     postArticleApi({
@@ -220,24 +221,25 @@ const AddArticle = (props) => {
       articleDate: date,
       articleTags: JSON.stringify(tags),
     }).then((res) => {
-      console.log(res,'res')
+      console.log(res, "res");
       notification.success({
         message: res.message,
       });
       // 清空数据
+      setDesContent('');
+
       setVisible(false);
       setArticleContent("");
       setInputVisible(false);
       setInputValue("");
       setTags([]);
       setArticleType();
-      setTypeList([]);
-      setDate("");
+      setDate();
       setTitle("");
       setArticleOrder(true);
       setHTMLContent("");
-      // setDesContent("");
-      // setDesHTMLContent("");
+      setDesHTMLContent('这里是简介markDown预览');
+      console.log(desContent)
     });
   };
 
@@ -269,35 +271,33 @@ const AddArticle = (props) => {
 
   // 获取文章内容
   const getArticleInfo = async () => {
-    if(props.match.params.id) {
-    await articleInfoApi(props.match.params.id).then((res) => {
-      const result = res[0];
-      console.log(result.articleDesc);
-      setTitle(result.articleTitle); // 设置文章标题
-      setArticleContent(result.articleContent); //设置文章内容
-      setHTMLContent(marked(result.articleContent)); // 设置文章markdown
-      setDesContent(marked(result.articleDesc)); //设置文章简介内容
-      setDesHTMLContent(marked(result.articleDesc)); // 设置文章简介内容markDown
-      setTags(result.articleTags); // 设置类型列表
-      setArticleType(result.articleType);
-      setDate(result.articleDate);
-    });
-  }
+    if (props.match.params.id) {
+      await articleInfoApi(props.match.params.id).then((res) => {
+        const result = res[0];
+        console.log(result.articleDesc);
+        setTitle(result.articleTitle); // 设置文章标题
+        setArticleContent(result.articleContent); //设置文章内容
+        setHTMLContent(marked(result.articleContent)); // 设置文章markdown
+        setDesContent(marked(result.articleDesc)); //设置文章简介内容
+        setDesHTMLContent(marked(result.articleDesc)); // 设置文章简介内容markDown
+        setTags(result.articleTags); // 设置类型列表
+        setArticleType(result.articleType);
+        setDate(result.articleDate);
+      });
+    }
   };
 
-
   // 获取文章类型
-  const getArticleType = async()=>{
+  const getArticleType = async () => {
     await articleTypeApi().then((res) => {
       setTypeList(res);
     });
-  }
+  };
   // 获取文章类型
   useEffect(() => {
     getArticleType();
     getArticleInfo();
-
-  }, [props.match.params.id]);
+  }, []);
 
   //  开启Drawer
   const showDrawer = () => {
@@ -405,7 +405,7 @@ const AddArticle = (props) => {
           </Form.Item>
           <Form.Item label="文章类别">
             <Select
-              defaultValue={articleType}
+              value={articleType}
               placeholder="选择文章类别"
               onChange={(value) => {
                 setArticleType(value);

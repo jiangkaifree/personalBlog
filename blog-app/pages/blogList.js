@@ -1,10 +1,21 @@
 import { useState } from "react";
-import { List, Card, Divider, Row, Col } from "antd";
+import Router from "next/router";
+import { List, Card, Divider, Row, Col, Pagination } from "antd";
 import { VideoCameraTwoTone, EyeTwoTone, BellTwoTone } from "@ant-design/icons";
 import styles from "../styles/blogList.module.scss"; // 样式
 import Header from "components/Header/Header"; // 头部组件
 
 const blogList = () => {
+  // 进入详情页面
+  const goArticleInfo = (id) => {
+    // console.log(process.env.customKey)
+    Router.push({
+      pathname: "./articlesInfo",
+      query: {
+        id,
+      },
+    });
+  };
   const [myList, setMyList] = useState([
     {
       id: 1111,
@@ -32,49 +43,51 @@ const blogList = () => {
     },
   ]);
   return (
-      <>
-    <Header></Header>
+    <>
+      <Header></Header>
 
-    <Row type="flex" justify="center">
-      <Col className={styles.left} xs={24} sm={24} md={18} lg={22} xl={18}>
-        <List
-          grid={{
-            gutter: 16,
-            xs: 1,
-            sm: 2,
-            md: 2,
-            lg: 4,
-            xl: 3,
-            xxl: 3,
-          }}
-          dataSource={myList}
-          renderItem={(item) => (
-            <List.Item className={styles.listWrap}>
-              <Card
-                title={item.title}
-                onClick={() => {
-                  goArticleInfo(item.id);
-                }}
-              >
-                <div className={styles.context}>{item.context}</div>
-                <Divider orientation="left">文章信息</Divider>
-                <div className={styles.infoWrap}>
-                  <span>
-                    <BellTwoTone /> 2019-06-28
-                  </span>
-                  <span>
-                    <VideoCameraTwoTone /> 视频教程
-                  </span>
-                  <span>
-                    <EyeTwoTone /> 5498人
-                  </span>
-                </div>
-              </Card>
-            </List.Item>
-          )}
-        />
-      </Col>
-    </Row>
+      <Row type="flex" justify="center">
+        <Col className={styles.left} xs={24} sm={24} md={18} lg={22} xl={18}>
+          <List
+            grid={{
+              gutter: 16,
+              xs: 1,
+              sm: 2,
+              md: 2,
+              lg: 4,
+              xl: 3,
+              xxl: 3,
+            }}
+            dataSource={myList}
+            renderItem={(item) => (
+              <List.Item className={styles.listWrap}>
+                <Card
+                  title={item.title}
+                  onClick={() => {
+                    goArticleInfo(item.id);
+                  }}
+                >
+                  <div className={styles.context}>{item.context}</div>
+                  <Divider orientation="left">文章信息</Divider>
+                  <div className={styles.infoWrap}>
+                    <span>
+                      <BellTwoTone /> 2019-06-28
+                    </span>
+                    <span>
+                      <VideoCameraTwoTone /> 视频教程
+                    </span>
+                    <span>
+                      <EyeTwoTone /> 5498人
+                    </span>
+                  </div>
+                </Card>
+              </List.Item>
+            )}
+          />
+
+          <Pagination className={styles.pageWrap} defaultCurrent={1} total={50} />
+        </Col>
+      </Row>
     </>
   );
 };

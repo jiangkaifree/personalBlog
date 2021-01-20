@@ -4,8 +4,8 @@
     justify-content: space-around;
     //  align-items: center;
 
-    .total,
-    .today {
+    .week,
+    .today,.total {
        display: flex;
        flex-direction: column;
        justify-content: space-between;
@@ -25,12 +25,19 @@
         color: rgba(0, 0, 0, 0.85);
         font-size: 30px;
       }
-      .totalChart {
+      .weekChart {
         width: 100%;
         height: 30px;
       }
     }
     .today {
+       .counts{
+          text-align: right;
+          color: #2980b9;
+       }
+       .todayChart{
+          height: 50px;
+       }
       .rateWrap {
         display: flex;
         justify-content: space-between;

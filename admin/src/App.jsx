@@ -1,8 +1,8 @@
 /*
  * @Author: jk
  * @Date: 2020-12-14 10:57:56
- * @Last Modified by: 小菜鸡
- * @Last Modified time: 2021-01-05 17:40:04
+ * @Last Modified by: jk
+ * @Last Modified time: 2021-01-20 15:34:27
  */
 
 import { useState, useEffect } from "react";
@@ -142,7 +142,7 @@ function App(props) {
             >
               <QueueAnim delay={550} type="left" leaveReverse>
                 <div className={styles.avatarWrap} key="0">
-                  <Avatar size={48} icon={<UserOutlined />} />
+                  <Avatar size={48}  icon={<UserOutlined />} />
                   <p className={styles.name}>江凯</p>
                   <p className={styles.date}>
                     {new Date().toLocaleDateString()}

@@ -275,19 +275,19 @@ const AddArticle = (props) => {
     });
   };
   // 获取文章内容
-  const getArticleInfo = async () => {
+  const getArticleInfo = () => {
     // if (props.match.params.id) {
-    await articleInfoApi(props.match.params.id).then((res) => {
-      const result = res[0];
-      console.log(result.articleDesc);
-      setTitle(result.articleTitle); // 设置文章标题
-      setArticleContent(result.articleContent); //设置文章内容
-      setHTMLContent(marked(result.articleContent)); // 设置文章markdown
-      setDesContent(marked(result.articleDesc)); //设置文章简介内容
-      setDesHTMLContent(marked(result.articleDesc)); // 设置文章简介内容markDown
-      setTags(result.articleTags); // 设置类型列表
-      setArticleType(result.articleType);
-      setDate(result.articleDate);
+    articleInfoApi(props.match.params.id).then((res) => {
+      const {articleDesc,articleTitle,articleContent,articleTags,articleType,articleDate} = res[0];
+      // console.log(result.articleDesc);
+      setTitle(articleTitle); // 设置文章标题
+      setArticleContent(articleContent); //设置文章内容
+      setHTMLContent(marked(articleContent)); // 设置文章markdown
+      setDesContent(marked(articleDesc)); //设置文章简介内容
+      setDesHTMLContent(marked(articleDesc)); // 设置文章简介内容markDown
+      setTags(articleTags); // 设置类型列表
+      setArticleType(articleType);
+      setDate(articleDate);
     });
     // }
   };

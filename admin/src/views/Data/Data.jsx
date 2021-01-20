@@ -52,15 +52,7 @@ const Data = () => {
         <Area {...config} />
         </div>
       </div>
-      <style jsx>{`
-        .mainWrap{
-           background-color: #333;
-           font-size: 
-        }
-        .mainWrap > .div{
-          background-color: #fff
-        }
-      `}</style>
+     
     </>
   );
 };

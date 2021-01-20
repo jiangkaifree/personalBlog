@@ -1,11 +1,11 @@
 import { useState } from "react";
 import Router from "next/router";
-import { List, Card, Divider, Row, Col, Pagination } from "antd";
+import { List, Card, Divider, Row, Col, Pagination,Tag } from "antd";
 import { VideoCameraTwoTone, EyeTwoTone, BellTwoTone } from "@ant-design/icons";
 import styles from "../styles/blogList.module.scss"; // 样式
 import Header from "components/Header/Header"; // 头部组件
 
-const blogList = () => {
+const blogList = ({articleList}) => {
   // 进入详情页面
   const goArticleInfo = (id) => {
     // console.log(process.env.customKey)
@@ -58,20 +58,26 @@ const blogList = () => {
               xl: 3,
               xxl: 3,
             }}
-            dataSource={myList}
+            dataSource={articleList}
             renderItem={(item) => (
               <List.Item className={styles.listWrap}>
                 <Card
-                  title={item.title}
+                  title={item.articleTitle}
                   onClick={() => {
-                    goArticleInfo(item.id);
+                    goArticleInfo(item.articleId);
                   }}
                 >
-                  <div className={styles.context}>{item.context}</div>
-                  <Divider orientation="left">文章信息</Divider>
+                  <div className={styles.context}>{item.articleDesc}</div>
+                  <Divider orientation="left">
+                  {item.articleTags.map((tags, idx) => (
+                    <Tag color={tags.color} key={idx}>
+                      {tags.title}
+                    </Tag>
+                  ))}
+                  </Divider>
                   <div className={styles.infoWrap}>
                     <span>
-                      <BellTwoTone /> 2019-06-28
+                      <BellTwoTone /> {item.articleDate}
                     </span>
                     <span>
                       <VideoCameraTwoTone /> 视频教程
@@ -91,5 +97,19 @@ const blogList = () => {
     </>
   );
 };
+
+// 获取页面数据
+export const getStaticProps = async () => {
+  const res = await fetch(process.env.baseURL + "/client/blogList");
+  const {data} = await res.json();
+  console.log(data)
+  return {
+    props: {
+      articleList: data,
+    },
+  };
+};
+
+
 
 export default blogList;

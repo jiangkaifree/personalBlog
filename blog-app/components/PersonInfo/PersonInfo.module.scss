@@ -1,32 +1,35 @@
 .personInfo {
-  width: 30%;
+  // width: 30%;
   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
     0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
     0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
     0 100px 80px rgba(0, 0, 0, 0.12);
+  margin-top: 50px;
+  margin-bottom: 30px;
   padding: 20px 30px;
   background-color: #151515;
   color: #fff;
   border-radius: 30px;
-  .titleWrap{
+  .titleWrap {
     text-align: center;
-    img{
+    img {
       width: 30px;
     }
-    p{
+    p {
       font-weight: 600;
       font-size: 20px;
     }
   }
 
-  p{
-    font-size: 16px;
+  p {
     margin-top: 20px;
     margin-bottom: 25px;
-
+    font-size: 16px;
+    letter-spacing: 2px;
   }
-  .contact{
+  .contact {
     display: flex;
     justify-content: flex-end;
+    padding-top: 50px;
   }
 }

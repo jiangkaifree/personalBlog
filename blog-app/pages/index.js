@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import Router from "next/router";
 import { Row, Col, Image, Tag } from "antd";
 import RightAside from "components/RightAside/RightAside";
+import PersonInfo from "components/PersonInfo/PersonInfo";
 import Header from "components/Header/Header";
-import Banner from "components/Banner/Banner";
 import styles from "styles/index.module.scss";
 
-const Index = ({articleList}) => {
+const Index = ({ articleList }) => {
   // 进入详情页面
   const goArticleInfo = (id) => {
     // console.log(process.env.customKey)
@@ -25,10 +25,13 @@ const Index = ({articleList}) => {
       <Header></Header>
 
       <Row className={styles.main} type="flex" justify="center">
-        <Banner></Banner>
-        <Col className={styles.left} xs={24} sm={24} md={18} lg={20} xl={16}>
+        <Col className={styles.left} xs={24} sm={24} md={14} lg={16} xl={12}>
           {articleList.map((item) => (
-            <div className={styles.listWrap} key={item.articleId} onClick={goArticleInfo}>
+            <div
+              className={styles.listWrap}
+              key={item.articleId}
+              onClick={goArticleInfo}
+            >
               <Image
                 className={styles.img}
                 width={200}
@@ -42,8 +45,10 @@ const Index = ({articleList}) => {
                   {/* <Tag color="magenta">magenta</Tag>
                 <Tag color="volcano">volcano</Tag>
                 <Tag color="cyan">cyan</Tag> */}
-                  {item.articleTags.map((tags,idx) => (
-                    <Tag color={tags.color} key={idx}>{tags.title}</Tag>
+                  {item.articleTags.map((tags, idx) => (
+                    <Tag color={tags.color} key={idx}>
+                      {tags.title}
+                    </Tag>
                   ))}
                 </p>
                 <p className={styles.title}>{item.articleTitle}</p>
@@ -53,9 +58,9 @@ const Index = ({articleList}) => {
           ))}
         </Col>
 
-        {/* <Col className={styles.right} xs={0} sm={0} md={7} lg={5} xl={4}>
-          右侧
-        </Col> */}
+        <Col className={styles.right} xs={24} sm={24} md={14} lg={10} xl={6}>
+          <PersonInfo></PersonInfo>
+        </Col>
         <RightAside></RightAside>
       </Row>
     </>
@@ -63,17 +68,14 @@ const Index = ({articleList}) => {
 };
 
 // 获取页面数据
-export const getStaticProps = async ({}) => {
-
-  const res = await fetch(process.env.baseURL + '/admin/articleList')
-  const data = await res.json()
-  console.log(data)
+export const getStaticProps = async () => {
+  const res = await fetch(process.env.baseURL + "/client/index");
+  const {data} = await res.json();
   return {
-      props: {
-          articleList: data.data
-      }
-  }
-}
+    props: {
+      articleList: data,
+    },
+  };
+};
 
 export default Index;
-

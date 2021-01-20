@@ -1,59 +1,55 @@
 import { useState, useEffect } from "react";
-import { Area } from "@ant-design/charts";
+import { TinyArea  } from "@ant-design/charts";
+import {QuestionOutlined} from '@ant-design/icons'
+import styles from "./Data.module.scss";
 const Data = () => {
   // console.log(process.env)
-  
-  const config = {
+
+  const totalConfig = {
     data: [
-      {
-        weekDay: '星期一',
-        viewCounts: 20,
-      },
-      {
-        weekDay: '星期二',
-        viewCounts: 140,
-      },
-      {
-        weekDay: '星期三',
-        viewCounts: 120,
-      },
-      {
-        weekDay: '星期四',
-        viewCounts: 86,
-      },
-      {
-        weekDay: '星期五',
-        viewCounts: 89,
-      },
-      {
-        weekDay: '星期六',
-        viewCounts: 75,
-      },
-      {
-        weekDay: '星期日',
-        viewCounts: 100,
-      },
+      30,55,22,43,13,43,44,
     ],
-    xField: "weekDay",
-    yField: "viewCounts",
-    xAxis: { tickCount: 12 },
+    autoFit: true,
+    smooth: true,
+    color: '#975fe4',
+    line: {
+      color: '#975fe4'
+    },
     areaStyle: function areaStyle() {
       return {
-        fill: "l(270) 0:#ffffff 0.5:#7ec2f3 1:#1890ff",
-        shadowColor: "#1890ff",
-        shadowBlur: 10,
+        fill: "#975fe4",
       };
     },
   };
   return (
-    <>
-      <div className='mainWrap'>
-        <div className='div'>
-        <Area {...config} />
+    <div className={styles.mainWrap}>
+      <div className={styles.totalWrap}>
+        <div className={styles.total}>
+          <p className={styles.title}>本周访问量
+          {/* <QuestionOutlined /> */}
+          </p>
+          <p className={styles.counts}>40000</p>
+          <div className={styles.totalChart}>
+          <TinyArea  {...totalConfig} />
+          </div>
         </div>
+        <div className={styles.today}>
+          <p className={styles.title}>
+            今日访问人数
+          <QuestionOutlined />
+          </p>
+          <p className={styles.counts}>29</p>
+          <p className={styles.rateWrap}>
+            <span>日同比 <span className={styles.rate}>12% </span></span>
+            <span>周同比 <span className={styles.rate}>11% </span></span>
+          </p>
+        </div>
+       
       </div>
-     
-    </>
+
+      <div className="div">
+      </div>
+    </div>
   );
 };
 

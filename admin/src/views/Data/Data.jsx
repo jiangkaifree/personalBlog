@@ -107,6 +107,15 @@ const Data = () => {
     seriesField: "type",
     radius: 0.9,
     legend: false,
+    state: {
+      active: {
+        style: {
+          lineWidth: 1,
+          fillOpacity: 0.65,
+        },
+      },
+    },
+    interactions: [{ type: 'element-active' }],
     label: { offset: -15 },
   };
 

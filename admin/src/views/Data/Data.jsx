@@ -224,13 +224,13 @@ const Data = () => {
         <div className={styles.viewWrap}>
           <p className={styles.viewsTitle}>近三天浏览最多</p>
           {viewsCount.map((item, idx) => (
-            <Space size={25} className={styles.viewsList}>
-              <Badge count={idx + 1}  />
+            <Space size={25} key={item.id} className={styles.viewsList}>
+              <Badge count={idx + 1} className={styles.index}  />
 
               <p className={styles.title}>{item.title}</p>
               <Space size={0} >
                 {item.tags.map((tag) => (
-                  <Tag color="#f50">{tag}</Tag>
+                  <Tag color="blue" key={tag}>{tag}</Tag>
                 ))}
               </Space>
 

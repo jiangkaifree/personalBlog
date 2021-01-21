@@ -1,14 +1,15 @@
 /*
  * @Author: jk
  * @Date: 2020-12-14 10:57:56
- * @Last Modified by: jk
- * @Last Modified time: 2021-01-20 15:34:27
+ * @Last Modified by: 小菜鸡
+ * @Last Modified time: 2021-01-21 15:27:03
  */
 
 import { useState, useEffect } from "react";
 import { Route, Switch, Redirect, withRouter } from "react-router-dom";
 import QueueAnim from "rc-queue-anim";
-import { Layout, Menu, Breadcrumb, Avatar } from "antd";
+import { Layout, Menu, Breadcrumb, Avatar, Space, Badge } from "antd";
+import { BellOutlined, MailOutlined, SettingOutlined } from "@ant-design/icons";
 import {
   EditOutlined,
   AudioOutlined,
@@ -112,7 +113,6 @@ function App(props) {
     };
     // setActiveItem(['1']);
     setBreadcrumbItem(titleList[props.location.pathname]);
-
   }, [props.location.pathname]);
 
   // 跳转页面
@@ -142,8 +142,8 @@ function App(props) {
             >
               <QueueAnim delay={550} type="left" leaveReverse>
                 <div className={styles.avatarWrap} key="0">
-                  <Avatar size={48}  icon={<UserOutlined />} />
-                  <p className={styles.name}>江凯</p>
+                  <Avatar size={50} icon={<UserOutlined />} />
+                  <p className={styles.name}>小菜鸡</p>
                   <p className={styles.date}>
                     {new Date().toLocaleDateString()}
                   </p>
@@ -216,20 +216,41 @@ function App(props) {
             <Layout>
               {/* <Header style={{ background: '#fff', padding: 0 }} /> */}
               <Content className={styles.contentWrap}>
-                <Breadcrumb className={styles.headerWrap}>
-                  <Breadcrumb.Item>
-                    <a href="/admin">
-                      <HomeOutlined />
-                    </a>
-                  </Breadcrumb.Item>
-                  <Breadcrumb.Item>工作台</Breadcrumb.Item>
-                  <Breadcrumb.Item>{breadcrumbItem}</Breadcrumb.Item>
-                </Breadcrumb>
+                <div className={styles.headerWrap}>
+                  <Breadcrumb>
+                    <Breadcrumb.Item>
+                      <a href="/admin">
+                        <HomeOutlined />
+                      </a>
+                    </Breadcrumb.Item>
+                    <Breadcrumb.Item>工作台</Breadcrumb.Item>
+                    <Breadcrumb.Item>{breadcrumbItem}</Breadcrumb.Item>
+                  </Breadcrumb>
+                  <Space size="large" className={styles.infoWrap}>
+                    <Badge size="small"  className={styles.infoItem} count={5} title="您有三条通知!">
+                      <BellOutlined />
+                    </Badge>
+
+                    <Badge
+                      color="#f39c12"
+                      className={styles.infoItem}
+                      count={2}
+                    >
+                      <MailOutlined />
+                    </Badge>
+                    <Badge title="设置" className={styles.settingItem}>
+                      <SettingOutlined />
+                    </Badge>
+                    <Badge dot color="#1abc9c">
+                      <Avatar icon={<UserOutlined />} />
+                    </Badge>
+                  </Space>
+                </div>
                 <div className={styles.content}>
                   <Routes></Routes>
                 </div>
               </Content>
-              <Footer className={styles.footer}>BLOG 后台管理 By 2020</Footer>
+              <Footer className={styles.footer}>BLOG 后台管理 By 2021</Footer>
             </Layout>
           </Layout>
         </Route>

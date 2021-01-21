@@ -29,7 +29,7 @@
         }
         .date {
           color: #fff;
-          font-size: 1.2rem;
+          font-size: 1.05rem;
         }
       }
     }
@@ -37,7 +37,36 @@
       margin: 0 16px;
       width: calc(100% - 32px);
       .headerWrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         margin: 16px 0;
+        .infoWrap {
+          padding-right: 5px;
+          font-size: 15px;
+
+          :global(.ant-space-item) {
+            :global(.ant-badge) {
+              // .infoItem {
+              transform: perspective(1px);
+              transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.6s;
+              &:hover {
+                transform: scale(1.5);
+                // }
+              }
+              .settingItem {
+                transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.6s;
+                &:hover {
+                  transform: scale(1.5);
+                  transform: rotate(540deg);
+                }
+              }
+            }
+          }
+          div:hover {
+            cursor: pointer;
+          }
+        }
       }
       .content {
         padding: 24px;

@@ -5,51 +5,88 @@
     //  align-items: center;
 
     .week,
-    .today,.total {
-       display: flex;
-       flex-direction: column;
-       justify-content: space-between;
+    .today,
+    .total,
+    .like {
+      flex-basis: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       height: 200px;
       padding: 20px;
       box-shadow: rgb(174, 174, 174) 0px 0px 8px;
-
+      color: rgba(0, 0, 0, 0.45);
+    }
+    .week {
       .title {
         color: rgba(0, 0, 0, 0.45);
         font-size: 14px;
         line-height: 22px;
       }
       .counts {
-        height: 38px;
+        text-align: left;
+        color: #f39c12;
+        height: 34px;
         margin-top: 4px;
         margin-bottom: 10px;
-        color: rgba(0, 0, 0, 0.85);
         font-size: 30px;
       }
       .weekChart {
         width: 100%;
         height: 30px;
       }
+      .rateWrap {
+        text-align: right;
+        span {
+          font-size: 20px;
+          color: #9b59b6;
+        }
+      }
     }
     .today {
-       .counts{
-          text-align: right;
-          color: #2980b9;
-       }
-       .todayChart{
-          height: 50px;
-       }
+      .counts {
+        // text-align: right;
+        font-size: 30px;
+        color: #2980b9;
+      }
+      .todayChart {
+        height: 50px;
+      }
       .rateWrap {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        .rate {
+        .upRate {
           font-size: 24px;
+          color: #e74c3c;
+        }
+        .cutRate {
+          font-size: 24px;
+          color: #27ae60;
+        }
+        .upIcons {
+          color: #e74c3c;
+        }
+        .cutIcons {
+          color: #27ae60;
+        }
+      }
+    }
+    .total {
+      .counts {
+        font-size: 24px;
+        color: #95a5a6;
+        .upSize {
+          font-size: 60px;
           color: #e74c3c;
         }
       }
     }
-    div {
-      flex-basis: 300px;
+    .like {
+      .totalCharts {
+        width: 100%;
+        height: 170px;
+      }
     }
   }
 }

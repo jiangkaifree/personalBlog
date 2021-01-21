@@ -4,6 +4,7 @@ import { List, Card, Divider, Row, Col, Pagination,Tag } from "antd";
 import { VideoCameraTwoTone, EyeTwoTone, BellTwoTone } from "@ant-design/icons";
 import styles from "../styles/blogList.module.scss"; // 样式
 import Header from "components/Header/Header"; // 头部组件
+import RightAside from "components/RightAside/RightAside";    // 右侧联系组件
 
 const blogList = ({articleList}) => {
   // 进入详情页面
@@ -93,6 +94,8 @@ const blogList = ({articleList}) => {
 
           <Pagination className={styles.pageWrap} defaultCurrent={1} total={50} />
         </Col>
+        <RightAside></RightAside>
+
       </Row>
     </>
   );

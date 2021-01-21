@@ -1,7 +1,12 @@
 import { useState, useEffect } from "react";
 import { TinyArea, Progress, TinyColumn, Rose } from "@ant-design/charts";
-import { QuestionOutlined, RiseOutlined,CaretUpOutlined,CaretDownOutlined} from "@ant-design/icons";
-import { Space } from "antd";
+import {
+  QuestionOutlined,
+  RiseOutlined,
+  CaretUpOutlined,
+  CaretDownOutlined,
+} from "@ant-design/icons";
+import { Tag, Badge, Space } from "antd";
 import styles from "./Data.module.scss";
 const Data = () => {
   // console.log(process.env)
@@ -37,7 +42,7 @@ const Data = () => {
     //   title: '星期一',
     //   value: 30
     // }],
-    data: [12,23,44,22,23,44,55],
+    data: [12, 23, 44, 22, 23, 44, 55],
     autoFit: true,
     color: "#975fe4",
     line: {
@@ -46,12 +51,12 @@ const Data = () => {
     smooth: true,
     tooltip: {
       // title: title,
-      customContent: (title,data) => {
+      customContent: (title, data) => {
         // console.log(data[0].data)
         return `<div>${title}${data}</div>`;
-      }
+      },
     },
-    areaStyle: ()=> {
+    areaStyle: () => {
       return {
         fill: "#975fe4",
       };
@@ -115,12 +120,52 @@ const Data = () => {
         },
       },
     },
-    interactions: [{ type: 'element-active' }],
+    interactions: [{ type: "element-active" }],
     label: { offset: -15 },
   };
 
+  // 近三天浏览最多数据
+  const viewsCount = [
+    {
+      id: 2222,
+      title: "Vue开发的10项骚操作",
+      tags: ["Vue", "React", "Js"],
+      counts: 220,
+    },
+    {
+      id: 2222,
+      title: "Vue开发的10项骚操作",
+      tags: ["Vue", "React", "Js"],
+      counts: 220,
+    },
+    {
+      id: 2222,
+      title: "Vue开发的10项骚操作",
+      tags: ["Vue", "React", "Js"],
+      counts: 220,
+    },
+    {
+      id: 2222,
+      title: "Vue开发的10项骚操作",
+      tags: ["Vue", "React", "Js"],
+      counts: 220,
+    },
+    {
+      id: 2222,
+      title: "Vue开发的10项骚操作",
+      tags: ["Vue", "React", "Js"],
+      counts: 220,
+    },
+    {
+      id: 2222,
+      title: "Vue开发的10项骚操作",
+      tags: ["Vue", "React", "Js"],
+      counts: 220,
+    },
+  ];
+
   return (
-    <div className={styles.mainWrap}>
+    <section className={styles.mainWrap}>
       <div className={styles.totalWrap}>
         <div className={styles.week}>
           <p className={styles.title}>
@@ -153,7 +198,7 @@ const Data = () => {
             </span>
             <span>
               周同比 <span className={styles.cutRate}>-11% </span>
-              <CaretDownOutlined className={styles.cutIcons}/>
+              <CaretDownOutlined className={styles.cutIcons} />
             </span>
           </p>
         </div>
@@ -168,15 +213,33 @@ const Data = () => {
           </div>
         </div>
         <div className={styles.like}>
-          <p >用户喜欢分类</p>
+          <p>用户喜欢分类</p>
           <div className={styles.totalCharts}>
             <Rose {...roseConfig} />
           </div>
         </div>
       </div>
 
-      <div className="div"></div>
-    </div>
+      <div className={styles.latestWrap}>
+        <div className={styles.viewWrap}>
+          <p className={styles.viewsTitle}>近三天浏览最多</p>
+          {viewsCount.map((item, idx) => (
+            <Space size={25} className={styles.viewsList}>
+              <Badge count={idx + 1}  />
+
+              <p className={styles.title}>{item.title}</p>
+              <Space size={0} >
+                {item.tags.map((tag) => (
+                  <Tag color="#f50">{tag}</Tag>
+                ))}
+              </Space>
+
+              <span className={styles.counts}>{item.counts}</span>
+            </Space>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 

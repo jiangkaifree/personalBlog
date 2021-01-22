@@ -2,41 +2,44 @@
  * @Author: jk 
  * @Date: 2020-12-07 20:14:35 
  * @Last Modified by: jk
- * @Last Modified time: 2020-12-16 15:10:17
+ * @Last Modified time: 2021-01-22 11:41:14
  */
-    @media screen and (max-width: 500px) {
-    .rightWrap{
-        display: none;
+@media screen and (max-width: 500px) {
+  .rightWrap {
+    display: none;
+  }
+}
+.rightWrap {
+  // position: fixed;
+  // right: 0;
+  // top: 0;
+  // bottom: 0;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // z-index: 1;
+  position: fixed;
+  padding: 0 15px;
+  top: 55%;
+  right: 0;
+  margin-top: -140px;
+  z-index: 10;
+  background-color: #fff;
+  box-shadow: -2px 2px 5px 3px rgba(7, 17, 27, 0.1);
+  div {
+    margin: 0.5rem;
+    width: 26px;
+    padding: 16px 0;
+    font-size: 22px;
+    .github {
+      color: #b5b9bc;
+      font-size: 20px;
     }
- }
-.rightWrap{
-    // position: fixed;
-    // right: 0;
-    // top: 0;
-    // bottom: 0;
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
-    // z-index: 1;
-    position: fixed;
-    padding: 0 15px;
-    top: 55%;
-    right: 0;
-    margin-top: -140px;
-    z-index: 10;
-    background-color: #fff;
-    box-shadow: -2px 2px 5px 3px rgba(7,17,27,.1);
-    div{
-        margin: .5rem;
-        width: 26px;
-        padding: 16px 0;
-        font-size: 22px;
-        .github{
-            color: #b5b9bc;
-            font-size: 20px;
-        }
-        .github:hover{
-            color: #bedbbb;
-        }
+    .github:hover {
+      cursor: pointer;
     }
+    .weChatWrap {
+      width: 70px;
+    }
+  }
 }

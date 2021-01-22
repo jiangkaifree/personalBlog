@@ -38,7 +38,27 @@ class HomeController extends Controller {
       data,
     };
   }
+
   
+  /**
+   * TODO 获取BLOG详情
+   * @param{Number | String} blogId 博客的Id
+   */
+  async blogInfo(){
+    const {ctx ,app} = this;
+    console.log(ctx.params.id)
+    const id = ctx.params.id
+    const data = await app.mysql.query(`SELECT articleTitle,articleId,articleType,articleDate,articleTags,articleContent FROM article_info WHERE articleId= ${id}`)
+    console.log(data)
+    // 处理数据
+    for (let item of data) {
+      item.articleTags = JSON.parse(item.articleTags);
+    }
+    ctx.body = {
+      code: 1,
+      data: data[0],
+    };
+  }
 }
 
 module.exports = HomeController;

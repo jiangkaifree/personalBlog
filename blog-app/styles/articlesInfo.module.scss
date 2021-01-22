@@ -1,10 +1,10 @@
 /*
  * @Author: jk 
  * @Date: 2020-12-07 16:46:26 
- * @Last Modified by: 小菜鸡
- * @Last Modified time: 2020-12-29 16:56:05
+ * @Last Modified by: jk
+ * @Last Modified time: 2021-01-22 19:54:03
  */
- 
+
 .main {
   margin-top: 0.5rem;
   .left {
@@ -33,10 +33,9 @@
         color: #999;
         span {
           margin: 0.5rem;
-          .time{
+          .time {
             color: #ffe0d8;
           }
-          
         }
       }
     }
@@ -44,39 +43,39 @@
       margin: 0.5rem 1rem;
       font-size: 16px;
       color: #666;
-      
-  pre {
-    position: relative;
-    border-radius: 3px;
-    // border: 1px solid #c3ccd0;
-    overflow: hidden;
-    padding: 15px 12px;
-    margin: 0;
-    word-break: normal;
-    display: block;
-    overflow-x: auto;
-    color: #333;
-    background: #f8f8f8;
-    code{
-      background-color:transparent;
-    }
-  }
-  code {
-    // display: block;
-    margin: 0 3px;
-    padding: 5px 8px;
-    overflow-y: auto;
-    font-weight: 400;
-    word-break: break-word;
-    border-radius: 2px;
-    overflow-x: auto;
-    background-color: #fff5f5;
-    color: #ff502c;
-  }
+
+      pre {
+        position: relative;
+        border-radius: 5px;
+        // margin: 10px 0;
+        overflow: hidden;
+        padding: 15px 12px;
+        margin: 0;
+        word-break: normal;
+        display: block;
+        overflow-x: auto;
+        color: #333;
+        background: #1d1f21;
+        code {
+          // background-color:transparent;
+          background-color: #1d1f21;
+        }
+      }
+      code {
+        // display: block;
+        padding: 5px 8px;
+        overflow-y: auto;
+        font-weight: 400;
+        word-break: break-word;
+        border-radius: 2px;
+        overflow-x: auto;
+        background-color: #fff5f5;
+        color: #ff502c;
+      }
     }
   }
   .right {
-    background-color: #f6f6f6;
+    // background-color: #f6f6f6;
     margin-left: 0.5rem;
     padding: 0.3rem;
     border-radius: 0.3rem;

@@ -1,15 +1,16 @@
 /*
  * @Author: jk
  * @Date: 2020-12-07 17:14:43
- * @Last Modified by: 小菜鸡
- * @Last Modified time: 2020-12-10 17:51:10
+ * @Last Modified by: jk
+ * @Last Modified time: 2021-01-22 11:53:05
  */
 import React from "react";
-// import { BackTop } from "antd";
+// import { Popover, Button } from "antd";
 import { GithubOutlined, QqOutlined, WechatOutlined } from "@ant-design/icons";
 import styles from "./RightAside.module.scss";
 
 const RightAside = () => {
+  const content = <div></div>;
   return (
     <div className={styles.rightWrap}>
       <div>
@@ -19,9 +20,9 @@ const RightAside = () => {
         <QqOutlined className={styles.githubgithub} />
       </div>
       <div>
+    
         <WechatOutlined className={styles.github} />
       </div>
-      
     </div>
   );
 };

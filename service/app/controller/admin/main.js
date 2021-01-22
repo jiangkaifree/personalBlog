@@ -104,7 +104,6 @@ class MainController extends Controller {
   async delArticle() {
     let articleId = this.ctx.params.id;
     const result = await this.app.mysql.delete("article_info", { articleId });
-    // console.log(result);
     this.ctx.body = {
       code: 1,
       data: {

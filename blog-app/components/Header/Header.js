@@ -14,8 +14,9 @@ import {
 const Header = () => {
   // 进入BLOG页面
   const goBlogPages = () => {
-    Router.push({
-      pathname: "./blogList",
+    Router.replace({
+      pathname: "/blogs",
+      // redirect: './blogList'
     });
   };
 
@@ -40,9 +41,9 @@ const Header = () => {
           md={8}
           sm={24}
           xs={24}
-          className={styles.headerItem}
         >
-          <Avatar icon={<UserOutlined />}  src={process.env.avatarURL}/>
+          <Avatar icon={<UserOutlined />}  src='/assets/avatar.jpg'/>
+          {/* <Avatar icon={<UserOutlined />}  src={process.env.avatarURL}/> */}
         </Col>
         <Col
           xxl={2}
@@ -81,7 +82,7 @@ const Header = () => {
           xs={0}
           className={styles.headerItem}
         >
-          <span>
+          <span onClick={goVideoPage}>
             <FireTwoTone twoToneColor="#52c41a" />
             工具推荐
           </span>
@@ -95,7 +96,7 @@ const Header = () => {
           xs={0}
           className={styles.headerItem}
         >
-          <span>
+          <span onClick={goVideoPage}>
             <FlagTwoTone twoToneColor="#68b0ab" />
             关于
           </span>

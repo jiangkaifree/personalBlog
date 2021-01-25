@@ -1,4 +1,4 @@
-import { useState, useEffect,useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import {
   Row,
   Col,
@@ -61,6 +61,7 @@ const AddArticle = (props) => {
   const [desHTMLContent, setDesHTMLContent] = useState(
     "这里是简介markDown预览"
   ); // 简介HTML内容
+  const [desc, setDesc] = useState("");
   const [desContent, setDesContent] = useState(""); // 简介内容
   const [articleContent, setArticleContent] = useState(""); //文章内容
   const [HTMLContent, setHTMLContent] = useState("这里预览markDown"); // markDown转换后文本
@@ -189,12 +190,6 @@ const AddArticle = (props) => {
    * @param(Boolean) articleOrder 文章置顶排序
    */
   const postArticle = () => {
-    console.log(tags); // 文字标签
-    console.log(articleContent); // 文字标签
-    console.log(title);
-    console.log(date);
-    console.log(articleType);
-    console.log(articleOrder);
     if (!articleContent) {
       message.info("请填写文章内容~~");
       return;
@@ -213,7 +208,7 @@ const AddArticle = (props) => {
     postArticleApi({
       // articleId: "11",
       articleTitle: title,
-      articleContent: articleContent,
+      articleContent,
       articleDesc: desContent,
       articleOrder,
       articleType,
@@ -225,20 +220,18 @@ const AddArticle = (props) => {
         message: res.message,
       });
       // 清空数据
-      setDesContent("");
-
+      setDate(moment().format("L"))
+      setDesContent('')
       setVisible(false);
       setArticleContent("");
       setInputVisible(false);
       setInputValue("");
       setTags([]);
       setArticleType();
-      setDate();
       setTitle("");
       setArticleOrder(true);
       setHTMLContent("");
       setDesHTMLContent("这里是简介markDown预览");
-      console.log(desContent);
     });
   };
 
@@ -259,7 +252,7 @@ const AddArticle = (props) => {
     /**请求接口 */
     saveArticleApi({
       articleTitle: title,
-      articleContent: articleContent,
+      articleContent,
     }).then((res) => {
       console.log(res.message);
       notification.success({
@@ -275,28 +268,35 @@ const AddArticle = (props) => {
     });
   };
   // 获取文章内容
-  const getArticleInfo = () => {
-    // if (props.match.params.id) {
-    articleInfoApi(props.match.params.id).then((res) => {
-      const {articleDesc,articleTitle,articleContent,articleTags,articleType,articleDate} = res[0];
-      // console.log(result.articleDesc);
+  const getArticleInfo = (id) => {
+    if (!id) return;
+    articleInfoApi(id).then((res) => {
+      const {
+        articleDesc,
+        articleTitle,
+        articleContent,
+        articleTags,
+        articleType,
+        articleDate,
+      } = res[0];
+      console.log(articleDesc);
+      setDesc(articleDesc);
       setTitle(articleTitle); // 设置文章标题
       setArticleContent(articleContent); //设置文章内容
       setHTMLContent(marked(articleContent)); // 设置文章markdown
-      setDesContent(marked(articleDesc)); //设置文章简介内容
+      setDesContent(articleTitle); //设置文章简介内容
       setDesHTMLContent(marked(articleDesc)); // 设置文章简介内容markDown
       setTags(articleTags); // 设置类型列表
       setArticleType(articleType);
       setDate(articleDate);
     });
-    // }
   };
 
   // 获取文章类型
   useEffect(() => {
     getArticleType();
-    getArticleInfo();
-  }, []);
+    getArticleInfo(props.match.params.id);
+  }, [props.match.params.id]);
 
   //  开启Drawer
   const showDrawer = () => {
@@ -377,16 +377,19 @@ const AddArticle = (props) => {
         className={styles.drawerWrap}
         getContainer={false}
       >
-        <Form size="large" layout="vertical">
+        <Form
+          size="large"
+          layout="vertical"
+          onFinish={postArticle}
+        >
+          
           <Form.Item
             label="BLOG简介"
-            name="descContent"
-            rules={[{ required: true, message: "输入BLOG 简介!" }]}
           >
             <TextArea
               showCount
-              maxLength={100}
               value={desContent}
+              maxLength={100}
               placeholder="BLOG简介......"
               autoSize={{ minRows: 3, maxRows: 5 }}
               onChange={changeDescContent}
@@ -400,6 +403,8 @@ const AddArticle = (props) => {
             <DatePicker
               locale={locale}
               onChange={(...date) => setDate(date[1])}
+              format="YYYY-MM-DD"
+              value={moment(date, "YYYY-MM-DD")}
             />
           </Form.Item>
           <Form.Item label="文章类别">
@@ -470,7 +475,7 @@ const AddArticle = (props) => {
             )}
           </Form.Item>
           <Form.Item>
-            <Button type="primary" block onClick={postArticle}>
+            <Button type="primary" block htmlType="submit">
               发布文章
             </Button>
           </Form.Item>

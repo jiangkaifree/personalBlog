@@ -341,7 +341,7 @@ const AddArticle = (props) => {
         <Button
           type="primary"
           size="large"
-          icon={<SendOutlined />}
+          icon={<SendOutlined rotate={-65} />}
           className={styles.send}
           ghost
           onClick={showDrawer}

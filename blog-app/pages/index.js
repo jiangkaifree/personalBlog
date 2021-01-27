@@ -1,13 +1,13 @@
 // import { useState } from "react";
 import Router from "next/router";
-import { Row, Col, Image, Tag,} from "antd";
+import { Row, Col, Image, Tag } from "antd";
+import Head from "next/head";
 // import RightAside from "components/RightAside/RightAside";
 import PersonInfo from "components/PersonInfo/PersonInfo";
 import Header from "components/Header/Header";
 import styles from "styles/index.module.scss";
 
 const Index = ({ articleList }) => {
-  
   // 进入详情页面
   const goArticleInfo = (id) => {
     // console.log(id)
@@ -18,20 +18,33 @@ const Index = ({ articleList }) => {
       },
     });
   };
- 
 
   return (
     // <div>
     <>
+      <Head>
+        <title>小菜鸡的BLOG 🤔 </title>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta
+          name="keywords"
+          content="前端技术,个人BLOG,技术交流分享,开发日常记录,blog记录,Vue手记分享,开发分享,react开发记录手记"
+        ></meta>
+        <meta
+          name="author"
+          content="前端小菜鸡,小菜鸡,工作记录,个人博客,开发分享"
+        ></meta>
+        <link rel="icon" href="/assets/avatar.jpg"></link>
+      </Head>
       {/* 头部组件 */}
       <Header></Header>
       <Row className={styles.main} type="flex" justify="center">
-        <Col className={styles.left} xs={24} sm={24} md={14} lg={16} xl={12}>
+        <Col className={styles.left} xs={24} sm={24} md={14} lg={16} xl={10}>
           {articleList.map((item) => (
             <div
               className={styles.listWrap}
               key={item.articleId}
-              onClick={()=>goArticleInfo(item.articleId)}
+              onClick={() => goArticleInfo(item.articleId)}
             >
               <Image
                 className={styles.img}
@@ -59,7 +72,7 @@ const Index = ({ articleList }) => {
           ))}
         </Col>
 
-        <Col className={styles.right} xs={24} sm={24} md={14} lg={10} xl={6}>
+        <Col className={styles.right} xs={24} sm={24} md={14} lg={10} xl={5}>
           <PersonInfo></PersonInfo>
         </Col>
         {/* <RightAside></RightAside> */}

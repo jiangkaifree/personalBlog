@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, } from "react";
 import {
   Row,
   Col,
@@ -61,7 +61,6 @@ const AddArticle = (props) => {
   const [desHTMLContent, setDesHTMLContent] = useState(
     "这里是简介markDown预览"
   ); // 简介HTML内容
-  const [desc, setDesc] = useState("");
   const [desContent, setDesContent] = useState(""); // 简介内容
   const [articleContent, setArticleContent] = useState(""); //文章内容
   const [HTMLContent, setHTMLContent] = useState("这里预览markDown"); // markDown转换后文本
@@ -264,7 +263,7 @@ const AddArticle = (props) => {
   // 获取文章类型
   const getArticleType = async () => {
     await articleTypeApi().then((res) => {
-      setTypeList(res);
+      if(res) setTypeList(res);
     });
   };
   // 获取文章内容
@@ -280,7 +279,7 @@ const AddArticle = (props) => {
         articleDate,
       } = res[0];
       console.log(articleDesc);
-      setDesc(articleDesc);
+      setDesContent(articleDesc)
       setTitle(articleTitle); // 设置文章标题
       setArticleContent(articleContent); //设置文章内容
       setHTMLContent(marked(articleContent)); // 设置文章markdown

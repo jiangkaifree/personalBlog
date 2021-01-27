@@ -1,6 +1,6 @@
 import React from "react";
 import Router from "next/router";
-import { Row, Col, Avatar, notification } from "antd";
+import { Row, Col, Avatar, notification, } from "antd";
 import styles from "./header.module.scss";
 import {
   EditTwoTone,

@@ -33,11 +33,11 @@ const Login = (props) => {
       setIsLoading(false);
       if(res) {
         notification.success({
-          message: '登录成功',
-          description: "欢迎回来",
+          message: `登录成功`,
+          description: `欢迎回来!${userName}`,
         });
 
-        localStorage.setItem("openId",res.openId)
+        sessionStorage.setItem("openId",res.openId)
         props.history.push('/admin/data');
       }
     });

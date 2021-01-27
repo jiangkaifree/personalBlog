@@ -7,7 +7,7 @@ module.exports = options =>{
             ctx.body={
                 code: 0,
                 data: {
-                    message: '没有登录'
+                    message: '您还没有登录!'
                 }
             }
         }

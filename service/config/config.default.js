@@ -12,6 +12,9 @@ module.exports = (appInfo) => {
    **/
   const config = (exports = {});
 
+  // config.session = {
+  //   key: 'openId'
+  // }
   // 跨越配置
   config.security = {
     csrf: {
@@ -24,6 +27,7 @@ module.exports = (appInfo) => {
   config.cors = {
     // origin:'http://localhost:3000',
     credentials: true,  //允许Cook可以跨域
+    AccessControlAllowCredentials: true,
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
   };
 

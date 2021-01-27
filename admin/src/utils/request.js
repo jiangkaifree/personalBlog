@@ -1,8 +1,8 @@
 /*
  * @Author: jk
  * @Date: 2020-12-16 19:08:00
- * @Last Modified by: 小菜鸡
- * @Last Modified time: 2021-01-21 10:13:58
+ * @Last Modified by: jk
+ * @Last Modified time: 2021-01-27 19:32:46
  */
 /**
  * 导入axios
@@ -26,8 +26,7 @@ axios.interceptors.request.use(
     config.headers = {
       "Content-Type": "application/json",
     };
-    // config.headers.x-auth-token = "a7d5e2660c064f85aea0632eeddce0cb"
-    // config.headers["x-auth-token"] = "a7d5e2660c064f85aea0632eeddce0cb";
+
     return config;
   },
   (error) => {

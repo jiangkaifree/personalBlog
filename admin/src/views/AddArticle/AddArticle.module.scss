@@ -46,6 +46,20 @@ main {
       border-bottom: 1px solid #eee;
       border-top: 1px solid #eee;
     }
+    p {
+      margin: 10px 0;
+      letter-spacing: 1px;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 20px 0;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
   }
 
   //   表单抽屉
@@ -64,7 +78,7 @@ main {
       margin-bottom: 10px;
     }
   }
-
+  
   pre {
     position: relative;
     border-radius: 3px;
@@ -95,8 +109,8 @@ main {
   code {
     // background-color: #fff5f5;
     // background-color: #1d1f21;
-    margin: 0 3px;
-    padding: 5px 8px;
+    margin: 0 5px;
+    padding: 0 8px;
     overflow-y: auto;
     font-weight: 400;
     word-break: break-word;

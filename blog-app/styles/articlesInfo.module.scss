@@ -2,7 +2,7 @@
  * @Author: jk 
  * @Date: 2020-12-07 16:46:26 
  * @Last Modified by: jk
- * @Last Modified time: 2021-01-22 19:54:03
+ * @Last Modified time: 2021-01-27 16:52:30
  */
 
 .main {
@@ -10,6 +10,7 @@
   .left {
     background-color: #fff;
     padding: 0.3rem;
+    margin-bottom: 40px;
     border-radius: 0.3rem;
     // border-bottom: 1px solid #eee;
     box-shadow: 0 4px 8px 0 rgba(28, 31, 33, 0.08);
@@ -43,7 +44,16 @@
       margin: 0.5rem 1rem;
       font-size: 16px;
       color: #666;
+      p{
+        margin: 10px 0;
+        letter-spacing: 1px;
+      }
+      h1,h2,h3,h4,h5,h6{
+        margin: 20px 0;
+        font-weight: 600;
+        letter-spacing: 1px;
 
+      }
       pre {
         position: relative;
         border-radius: 5px;
@@ -59,11 +69,13 @@
         code {
           // background-color:transparent;
           background-color: #1d1f21;
+         
         }
       }
       code {
         // display: block;
-        padding: 5px 8px;
+        margin: 0 5px;
+        padding: 0 8px;
         overflow-y: auto;
         font-weight: 400;
         word-break: break-word;
@@ -71,6 +83,7 @@
         overflow-x: auto;
         background-color: #fff5f5;
         color: #ff502c;
+        
       }
     }
   }
@@ -79,5 +92,19 @@
     margin-left: 0.5rem;
     padding: 0.3rem;
     border-radius: 0.3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .backTop {
+      height: 40px;
+      width: 40px;
+      line-height: 40px;
+      border-radius: 4px;
+      background-color: #1088e9;
+      color: "#fff";
+      text-align: center;
+      font-size: 14px;
+      box-sizing: 0 0.1em 0.5em 0 rgb(0 0 0 / 28%);
+    }
   }
 }

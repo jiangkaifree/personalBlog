@@ -13,8 +13,8 @@ const PersonInfo = () => {
           src="/assets/avatar.jpg"
         />
         <div className={styles.titleWrap}>
-          <img src="/assets/hi.svg" />
-          <p>你好! 欢迎来到我的网站</p>
+          {/* <img src="/assets/hi.svg" /> */}
+          <p>👋你好! 😄 欢迎来到我的网站</p>
         </div>
       </Space>
       <p className={styles.job}>我是一个小菜鸡，从事前端工作</p>

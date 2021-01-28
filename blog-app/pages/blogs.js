@@ -56,6 +56,7 @@ const blogList = ({ articleList }) => {
       <Row type="flex" justify="center">
         <Col className={styles.left} xs={24} sm={24} md={18} lg={22} xl={18}>
           <List
+          className={styles.listWrap}
             grid={{
               gutter: 16,
               xs: 1,
@@ -67,7 +68,7 @@ const blogList = ({ articleList }) => {
             }}
             dataSource={list}
             renderItem={(item) => (
-              <List.Item className={styles.listWrap}>
+              <List.Item className={styles.listItem}>
                 <Card
                   title={item.articleTitle}
                   onClick={() => goArticleInfo(item.articleId)}

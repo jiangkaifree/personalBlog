@@ -42,7 +42,7 @@ const Header = () => {
           sm={24}
           xs={24}
         >
-          <Avatar icon={<UserOutlined />}  src='/assets/avatar.jpg'/>
+          <Avatar icon={<UserOutlined />} className={styles.avatar} src='/assets/avatar.jpg'/>
           {/* <Avatar icon={<UserOutlined />}  src={process.env.avatarURL}/> */}
         </Col>
         <Col

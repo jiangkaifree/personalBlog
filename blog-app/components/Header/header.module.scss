@@ -1,12 +1,16 @@
 .headerWrap {
   position: sticky;
   top: 0;
-  padding: 15px 0 15px 15px;
+  height: 45px;
+  line-height: 45px;
   background-color: #fff;
-  font-size: 1rem;
+  font-size: .9rem;
   z-index: 1;
   box-shadow: 0 4px 8px 0 rgba(7, 17, 27, 0.1);
   
+  .avatar{
+    margin-left: 10px;
+  }
   .headerItem {
     span {
       margin: 0 0.5rem;

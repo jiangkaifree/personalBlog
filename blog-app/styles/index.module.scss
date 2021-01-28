@@ -1,8 +1,8 @@
 /*
  * @Author: jk 
  * @Date: 2020-12-01 13:31:22 
- * @Last Modified by: jk
- * @Last Modified time: 2021-01-20 14:25:55
+ * @Last Modified by: 小菜鸡
+ * @Last Modified time: 2021-01-28 19:07:28
  */
 
 .main {
@@ -19,15 +19,16 @@
     .listWrap {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       margin: 40px 0;
       transition: all 0.3s;
 
       // align-items: center;
       &:hover {
-        transform: translateY(-20px);
+        transform: translateY(-15px);
       }
       .infoWrap {
-        flex: 0.95;
+        flex: 1;
         margin-left: 1rem;
       
         .tagWrap {
@@ -54,17 +55,28 @@
         }
       }
       .img {
+        width: 200px;
+        height: 160px;
         border-radius: 32px;
         box-shadow: 2px 4px 25px rgba(0, 0, 0, 0.15);
       }
+                
+      @media screen and (max-width: 500px) {
+        .img {
+          width: 80px;
+          height: 80px;
+        }
+      }
+      
     }
   }
 
   .right {
     background-color: #fff;
-    margin-left: 0.5rem;
+    // margin-left: 0.5rem;
     padding: 0.3rem;
     border-radius: 0.3rem;
     // border-bottom: 1px solid #eee;
   }
 }
+

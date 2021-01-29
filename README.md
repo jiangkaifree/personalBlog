@@ -1,6 +1,9 @@
 # personal-blog
 
-#### 介绍以及文件
+### 项目预览
+ [前端项目预览](http://39.104.66.213:3000/)
+
+#### 文件介绍
 这是应该个人博客项目
 *  admin ······ **使用React Hook + Andt + Axios 搭建的blog管理后台**
 *  blog-app ······ **使用Next.js + Antd 搭建的blog前端页面**

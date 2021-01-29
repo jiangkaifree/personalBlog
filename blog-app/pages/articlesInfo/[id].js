@@ -2,7 +2,7 @@
  * @Author: jk
  * @Date: 2020-12-07 16:37:57
  * @Last Modified by: jk
- * @Last Modified time: 2021-01-29 19:30:39
+ * @Last Modified time: 2021-01-29 19:34:35
  */
 import { createContext } from "react";
 import { Row, Col, Breadcrumb, Divider, Tag, BackTop } from "antd";
@@ -80,10 +80,10 @@ const articlesInfo = ({ blogInfo }) => {
           className={styles.left}
           xs={24}
           sm={24}
-          md={24}
-          lg={18}
+          md={20}
+          lg={16}
           xl={12}
-          xxl={14}
+          xxl={10}
         >
           <Breadcrumb className={styles.Breadcrumb}>
             <Breadcrumb.Item href="/">

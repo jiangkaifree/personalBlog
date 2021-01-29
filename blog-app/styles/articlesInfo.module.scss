@@ -2,7 +2,7 @@
  * @Author: jk 
  * @Date: 2020-12-07 16:46:26 
  * @Last Modified by: jk
- * @Last Modified time: 2021-01-27 16:52:30
+ * @Last Modified time: 2021-01-29 19:24:36
  */
 
 .main {
@@ -20,7 +20,7 @@
     > .infoWrap {
       margin: 1rem auto;
       > h5 {
-        font-size: 18px;
+        font-size: 20px;
         font-weight: 550;
         columns: #333;
         text-align: center;
@@ -35,7 +35,7 @@
         span {
           margin: 0.5rem;
           .time {
-            color: #ffe0d8;
+            color: #ff7675;
           }
         }
       }
@@ -47,44 +47,57 @@
       p{
         margin: 10px 0;
         letter-spacing: 1px;
+        code {
+          // display: block;
+          margin: 0 5px;
+          padding: 3px 5px;
+          line-height: 30px;
+
+          overflow-y: auto;
+          font-weight: 550;
+          word-break: break-word;
+          border-radius: 2px;
+          overflow-x: auto;
+          background-color: #fff5f5;
+          color: #ff502c;
+        }
       }
       h1,h2,h3,h4,h5,h6{
         margin: 20px 0;
         font-weight: 600;
         letter-spacing: 1px;
-
-      }
-      pre {
-        position: relative;
-        border-radius: 5px;
-        // margin: 10px 0;
-        overflow: hidden;
-        padding: 15px 12px;
-        margin: 0;
-        word-break: normal;
-        display: block;
-        overflow-x: auto;
-        color: #333;
-        background: #1d1f21;
         code {
-          // background-color:transparent;
-          background-color: #1d1f21;
-         
+          // display: block;
+          margin: 0 5px;
+          padding: 3px 5px;
+          line-height: 30px;
+          overflow-y: auto;
+          font-weight: 550;
+          word-break: break-word;
+          border-radius: 2px;
+          overflow-x: auto;
+          background-color: #fff5f5;
+          color: #ff502c;
         }
       }
-      code {
+      pre {
+        // position: relative;
+        border-radius: 10px;
+        // // margin: 10px 0;
+        // overflow: hidden;
+        padding: 15px 12px;
+        margin: 10px 5px;
+        // word-break: normal;
         // display: block;
-        margin: 0 5px;
-        padding: 0 8px;
-        overflow-y: auto;
-        font-weight: 400;
-        word-break: break-word;
-        border-radius: 2px;
-        overflow-x: auto;
-        background-color: #fff5f5;
-        color: #ff502c;
-        
+        // overflow-x: auto;
+        color: #eee;
+        background: rgb(40, 44, 52);
+        // code {
+        //   background-color:transparent;
+        // //  color: rgb(197, 165, 197);
+        // }
       }
+      
     }
   }
   .right {
@@ -92,9 +105,9 @@
     margin-left: 0.5rem;
     padding: 0.3rem;
     border-radius: 0.3rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: space-between;
     .backTop {
       height: 40px;
       width: 40px;

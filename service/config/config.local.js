@@ -18,7 +18,7 @@ module.exports = (appInfo) => {
       enable: false,
       ignoreJSON: true
     },
-    domainWhiteList: ['http://localhost:3000','http://localhost:3001']//[]中放放出的白名单，*代表所有
+    domainWhiteList: ['http://http://39.104.66.213:3000','http://39.104.66.213:3001']//[]中放放出的白名单，*代表所有
   };
   config.cors = {
     // origin:'http://localhost:3000',

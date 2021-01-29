@@ -1,8 +1,8 @@
 /*
  * @Author: jk 
  * @Date: 2020-12-01 13:31:22 
- * @Last Modified by: 小菜鸡
- * @Last Modified time: 2021-01-28 19:07:28
+ * @Last Modified by: jk
+ * @Last Modified time: 2021-01-29 15:20:46
  */
 
 .main {
@@ -35,7 +35,7 @@
           // font-size: 14px;
           margin-top: 10px;
           :global(.ant-tag) {
-            font-size: 15px;
+            font-size: 13px;
           }
         }
         .title {
@@ -59,6 +59,7 @@
         height: 160px;
         border-radius: 32px;
         box-shadow: 2px 4px 25px rgba(0, 0, 0, 0.15);
+        object-fit: cover;
       }
                 
       @media screen and (max-width: 500px) {

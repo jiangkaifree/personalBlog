@@ -17,7 +17,7 @@ const blogList = ({ articleList }) => {
       query: {
         id,
       },
-    });
+    },`./articlesInfo/[id]`);
   };
 
   /**
@@ -32,7 +32,6 @@ const blogList = ({ articleList }) => {
     );
     const { data } = await res.json();
     setList(data)
- 
   };
 
   return (
@@ -87,10 +86,10 @@ const blogList = ({ articleList }) => {
                       <BellTwoTone /> {item.articleDate}
                     </span>
                     <span>
-                      <VideoCameraTwoTone /> 视频教程
+                      <VideoCameraTwoTone />
                     </span>
                     <span>
-                      <EyeTwoTone /> 5498人
+                      <EyeTwoTone /> 
                     </span>
                   </div>
                 </Card>

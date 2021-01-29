@@ -1,10 +1,10 @@
 /*
  * @Author: jk
  * @Date: 2020-12-07 16:37:57
- * @Last Modified by: 小菜鸡
- * @Last Modified time: 2021-01-28 17:52:07
+ * @Last Modified by: jk
+ * @Last Modified time: 2021-01-29 19:30:39
  */
-
+import { createContext } from "react";
 import { Row, Col, Breadcrumb, Divider, Tag, BackTop } from "antd";
 import Head from "next/head";
 // import ReactMarkdown from "react-markdown"; // 导入markdown
@@ -19,10 +19,14 @@ import hljs from "highlight.js"; // 导入高亮插件
 import "highlight.js/styles/monokai-sublime.css"; //导入highlight的css
 import styles from "styles/articlesInfo.module.scss";
 import Header from "components/Header/Header";
-import Indexs from "components/Indexs/Indexs";
+import ArticleIndexs from "components/ArticleIndexs/ArticleIndexs";
 // import RightAside from "components/RightAside/RightAside";     // 侧边栏
 
+
+
 const articlesInfo = ({ blogInfo }) => {
+  const IndexCxt = createContext();
+
   // marked配置
   marked.setOptions({
     renderer: new marked.Renderer(),
@@ -39,12 +43,26 @@ const articlesInfo = ({ blogInfo }) => {
     },
   });
 
+  const indexList = [
+    {
+      title: "1、根本理念上的不同",
+      key: "1、根本理念上的不同"
+    },
+    {
+      title: "2、单文件组件",
+      key: "2、单文件组件",
+    },
+  ];
+
   return (
     <>
       <Head>
         <title>小菜鸡的BLOG 🤔 </title>
         <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"></meta>
+        <meta
+          name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"
+        ></meta>
         <meta
           name="keywords"
           content="前端技术,个人BLOG,技术交流分享,开发日常记录,blog记录,Vue手记分享,开发分享,react开发记录手记"
@@ -56,22 +74,22 @@ const articlesInfo = ({ blogInfo }) => {
         <link rel="icon" href="/assets/avatar.jpg"></link>
       </Head>
       <Header></Header>
-      <Row className={styles.main} type="flex" justify="center" align="top" >
+      <Row className={styles.main} type="flex" justify="center" align="top">
         <Col
-          id='info'
+          id="info"
           className={styles.left}
           xs={24}
           sm={24}
-          md={16}
+          md={24}
           lg={18}
-          xl={14}
-          xxl={13}
+          xl={12}
+          xxl={14}
         >
           <Breadcrumb className={styles.Breadcrumb}>
             <Breadcrumb.Item href="/">
               <HomeOutlined />
             </Breadcrumb.Item>
-            <Breadcrumb.Item href="">
+            <Breadcrumb.Item href="/blogs">
               <ReadOutlined />
               <span>文章BLOG</span>
             </Breadcrumb.Item>
@@ -81,11 +99,11 @@ const articlesInfo = ({ blogInfo }) => {
             <h5>{blogInfo.articleTitle}</h5>
             <div className={styles.titleWrap}>
               <span>
-                <FieldTimeOutlined className={styles.time} />{" "}
+                <FieldTimeOutlined className={styles.time} />
                 {blogInfo.articleDate}
               </span>
               <span>
-                <VideoCameraTwoTone twoToneColor="#fff3b2" />{" "}
+                <VideoCameraTwoTone twoToneColor="#00cec9" />
                 {blogInfo.articleType}
               </span>
               {/* <span>
@@ -106,18 +124,16 @@ const articlesInfo = ({ blogInfo }) => {
                 __html: marked(blogInfo.articleContent),
               }}
             ></div>
-
-          
           </section>
         </Col>
 
-        <Col className={styles.right} xs={0} sm={0} md={7} lg={5} xl={4}>
-          {/* 右侧 */}
-          <Indexs></Indexs>
-          <BackTop className={styles.backTop}>
-            UP
-          </BackTop>
-        </Col>
+        {/* <Col className={styles.right} xs={0} sm={0} md={7} lg={5} xl={4} xxl={8}>
+          <IndexCxt.Provider value={indexList}>
+            <ArticleIndexs IndexCxt={IndexCxt}></ArticleIndexs>
+          </IndexCxt.Provider> 
+
+           <BackTop className={styles.backTop} target ={()=>document.getElementById('info')}>UP</BackTop>
+        </Col> */}
       </Row>
       {/* <RightAside></RightAside> */}
     </>

@@ -11,12 +11,13 @@ const Index = ({ articleList }) => {
   // 进入详情页面
   const goArticleInfo = (id) => {
     // console.log(id)
+    // Router.push({ pathname: './articlesInfo/[id]', query: { id: 1 } },`/articlesInfo/${id}`)
     Router.push({
       pathname: "./articlesInfo/[id]",
       query: {
         id,
       },
-    });
+    },`./articlesInfo/[id]`);
   };
 
   return (
@@ -25,7 +26,10 @@ const Index = ({ articleList }) => {
       <Head>
         <title>小菜鸡的BLOG 🤔 </title>
         <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"></meta>
+        <meta
+          name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"
+        ></meta>
         <meta
           name="keywords"
           content="前端技术,个人BLOG,技术交流分享,开发日常记录,blog记录,Vue手记分享,开发分享,react开发记录手记"
@@ -78,8 +82,8 @@ const Index = ({ articleList }) => {
 export const getStaticProps = async () => {
   const res = await fetch(process.env.baseURL + "/client/index");
   const { data } = await res.json();
-  for (let idx in data){
-    data[idx].img = process.env.indexImgList[idx]
+  for (let idx in data) {
+    data[idx].img = process.env.indexImgList[idx];
   }
   return {
     props: {

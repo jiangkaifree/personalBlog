@@ -1,6 +1,6 @@
 import React from "react";
 import Router from "next/router";
-import { Row, Col, Avatar, notification, } from "antd";
+import { Row, Col, Avatar, notification, Space } from "antd";
 import styles from "./header.module.scss";
 import {
   EditTwoTone,
@@ -20,6 +20,13 @@ const Header = () => {
     });
   };
 
+  // 返回首页
+  const goIndexPage = ()=>{
+    Router.replace({
+      pathname: '/'
+    })
+  }
+
   // 进入视频教程页面
   const goVideoPage = () => {
     notification.info({
@@ -34,15 +41,16 @@ const Header = () => {
   return (
     <header className={styles.headerWrap}>
       <Row align="middle" justify="space-around">
-        <Col
-          xxl={16}
-          xl={12}
-          lg={12}
-          md={8}
-          sm={24}
-          xs={24}
-        >
-          <Avatar icon={<UserOutlined />} className={styles.avatar} src='/assets/avatar.jpg'/>
+        <Col xxl={16} xl={12} lg={12} md={8} sm={24} xs={24}>
+          <Space>
+          <Avatar
+            icon={<UserOutlined />}
+            className={styles.avatar}
+            src="/assets/avatar.jpg"
+            onClick={goIndexPage}
+          />
+          小菜鸡的BLOG
+          </Space>
           {/* <Avatar icon={<UserOutlined />}  src={process.env.avatarURL}/> */}
         </Col>
         <Col

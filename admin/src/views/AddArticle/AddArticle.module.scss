@@ -85,25 +85,15 @@ main {
     // border: 1px solid #c3ccd0;
     overflow: hidden;
     padding: 15px 12px;
-    margin: 0;
+    margin: 10px 5px;
     word-break: normal;
     display: block;
     overflow-x: auto;
-    color: #333;
     // background: #fff5f5;
-    background-color: #1d1f21;
+    background-color: rgb(40, 44, 52);
     code {
-      // background-color: #fff5f5;
-      // background-color: #1d1f21;
-      margin: 0 3px;
-      padding: 5px 8px;
-      overflow-y: auto;
-      font-weight: 400;
-      word-break: break-word;
-      border-radius: 2px;
-      overflow-x: auto;
-      background-color: #1d1f21;
-      // color: #ff502c;
+      background-color: transparent;
+   
     }
   }
   code {

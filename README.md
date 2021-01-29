@@ -9,7 +9,7 @@
 *  blog-app ······ **使用Next.js + Antd 搭建的blog前端页面**
 *  service ······ **使用egg.js 搭建的后端服务**
 *  antd-pro ······ **阿里的andt-admin 后续考虑admin向该项目迁移**
-*  mysql ······ **数据库表结构**
+*  blog.sql ······ **数据库表结构**
 *  README_files ······ readme.md中使用到的图片 真实项目当中无用
 
 

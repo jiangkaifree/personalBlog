@@ -83,13 +83,14 @@ const blogList = ({ articleList }) => {
                   </Divider>
                   <div className={styles.infoWrap}>
                     <span>
-                      <BellTwoTone /> {item.articleDate}
+                      <BellTwoTone /> {item.articleDate} 
                     </span>
                     <span>
-                      <VideoCameraTwoTone />
+                      <VideoCameraTwoTone />{item.articleType} 
                     </span>
                     <span>
                       <EyeTwoTone /> 
+                      {item.viewCount}
                     </span>
                   </div>
                 </Card>

@@ -461,6 +461,14 @@ const Data = () => {
         </div>
       </div>
 
+ {/* 折线图 */}
+ <div className={styles.lineWrap}>
+        <div className={styles.lineChart}>
+          <Line {...lineConfig} />
+        </div>
+      </div>
+
+
       <div className={styles.latestWrap}>
         <div className={styles.viewWrap}>
           <p className={styles.viewsTitle}>近三天浏览最多</p>
@@ -486,12 +494,7 @@ const Data = () => {
         </div>
       </div>
 
-      {/* 折线图 */}
-      <div className={styles.lineWrap}>
-        <div className={styles.lineChart}>
-          <Line {...lineConfig} />
-        </div>
-      </div>
+     
     </section>
   );
 };

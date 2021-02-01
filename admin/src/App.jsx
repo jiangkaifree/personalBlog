@@ -2,7 +2,7 @@
  * @Author: jk
  * @Date: 2020-12-14 10:57:56
  * @Last Modified by: jk
- * @Last Modified time: 2021-02-01 09:52:51
+ * @Last Modified time: 2021-02-01 16:16:35
  */
 
 import { useState, useEffect } from "react";
@@ -25,7 +25,7 @@ import {
 } from "@ant-design/icons";
 
 import styles from "./App.module.scss";
-import screenfull from 'screenfull'         // 导入全屏插件
+import screenfull from "screenfull"; // 导入全屏插件
 import Routes from "./router";
 // 登录页面
 import Login from "./views/Login/Login";
@@ -132,7 +132,9 @@ function App(props) {
   /**
    * TODO 实现页面全屏化功能
    */
-  const fullScreen = () => { screenfull.toggle()}
+  const fullScreen = () => {
+    screenfull.toggle();
+  };
 
   return (
     <div className={styles.App}>
@@ -192,6 +194,7 @@ function App(props) {
                     </Menu.Item>
                   ))}
 
+
                   {/* <Menu.Item key="data">
                     <PieChartOutlined />
                     <span>实时数据</span>
@@ -238,8 +241,11 @@ function App(props) {
                     <Breadcrumb.Item>{breadcrumbItem}</Breadcrumb.Item>
                   </Breadcrumb>
                   <Space size="large" className={styles.infoWrap}>
-                    <ExpandOutlined className={styles.screen} onClick={fullScreen} />
-                    
+                    <ExpandOutlined
+                      className={styles.screen}
+                      onClick={fullScreen}
+                    />
+
                     <Badge
                       size="small"
                       className={styles.infoItem}
@@ -259,7 +265,7 @@ function App(props) {
                     <Badge title="设置" className={styles.settingItem}>
                       <SettingOutlined />
                     </Badge>
-                    <Badge dot color="#1abc9c" title='个人信息'>
+                    <Badge dot color="#1abc9c" title="个人信息">
                       <Avatar icon={<UserOutlined />} />
                     </Badge>
                   </Space>

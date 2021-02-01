@@ -1,15 +1,20 @@
 /*
  * @Author: jk
  * @Date: 2020-12-14 10:57:56
- * @Last Modified by: 小菜鸡
- * @Last Modified time: 2021-01-21 15:27:03
+ * @Last Modified by: jk
+ * @Last Modified time: 2021-02-01 09:52:51
  */
 
 import { useState, useEffect } from "react";
 import { Route, Switch, Redirect, withRouter } from "react-router-dom";
 import QueueAnim from "rc-queue-anim";
 import { Layout, Menu, Breadcrumb, Avatar, Space, Badge } from "antd";
-import { BellOutlined, MailOutlined, SettingOutlined } from "@ant-design/icons";
+import {
+  BellOutlined,
+  MailOutlined,
+  SettingOutlined,
+  ExpandOutlined,
+} from "@ant-design/icons";
 import {
   EditOutlined,
   AudioOutlined,
@@ -20,6 +25,7 @@ import {
 } from "@ant-design/icons";
 
 import styles from "./App.module.scss";
+import screenfull from 'screenfull'         // 导入全屏插件
 import Routes from "./router";
 // 登录页面
 import Login from "./views/Login/Login";
@@ -107,7 +113,7 @@ function App(props) {
 
   useEffect(() => {
     const titleList = {
-      "/admin/data": "可视化数据",
+      "/admin/data": "数据台",
       "/admin/articlesList": "文章列表",
       "/admin/chat": "留言管理",
     };
@@ -122,6 +128,11 @@ function App(props) {
     props.history.push(menuList[key].path);
     setBreadcrumbItem(menuList[key].title);
   };
+
+  /**
+   * TODO 实现页面全屏化功能
+   */
+  const fullScreen = () => { screenfull.toggle()}
 
   return (
     <div className={styles.App}>
@@ -227,7 +238,14 @@ function App(props) {
                     <Breadcrumb.Item>{breadcrumbItem}</Breadcrumb.Item>
                   </Breadcrumb>
                   <Space size="large" className={styles.infoWrap}>
-                    <Badge size="small"  className={styles.infoItem} count={5} title="您有三条通知!">
+                    <ExpandOutlined className={styles.screen} onClick={fullScreen} />
+                    
+                    <Badge
+                      size="small"
+                      className={styles.infoItem}
+                      count={5}
+                      title="您有三条通知!"
+                    >
                       <BellOutlined />
                     </Badge>
 
@@ -241,7 +259,7 @@ function App(props) {
                     <Badge title="设置" className={styles.settingItem}>
                       <SettingOutlined />
                     </Badge>
-                    <Badge dot color="#1abc9c">
+                    <Badge dot color="#1abc9c" title='个人信息'>
                       <Avatar icon={<UserOutlined />} />
                     </Badge>
                   </Space>

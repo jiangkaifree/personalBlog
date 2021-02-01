@@ -1,5 +1,12 @@
 // import { useState, useEffect } from "react";
-import { TinyArea, Progress, TinyColumn, Rose } from "@ant-design/charts";
+import {
+  TinyArea,
+  Progress,
+  TinyColumn,
+  Rose,
+  Line,
+  Bar,
+} from "@ant-design/charts";
 import {
   QuestionOutlined,
   RiseOutlined,
@@ -164,6 +171,240 @@ const Data = () => {
     },
   ];
 
+  /**
+   * TODO 折线图配置
+   */
+  const lineConfig = {
+    data: [
+      {
+        name: "Vue.js",
+        month: "01月份",
+        count: 12,
+      },
+      {
+        name: "Vue.js",
+        month: "02月份",
+        count: 34,
+      },
+      {
+        name: "Vue.js",
+        month: "03月份",
+        count: 22,
+      },
+      {
+        name: "Vue.js",
+        month: "04月份",
+        count: 49,
+      },
+      {
+        name: "Vue.js",
+        month: "05月份",
+        count: 34,
+      },
+      {
+        name: "Vue.js",
+        month: "06",
+        count: 19,
+      },
+      {
+        name: "Vue.js",
+        month: "07月份",
+        count: 20,
+      },
+      {
+        name: "Vue.js",
+        month: "08月份",
+        count: 9,
+      },
+      {
+        name: "Vue.js",
+        month: "09月份",
+        count: 18,
+      },
+      {
+        name: "Vue.js",
+        month: "10月份",
+        count: 13,
+      },
+      {
+        name: "Vue.js",
+        month: "11月份",
+        count: 12,
+      },
+      {
+        name: "Vue.js",
+        month: "12月份",
+        count: 25,
+      },
+      {
+        name: "React.js",
+        month: "01月份",
+        count: 10,
+      },
+      {
+        name: "React.js",
+        month: "02月份",
+        count: 21,
+      },
+      {
+        name: "React.js",
+        month: "03月份",
+        count: 22,
+      },
+      {
+        name: "React.js",
+        month: "04月份",
+        count: 37,
+      },
+      {
+        name: "React.js",
+        month: "05月份",
+        count: 34,
+      },
+      {
+        name: "React.js",
+        month: "06",
+        count: 45,
+      },
+      {
+        name: "React.js",
+        month: "07月份",
+        count: 25,
+      },
+      {
+        name: "React.js",
+        month: "08月份",
+        count: 19,
+      },
+      {
+        name: "React.js",
+        month: "09月份",
+        count: 29,
+      },
+      {
+        name: "React.js",
+        month: "10月份",
+        count: 23,
+      },
+      {
+        name: "React.js",
+        month: "11月份",
+        count: 11,
+      },
+      {
+        name: "React.js",
+        month: "12月份",
+        count: 12,
+      },
+      {
+        name: "其他",
+        month: "01月份",
+        count: 10,
+      },
+      {
+        name: "其他",
+        month: "02月份",
+        count: 11,
+      },
+      {
+        name: "其他",
+        month: "03月份",
+        count: 12,
+      },
+      {
+        name: "其他",
+        month: "04月份",
+        count: 32,
+      },
+      {
+        name: "其他",
+        month: "05月份",
+        count: 34,
+      },
+      {
+        name: "其他",
+        month: "06",
+        count: 30,
+      },
+      {
+        name: "其他",
+        month: "07月份",
+        count: 25,
+      },
+      {
+        name: "其他",
+        month: "08月份",
+        count: 23,
+      },
+      {
+        name: "其他",
+        month: "09月份",
+        count: 21,
+      },
+      {
+        name: "其他",
+        month: "10月份",
+        count: 46,
+      },
+      {
+        name: "其他",
+        month: "11月份",
+        count: 34,
+      },
+      {
+        name: "其他",
+        month: "12月份",
+        count: 23,
+      },
+    ],
+    xField: "month",
+    yField: "count",
+    seriesField: "name",
+    interactions: [{ type: "marker-active" }],
+    legend: { position: "top" },
+    smooth: true,
+    animation: {
+      appear: {
+        animation: "path-in",
+        duration: 5000,
+      },
+    },
+  };
+
+  /**
+   * TODO 条形图配置
+   */
+  const barConfig = {
+    data: [
+      {
+        year: "2017 年",
+        value: 38,
+      },
+      {
+        year: "2018 年",
+        value: 52,
+      },
+      {
+        year: "2019 年",
+        value: 61,
+      },
+      {
+        year: "2020 年",
+        value: 145,
+      },
+      {
+        year: "2021 年",
+        value: 48,
+      },
+    ],
+    xField: "value",
+    yField: "year",
+    autoFit:true,
+    seriesField: "year",
+    padding: [20,60],
+    legend: { position: "top-right" },
+  };
+
   return (
     <section className={styles.mainWrap}>
       <div className={styles.totalWrap}>
@@ -225,18 +466,30 @@ const Data = () => {
           <p className={styles.viewsTitle}>近三天浏览最多</p>
           {viewsCount.map((item, idx) => (
             <Space size={25} key={item.id} className={styles.viewsList}>
-              <Badge count={idx + 1} className={styles.index}  />
+              <Badge count={idx + 1} className={styles.index} />
 
               <p className={styles.title}>{item.title}</p>
-              <Space size={0} >
+              <Space size={0}>
                 {item.tags.map((tag) => (
-                  <Tag color="blue" key={tag}>{tag}</Tag>
+                  <Tag color="blue" key={tag}>
+                    {tag}
+                  </Tag>
                 ))}
               </Space>
 
               <span className={styles.counts}>{item.counts}</span>
             </Space>
           ))}
+        </div>
+        <div className={styles.barWrap}>
+          <Bar {...barConfig} />
+        </div>
+      </div>
+
+      {/* 折线图 */}
+      <div className={styles.lineWrap}>
+        <div className={styles.lineChart}>
+          <Line {...lineConfig} />
         </div>
       </div>
     </section>

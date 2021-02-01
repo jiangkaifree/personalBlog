@@ -4,18 +4,18 @@
   .layoutWrap {
     min-height: 100vh;
     .siderWrap {
-      background-color: #35378c;
+      background-color: #00b894;
       :global(.ant-layout-sider-children) {
         display: flex;
         flex-direction: column;
       }
       :global(.ant-layout-sider-trigger) {
-        background-color: #35378c;
+        background-color: #00b894;
       }
       .menuWrap {
         color: #fff;
-        background-color: #35378c;
-        border-right-color: #35378c;
+        background-color: #00b894;
+        border-right-color: #00b894;
       }
       .avatarWrap {
         margin: 50px 0;
@@ -43,19 +43,26 @@
         padding: 16px 0;
         position: sticky;
         top: 0;
-        box-shadow: 0 4px 8px 0 rgba(7, 17, 27, 0.1);
+        // box-shadow: 0 4px 8px 0 rgba(7, 17, 27, 0.1);
 
         .infoWrap {
           padding-right: 5px;
           font-size: 15px;
 
           :global(.ant-space-item) {
-            // :global(.ant-badge) {
-            .infoItem {
-              transform: perspective(1px);
+            .screen {
               transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 0.6s;
+
               &:hover {
                 transform: scale(1.5);
+              }
+            }
+            // :global(.ant-badge) {
+            .infoItem {
+              transition: all  cubic-bezier(0.19, 1, 0.22, 1) 0.5s;
+              transform: perspective(1px);
+              &:hover {
+                transform: translateY(-3px);
               }
             }
             .settingItem {

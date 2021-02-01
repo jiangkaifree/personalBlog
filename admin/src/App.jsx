@@ -2,18 +2,25 @@
  * @Author: jk
  * @Date: 2020-12-14 10:57:56
  * @Last Modified by: jk
- * @Last Modified time: 2021-02-01 16:16:35
+ * @Last Modified time: 2021-02-01 17:03:05
  */
 
 import { useState, useEffect } from "react";
-import { Route, Switch, Redirect, withRouter } from "react-router-dom";
+import {
+  Route,
+  Switch as RouterSwitch,
+  Redirect,
+  withRouter,
+} from "react-router-dom";
 import QueueAnim from "rc-queue-anim";
-import { Layout, Menu, Breadcrumb, Avatar, Space, Badge } from "antd";
+import { Layout, Menu, Breadcrumb, Avatar, Space, Badge, Switch } from "antd";
 import {
   BellOutlined,
   MailOutlined,
   SettingOutlined,
   ExpandOutlined,
+  CheckOutlined,
+  CloseOutlined 
 } from "@ant-design/icons";
 import {
   EditOutlined,
@@ -136,11 +143,16 @@ function App(props) {
     screenfull.toggle();
   };
 
+  /**
+   * TODO 切换菜单栏
+   * 
+   */
+
   return (
     <div className={styles.App}>
-      <Switch>
-        <Route path="/user/login" exact component={Login}></Route>
+      <RouterSwitch>
         <Redirect to="/user/login" from="/" exact></Redirect>
+        <Route path="/user/login" exact component={Login}></Route>
         <Route path="/admin/addArticle/:id?" component={AddArticle}></Route>
         <Route exact path="/admin/result" component={ResultPage}></Route>
         <Redirect to="/admin/data" from="/admin" exact></Redirect>
@@ -148,6 +160,7 @@ function App(props) {
           <Layout className={styles.layoutWrap}>
             <Sider
               theme="dark"
+              trigger={null}
               collapsible
               collapsed={collapsed}
               onCollapse={(collapsed) => setCollapsed(collapsed)}
@@ -161,12 +174,16 @@ function App(props) {
                     {new Date().toLocaleDateString()}
                   </p>
                 </div>
+                <div className={styles.switch} key='1'>
+                  <Switch checkedChildren={<CheckOutlined />}
+      unCheckedChildren={<CloseOutlined />} defaultChecked onChange={(checked) => setCollapsed(checked)} />
+                </div>
                 <Menu
                   className={styles.menuWrap}
                   defaultSelectedKeys={activeItem}
                   mode="inline"
                   onClick={({ key }) => setPage(key)}
-                  key="1"
+                  key="2"
                 >
                   {/* {menuList.map((item, index) => (
 
@@ -193,7 +210,6 @@ function App(props) {
                       {item.title}
                     </Menu.Item>
                   ))}
-
 
                   {/* <Menu.Item key="data">
                     <PieChartOutlined />
@@ -225,6 +241,8 @@ function App(props) {
                     <span>留言管理</span>
                   </Menu.Item> */}
                 </Menu>
+
+                
               </QueueAnim>
             </Sider>
             <Layout>
@@ -282,7 +300,7 @@ function App(props) {
         {/* 暂时注释 */}
         <Route path="/404" component={NotFound} />
         <Redirect from="*" to="/404" />
-      </Switch>
+      </RouterSwitch>
     </div>
   );
 }

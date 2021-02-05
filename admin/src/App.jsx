@@ -2,7 +2,7 @@
  * @Author: jk
  * @Date: 2020-12-14 10:57:56
  * @Last Modified by: jk
- * @Last Modified time: 2021-02-01 17:03:05
+ * @Last Modified time: 2021-02-05 15:06:46
  */
 
 import { useState, useEffect } from "react";
@@ -45,7 +45,7 @@ import ResultPage from "./views/ResultPage/ResultPage"; // 结果页面
 
 function App(props) {
   const { Content, Footer, Sider } = Layout;
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
   const [activeItem, setActiveItem] = useState([props.location.pathname]); // 路由
   const [breadcrumbItem, setBreadcrumbItem] = useState("可视化数据"); // 面包屑导航
   // console.log(props.history.listen(route => {
@@ -168,7 +168,7 @@ function App(props) {
             >
               <QueueAnim delay={550} type="left" leaveReverse>
                 <div className={styles.avatarWrap} key="0">
-                  <Avatar size={50} icon={<UserOutlined />} />
+                  <Avatar size={50} src='/avatar.jpg' />
                   <p className={styles.name}>小菜鸡</p>
                   <p className={styles.date}>
                     {new Date().toLocaleDateString()}
@@ -284,7 +284,7 @@ function App(props) {
                       <SettingOutlined />
                     </Badge>
                     <Badge dot color="#1abc9c" title="个人信息">
-                      <Avatar icon={<UserOutlined />} />
+                      <Avatar src='/avatar.jpg' />
                     </Badge>
                   </Space>
                 </div>

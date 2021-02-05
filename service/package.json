@@ -28,7 +28,7 @@
     "dev": "egg-scripts start --env=local --daemon",
     "start": "egg-scripts start --daemon",
     "stop": "egg-scripts stop",
-    "debug": "egg-bin debug",
+    "debug": "egg-bin debug --env=default",
     "test": "npm run lint -- --fix && npm run test-local",
     "test-local": "egg-bin test",
     "cov": "egg-bin cov",

@@ -6,7 +6,9 @@ import "antd/dist/antd.css";
 // 样式重置css
 import "./assets/css/reset.css";
 
-import {  BrowserRouter as Router, } from "react-router-dom";
+// import {  BrowserRouter as Router, } from "react-router-dom";
+import {  HashRouter as Router, } from "react-router-dom";
+
 // import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(

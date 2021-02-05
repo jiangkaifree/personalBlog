@@ -108,7 +108,7 @@ const ArticlesList = (props) => {
 
   return (
     <div className={styles.listWrap}>
-      <Table columns={columns} dataSource={articleList} rowKey="articleId" />
+      <Table columns={columns} dataSource={articleList}  rowKey="articleId" simple />
     </div>
   );
 };

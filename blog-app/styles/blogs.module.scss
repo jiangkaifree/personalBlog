@@ -1,8 +1,8 @@
 /*
  * @Author: jk 
  * @Date: 2021-01-13 10:12:14 
- * @Last Modified by: 小菜鸡
- * @Last Modified time: 2021-01-28 13:29:59
+ * @Last Modified by: jk
+ * @Last Modified time: 2021-02-05 20:25:36
  */
 .left {
   // background-color: #fff;
@@ -42,7 +42,9 @@
         align-items: center;
         justify-content: space-between;
         margin-top: 0.5rem;
-
+        .icons{
+          margin-right: 6px;
+        }
         // padding-top: .5rem;
       }
     }

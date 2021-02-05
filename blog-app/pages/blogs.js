@@ -5,7 +5,7 @@ import { List, Card, Divider, Row, Col, Pagination, Tag } from "antd";
 import { VideoCameraTwoTone, EyeTwoTone, BellTwoTone } from "@ant-design/icons";
 import styles from "../styles/blogs.module.scss"; // 样式
 import Header from "components/Header/Header"; // 头部组件
-// import RightAside from "components/RightAside/RightAside";    // 右侧联系组件
+import RightAside from "components/RightAside/RightAside";    // 右侧联系组件
 
 const blogList = ({ articleList }) => {
   const [list,setList] = useState(articleList)
@@ -83,13 +83,13 @@ const blogList = ({ articleList }) => {
                   </Divider>
                   <div className={styles.infoWrap}>
                     <span>
-                      <BellTwoTone /> {item.articleDate} 
+                      <BellTwoTone className={styles.icons}/>{item.articleDate} 
                     </span>
                     <span>
-                      <VideoCameraTwoTone />{item.articleType} 
+                      <VideoCameraTwoTone className={styles.icons}/>{item.articleType} 
                     </span>
                     <span>
-                      <EyeTwoTone /> 
+                      <EyeTwoTone className={styles.icons}/> 
                       {item.viewCount}
                     </span>
                   </div>
@@ -105,7 +105,7 @@ const blogList = ({ articleList }) => {
             onChange={(page) => changePageIndex(page)}
           />
         </Col>
-        {/* <RightAside></RightAside> */}
+        <RightAside></RightAside>
       </Row>
     </>
   );

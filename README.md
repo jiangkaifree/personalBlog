@@ -1,9 +1,9 @@
 # personal-blog
 
 ### 项目介绍
-这是一个个人博客项目
- [前端项目预览](http://39.104.66.213:3000)
- [管理后台预览](http://39.104.66.213)
+这是一个全栈搭建的个人博客项目。
+ [前端项目预览](https://blog.happynewball.com)
+ [管理后台预览](https://admin.happynewball.com)
  
 
 #### 文件介绍
@@ -15,10 +15,13 @@
 
 #### 运行需要连接数据库 数据库使用的是mysql,需要本地有数据库 。如果使用其他数据库可参照egg.js官方文档自行更改配置
 
-#### 运行教程
+#### 安装
+
 ```javascript
+
 	1.  安装依赖
 	npm i or yarn 
+	
 	2. 运行项目
 	前端项目使用 npm run dev or yarn dev
 	管理后台使用 npm run start or yarn start

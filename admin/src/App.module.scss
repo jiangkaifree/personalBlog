@@ -9,6 +9,10 @@
       :global(.ant-layout-sider-children) {
         display: flex;
         flex-direction: column;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: inherit;
       }
       :global(.ant-layout-sider-trigger) {
         background-color: #00b894;

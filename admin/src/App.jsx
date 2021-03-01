@@ -2,7 +2,7 @@
  * @Author: jk
  * @Date: 2020-12-14 10:57:56
  * @Last Modified by: jk
- * @Last Modified time: 2021-02-05 15:06:46
+ * @Last Modified time: 2021-03-01 17:06:47
  */
 
 import { useState, useEffect } from "react";
@@ -251,7 +251,7 @@ function App(props) {
                 <div className={styles.headerWrap}>
                   <Breadcrumb>
                     <Breadcrumb.Item>
-                      <a href="/admin">
+                      <a href="/admin/data">
                         <HomeOutlined />
                       </a>
                     </Breadcrumb.Item>

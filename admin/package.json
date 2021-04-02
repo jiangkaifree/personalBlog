@@ -2,7 +2,7 @@
   "name": "admin",
   "version": "0.1.0",
   "private": true,
-  "homepage": ".",
+  "homepage": "/",
   "dependencies": {
     "@ant-design/charts": "^1.0.13",
     "@ant-design/icons": "^4.3.0",

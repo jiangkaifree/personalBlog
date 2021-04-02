@@ -47,9 +47,9 @@ const blogList = ({ articleList }) => {
         ></meta>
         <meta
           name="author"
-          content="前端小菜鸡,小菜鸡,工作记录,个人博客,开发分享, 开发日程"
+          content="前端小菜鸡,小菜鸡,工作记录,个人博客,开发分享, 开发日程,BLOG分享"
         ></meta>
-        <link rel="icon" href="/assets/assets/avatar.jpg"></link>
+        <link rel="icon" href="/assets/avatar.jpg"></link>
       </Head>
       <Header></Header>
 

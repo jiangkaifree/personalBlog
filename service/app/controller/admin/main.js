@@ -77,13 +77,13 @@ class MainController extends Controller {
       articleInfo.articleId = new Date().getTime(); // 生成文章id
       const {articleType} = articleInfo
       if(articleType == 4){
-        articleInfo.articleType == '学习笔记'
+        articleInfo.articleType = '学习笔记'
       }else if(articleType == 3){
-        articleInfo.articleType == '资源分享'
+        articleInfo.articleType = '资源分享'
       }else if(articleType == 2){
-        articleInfo.articleType == 'BLOG文章'
+        articleInfo.articleType = 'BLOG文章'
       }else{
-        articleInfo.articleType == '视频教程'
+        articleInfo.articleType = '视频教程'
       }
       const result = await app.mysql.insert("article_info", articleInfo);
       console.log(result, articleInfo.articleId, "fab");

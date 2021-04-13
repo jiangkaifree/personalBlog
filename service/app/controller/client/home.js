@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-const Controller = require("egg").Controller;
+const Controller = require('egg').Controller;
 
 class HomeController extends Controller {
   /**
@@ -9,10 +9,10 @@ class HomeController extends Controller {
   async index() {
     const { ctx, app } = this;
     // const result = await app.mysql.get("blog_content",{})
-    let sql = `SELECT articleTitle,articleId,articleType,articleDate,articleTags FROM article_info ORDER BY articleId limit 4`;
+    const sql = 'SELECT articleTitle,articleId,articleType,articleDate,articleTags FROM article_info ORDER BY articleId DESC limit 4';
     const data = await app.mysql.query(sql);
     // 处理数据
-    for (let item of data) {
+    for (const item of data) {
       item.articleTags = JSON.parse(item.articleTags);
     }
     ctx.body = {
@@ -27,12 +27,12 @@ class HomeController extends Controller {
   async blogList() {
     const { ctx, app } = this;
     // 获取页数索引
-    console.log(ctx)
+    console.log(ctx);
     const { pageIndex } = ctx.query;
-    let sql = `SELECT articleTitle,articleId,articleType,articleDate,articleTags,articleDesc,viewCount FROM article_info ORDER BY articleId limit ${pageIndex},6`;
+    const sql = `SELECT articleTitle,articleId,articleType,articleDate,articleTags,articleDesc,viewCount FROM article_info ORDER BY articleId limit ${pageIndex},6`;
     const data = await app.mysql.query(sql);
     // 处理数据
-    for (let item of data) {
+    for (const item of data) {
       item.articleTags = JSON.parse(item.articleTags);
     }
     ctx.body = {
@@ -54,7 +54,7 @@ class HomeController extends Controller {
     );
     console.log(data);
     // 处理数据
-    for (let item of data) {
+    for (const item of data) {
       item.articleTags = JSON.parse(item.articleTags);
     }
     ctx.body = {

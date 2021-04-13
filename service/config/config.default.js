@@ -1,11 +1,11 @@
 /* eslint valid-jsdoc: "off" */
 
-"use strict";
+'use strict';
 
 /**
  * @param {Egg.EggAppInfo} appInfo app info
  */
-module.exports = (appInfo) => {
+module.exports = appInfo => {
   /**
    * built-in config
    * @type {Egg.EggAppConfig}
@@ -19,20 +19,20 @@ module.exports = (appInfo) => {
   config.security = {
     csrf: {
       enable: false,
-      ignoreJSON: true
+      ignoreJSON: true,
     },
-    domainWhiteList: ['http://localhost:3000','http://localhost:3001']//[]中放放出的白名单，*代表所有
+    domainWhiteList: [ 'http://localhost:3000', 'http://localhost:3001' ], // []中放放出的白名单，*代表所有
   };
   config.cors = {
     // origin:'http://localhost:3000',
-    credentials: true,  //允许Cook可以跨域
+    credentials: true, // 允许Cook可以跨域
     // AccessControlAllowCredentials: true,
     // AccessControlAllowOrigin: true,
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
   };
 
   // use for cookie sign key, should change to your own and keep security
-  config.keys = appInfo.name + "_1606372857132_9984";
+  config.keys = appInfo.name + '_1606372857132_9984';
 
   // add your middleware config here
   config.middleware = [];
@@ -45,16 +45,16 @@ module.exports = (appInfo) => {
     // database configuration
     client: {
       // host
-      host: "localhost",
+      host: 'localhost',
       // port
-      port: "3306",
+      port: '3306',
       // username
-      user: "root",
+      user: 'root',
       // user: "admin",
       // password
-      password: "123456",
+      password: '123456',
       // database
-      database: "blog_test",
+      database: 'blog_test',
     },
     // load into app, default is open
   };

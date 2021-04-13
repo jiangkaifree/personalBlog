@@ -17,5 +17,5 @@ exports.cors = {
 // 配置egg-mysql
 exports.mysql = {
   enable: true,
-  package: 'egg-mysql'
-}
+  package: 'egg-mysql',
+};

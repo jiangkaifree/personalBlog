@@ -23,8 +23,17 @@
 	npm i or yarn 
 	
 	2. 运行项目
-	前端项目使用 npm run dev or yarn dev
-	管理后台使用 npm run start or yarn start
+	前端项目使用 `npm run dev` or `yarn dev`
+	
+	管理后台使用 `npm run start` or `yarn start`
+	
+	后端项目： 该项目我配置了三个环境， 
+	
+	`dev` 是部署线上的远程调试，
+	
+	`start`是生产环境，
+	
+	`debug` 本地开发请使用
 	
 ```
 

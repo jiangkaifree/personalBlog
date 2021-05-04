@@ -21,11 +21,11 @@ const Header = () => {
   };
 
   // 返回首页
-  const goIndexPage = ()=>{
+  const goIndexPage = () => {
     Router.replace({
-      pathname: '/'
-    })
-  }
+      pathname: "/",
+    });
+  };
 
   // 进入视频教程页面
   const goVideoPage = () => {
@@ -43,13 +43,13 @@ const Header = () => {
       <Row align="middle" justify="space-around">
         <Col xxl={16} xl={12} lg={12} md={8} sm={24} xs={24}>
           <Space>
-          <Avatar
-            icon={<UserOutlined />}
-            className={styles.avatar}
-            src="/assets/avatar.jpg"
-            onClick={goIndexPage}
-          />
-          小菜鸡的BLOG
+            <Avatar
+              icon={<UserOutlined />}
+              className={styles.avatar}
+              src="/assets/avatar.jpg"
+              onClick={goIndexPage}
+            />
+            小菜鸡的学习笔记及BLOG
           </Space>
           {/* <Avatar icon={<UserOutlined />}  src={process.env.avatarURL}/> */}
         </Col>
@@ -78,7 +78,7 @@ const Header = () => {
         >
           <span onClick={goVideoPage}>
             <CustomerServiceTwoTone twoToneColor="#eb2f96" />
-            视频教程
+            学习笔记
           </span>
         </Col>
         <Col
@@ -92,7 +92,7 @@ const Header = () => {
         >
           <span onClick={goVideoPage}>
             <FireTwoTone twoToneColor="#52c41a" />
-            工具推荐
+            资源分享
           </span>
         </Col>
         <Col
@@ -106,7 +106,7 @@ const Header = () => {
         >
           <span onClick={goVideoPage}>
             <FlagTwoTone twoToneColor="#68b0ab" />
-            关于
+            工具周边
           </span>
         </Col>
       </Row>

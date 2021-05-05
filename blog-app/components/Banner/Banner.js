@@ -1,4 +1,3 @@
-import React from "react";
 import { Carousel, Row, Col } from "antd";
 import styles from "./Banner.module.scss";
 const Banner = () => {

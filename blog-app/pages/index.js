@@ -1,7 +1,7 @@
 // import { useState } from "react";
 import Router from "next/router";
 import { Row, Col, Image, Tag } from "antd";
-import Head from "next/head";
+import Head from '../components/Head/Head'
 // import RightAside from "components/RightAside/RightAside";
 import PersonInfo from "components/PersonInfo/PersonInfo";
 import Header from "components/Header/Header";
@@ -23,23 +23,7 @@ const Index = ({ articleList }) => {
   return (
     // <div>
     <>
-      <Head>
-        <title>小菜鸡的BLOG 🤔 </title>
-        <meta charSet="utf-8" />
-        <meta
-          name="viewport"
-          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"
-        ></meta>
-        <meta
-          name="keywords"
-          content="前端技术,个人BLOG,技术交流分享,开发日常记录,blog记录,Vue手记分享,开发分享,react开发记录手记"
-        ></meta>
-        <meta
-          name="author"
-          content="前端小菜鸡,小菜鸡,工作记录,个人博客,开发分享"
-        ></meta>
-        <link rel="icon" href="/assets/avatar.jpg"></link>
-      </Head>
+      <Head></Head>
       {/* 头部组件 */}
       <Header></Header>
       <Row className={styles.main} type="flex" justify="center">

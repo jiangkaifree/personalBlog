@@ -1,14 +1,15 @@
 import {useState} from 'react'
 import Router from "next/router";
-import Head from "next/head";
-import { List, Card, Divider, Row, Col, Pagination, Tag } from "antd";
+import { List, Card, Button, Divider, Row, Col, Pagination, Tag } from "antd";
 import { VideoCameraTwoTone, EyeTwoTone, BellTwoTone } from "@ant-design/icons";
 import styles from "../styles/blogs.module.scss"; // 样式
+import Head from '../components/Head/Head'
 import Header from "components/Header/Header"; // 头部组件
 import RightAside from "components/RightAside/RightAside";    // 右侧联系组件
 
 const blogList = ({ articleList }) => {
   const [list,setList] = useState(articleList)
+  const [pages,setPages] = useState(1)
   // 进入详情页面
   const goArticleInfo = (id) => {
     // console.log(process.env.customKey)
@@ -24,33 +25,20 @@ const blogList = ({ articleList }) => {
    * TODO 列表数据切换
    * @param {Number | String} page  页数索引
    */
-  const changePageIndex = async (page) => {
-    
+  const changePageIndex = async () => {
     // 请求获取列表下一页数据
     const res = await fetch(
-      process.env.baseURL + `/client/blogList/?pageIndex=${--page}`
+      process.env.baseURL + `/client/blogList/?pageIndex=${pages}`
     );
     const { data } = await res.json();
-    setList(data)
+    console.log(data,list)
+    setList([...list,...data])
+    setPages(pages + 1)
   };
 
   return (
     <>
-      <Head>
-        <title>小菜鸡的BLOG 🤔</title>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"></meta>
-
-        <meta
-          name="keywords"
-          content="前端技术,个人BLOG,技术交流分享,开发日常记录,blog记录,Vue手记分享,开发分享,react开发记录手记"
-        ></meta>
-        <meta
-          name="author"
-          content="前端小菜鸡,小菜鸡,工作记录,个人博客,开发分享, 开发日程,BLOG分享"
-        ></meta>
-        <link rel="icon" href="/assets/avatar.jpg"></link>
-      </Head>
+      <Head></Head>
       <Header></Header>
 
       <Row type="flex" justify="center">
@@ -98,12 +86,13 @@ const blogList = ({ articleList }) => {
             )}
           />
 
-          <Pagination
+          {/* <Pagination
             className={styles.pageWrap}
             defaultCurrent={1}
             total={50}
             onChange={(page) => changePageIndex(page)}
-          />
+          /> */}
+          <Button type="primary" className={styles.loadMore} onClick={changePageIndex}>Load More</Button>
         </Col>
         <RightAside></RightAside>
       </Row>

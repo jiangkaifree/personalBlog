@@ -1,12 +1,12 @@
 /*
  * @Author: jk
  * @Date: 2020-12-07 16:37:57
- * @Last Modified by: jk
- * @Last Modified time: 2021-02-05 11:22:07
+ * @Last Modified by: 小菜鸡
+ * @Last Modified time: 2021-05-05 11:11:14
  */
 import { createContext } from "react";
 import { Row, Col, Breadcrumb, Divider, Tag, BackTop } from "antd";
-import Head from "next/head";
+import Head from "../../components/Head/Head";
 // import ReactMarkdown from "react-markdown"; // 导入markdown
 import {
   HomeOutlined,
@@ -21,8 +21,6 @@ import styles from "styles/articlesInfo.module.scss";
 import Header from "components/Header/Header";
 import ArticleIndexs from "components/ArticleIndexs/ArticleIndexs";
 // import RightAside from "components/RightAside/RightAside";     // 侧边栏
-
-
 
 const articlesInfo = ({ blogInfo }) => {
   const IndexCxt = createContext();
@@ -46,7 +44,7 @@ const articlesInfo = ({ blogInfo }) => {
   const indexList = [
     {
       title: "1、根本理念上的不同",
-      key: "1、根本理念上的不同"
+      key: "1、根本理念上的不同",
     },
     {
       title: "2、单文件组件",
@@ -56,23 +54,7 @@ const articlesInfo = ({ blogInfo }) => {
 
   return (
     <>
-      <Head>
-        <title>小菜鸡的BLOG 🤔 </title>
-        <meta charSet="utf-8" />
-        <meta
-          name="viewport"
-          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"
-        ></meta>
-        <meta
-          name="keywords"
-          content="前端技术,个人BLOG,技术交流分享,开发日常记录,blog记录,Vue手记分享,开发分享,react开发记录手记"
-        ></meta>
-        <meta
-          name="author"
-          content="前端小菜鸡,小菜鸡,工作记录,个人博客,开发分享, 开发日程"
-        ></meta>
-        <link rel="icon" href="/assets/avatar.jpg"></link>
-      </Head>
+      <Head></Head>
       <Header></Header>
       <Row className={styles.main} type="flex" justify="center" align="top">
         <Col
@@ -82,8 +64,8 @@ const articlesInfo = ({ blogInfo }) => {
           sm={24}
           md={20}
           lg={16}
-          xl={12}
-          xxl={11}
+          xl={14}
+          xxl={12}
         >
           <Breadcrumb className={styles.Breadcrumb}>
             <Breadcrumb.Item href="/">

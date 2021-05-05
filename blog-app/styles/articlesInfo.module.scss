@@ -1,8 +1,8 @@
 /*
  * @Author: jk 
  * @Date: 2020-12-07 16:46:26 
- * @Last Modified by: jk
- * @Last Modified time: 2021-01-29 19:24:36
+ * @Last Modified by: 小菜鸡
+ * @Last Modified time: 2021-05-05 11:24:26
  */
 
 .main {
@@ -44,25 +44,49 @@
       margin: 0.5rem 1rem;
       font-size: 16px;
       color: #666;
-      p{
+      p {
         margin: 10px 0;
         letter-spacing: 1px;
+        font-size: 15px;
+        word-break: break-all;
         code {
           // display: block;
           margin: 0 5px;
-          padding: 3px 5px;
+          padding: 5px;
           line-height: 30px;
+          background: #f8f8f8;
+          color: #ff502c;
 
           overflow-y: auto;
-          font-weight: 550;
           word-break: break-word;
           border-radius: 2px;
           overflow-x: auto;
-          background-color: #fff5f5;
-          color: #ff502c;
         }
       }
-      h1,h2,h3,h4,h5,h6{
+      h1 {
+        font-size: 30px;
+      }
+      h2 {
+        font-size: 26px;
+      }
+      h3 {
+        font-size: 24px;
+      }
+      h4 {
+        font-size: 22px;
+      }
+      h5 {
+        font-size: 20px;
+      }
+      h6 {
+        font-size: 18px;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
         margin: 20px 0;
         font-weight: 600;
         letter-spacing: 1px;
@@ -77,6 +101,7 @@
           border-radius: 2px;
           overflow-x: auto;
           background-color: #fff5f5;
+          // color: #333;
           color: #ff502c;
         }
       }
@@ -84,20 +109,23 @@
         // position: relative;
         border-radius: 10px;
         // // margin: 10px 0;
+        background-color: #f8f8f8;
+        // color: #ff502c;
+        color: #333;
+        font-size: 14px;
         // overflow: hidden;
         padding: 15px 12px;
         margin: 10px 5px;
         // word-break: normal;
         // display: block;
         // overflow-x: auto;
-        color: #eee;
-        background: rgb(40, 44, 52);
+        // color: #eee;
+        // background: rgb(40, 44, 52);
         // code {
         //   background-color:transparent;
         // //  color: rgb(197, 165, 197);
         // }
       }
-      
     }
   }
   .right {

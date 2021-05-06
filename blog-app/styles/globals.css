@@ -11,9 +11,10 @@ body {
 	overflow-x: hidden;
 	/* background-color: #f6f6f6; */
 }
+
+/* 实现黑暗模式代码css */
 .dark {
   transition: color 2s, background-color 2s;
-  /* transition: all 500ms; */
   filter: invert(0.9) hue-rotate(180deg);
 }
 

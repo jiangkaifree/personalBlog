@@ -31,9 +31,12 @@ const Header = () => {
    * TODO 切换黑暗模式
    */
    const changeMode = (checked) =>{
-    console.log(checked,'checked')
+    const html = document.getElementsByTagName('html')[0]
     if(checked){
-      // document.getElementsByTagName('html').style.cssText = 'filter: invert(1) hue-rotate(180deg);'
+      html.classList.add('dark')
+    }else{
+      html.classList.remove('dark')
+
     }
    }
 
@@ -41,7 +44,7 @@ const Header = () => {
   const goVideoPage = () => {
     notification.info({
       message: "暂未开通!",
-      description: "对不起 ,该板块暂未开通服务,后续更新推出，请耐心等待!",
+      description: "抱歉 ,该板块暂未开通服务,后续更新推出，请耐心等待!",
     });
     // Router.push({
     //   pathname
@@ -83,7 +86,6 @@ const Header = () => {
                 <Avatar size="10 " className={styles.moon}   src='/assets/sun.svg' />
 
               }
-              defaultChecked
             />
           </span>
         </Col>

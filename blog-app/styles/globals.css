@@ -11,10 +11,14 @@ body {
 	overflow-x: hidden;
 	/* background-color: #f6f6f6; */
 }
-html {
-  transition: color 300ms, background-color 300ms;
-  /* filter: invert(1) hue-rotate(180deg); */
+.dark {
+  transition: color 2s, background-color 2s;
+  /* transition: all 500ms; */
+  filter: invert(0.9) hue-rotate(180deg);
 }
-html[theme='dark-mode'] img{
+
+
+.dark img{
   filter: invert(1) hue-rotate(180deg);
+ 
 }

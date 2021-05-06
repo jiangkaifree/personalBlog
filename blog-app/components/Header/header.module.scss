@@ -18,7 +18,23 @@
     span {
       margin: 0 0.5rem;
       cursor: pointer;
+
+      @mixin mode{
+        width: 20px;
+        height: 20px;
+        margin-bottom: 5px;
+      }
+      .sun{
+        @include mode;  
+        margin-left: -10px;
+      }
+      .moon{
+        @include mode;
+        margin-right: -10px;
+      }
+      
     }
+    
   }
 }
 // @media screen and (max-width: 500px) {

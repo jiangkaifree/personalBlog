@@ -1,6 +1,6 @@
 import React from "react";
 import Router from "next/router";
-import { Row, Col, Avatar, notification, Space } from "antd";
+import { Row, Col, Avatar, Switch, notification, Space } from "antd";
 import styles from "./header.module.scss";
 import {
   EditTwoTone,
@@ -26,6 +26,16 @@ const Header = () => {
       pathname: "/",
     });
   };
+
+  /**
+   * TODO 切换黑暗模式
+   */
+   const changeMode = (checked) =>{
+    console.log(checked,'checked')
+    if(checked){
+      // document.getElementsByTagName('html').style.cssText = 'filter: invert(1) hue-rotate(180deg);'
+    }
+   }
 
   // 进入视频教程页面
   const goVideoPage = () => {
@@ -62,9 +72,19 @@ const Header = () => {
           xs={0}
           className={styles.headerItem}
         >
-          <span onClick={goBlogPages}>
-            <EditTwoTone />
-            文章BLOG
+          <span>
+            {/* 学习笔记 */}
+            <Switch
+            onChange={(checked) =>changeMode(checked)}
+              checkedChildren={
+                <Avatar className={styles.sun} size="10" src='/assets/moon.svg' />
+              }
+              unCheckedChildren={
+                <Avatar size="10 " className={styles.moon}   src='/assets/sun.svg' />
+
+              }
+              defaultChecked
+            />
           </span>
         </Col>
         <Col
@@ -76,9 +96,9 @@ const Header = () => {
           xs={0}
           className={styles.headerItem}
         >
-          <span onClick={goVideoPage}>
-            <CustomerServiceTwoTone twoToneColor="#eb2f96" />
-            学习笔记
+          <span onClick={goBlogPages}>
+            <EditTwoTone />
+            笔记BLOG
           </span>
         </Col>
         <Col

@@ -5,7 +5,7 @@ import { VideoCameraTwoTone, EyeTwoTone, BellTwoTone } from "@ant-design/icons";
 import styles from "../styles/blogs.module.scss"; // 样式
 import Head from '../components/Head/Head'
 import Header from "components/Header/Header"; // 头部组件
-import RightAside from "components/RightAside/RightAside";    // 右侧联系组件
+// import RightAside from "components/RightAside/RightAside";    // 右侧联系组件
 
 const blogList = ({ articleList }) => {
   const [list,setList] = useState(articleList)
@@ -94,7 +94,7 @@ const blogList = ({ articleList }) => {
           /> */}
           <Button type="primary" className={styles.loadMore} onClick={changePageIndex}>Load More</Button>
         </Col>
-        <RightAside></RightAside>
+        {/* <RightAside></RightAside> */}
       </Row>
     </>
   );

@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Avatar, Space, Button, Tooltip } from "antd";
+// import { useState } from "react";
+import { Avatar, Space, Button, Tooltip, Popover,Image } from "antd";
 import {
   UserOutlined,
   CommentOutlined,
@@ -9,8 +9,6 @@ import {
 } from "@ant-design/icons";
 import styles from "./PersonInfo.module.scss";
 const PersonInfo = () => {
-
-
   return (
     <div className={styles.personInfo}>
       <Space size="large">
@@ -34,7 +32,7 @@ const PersonInfo = () => {
       <div className={styles.platform}>
         <div>
           {/* <GithubOutlined className={styles.github} /> */}
-          <Tooltip title="GitHub" color='#2db7f5'>
+          <Tooltip title="GitHub" color="#2db7f5">
             <Button
               type="link"
               target="_blank"
@@ -56,12 +54,12 @@ const PersonInfo = () => {
         </div>
         <div>
           {/* <WechatOutlined className={styles.github} /> */}
-          <Button
-            type="link"
-            target="_blank"
-            shape="circle"
-            icon={<WechatOutlined />}
-          />
+          <Popover content={ <Image
+      width={200}
+      src="/assets/weChat.jpg"
+    />} placement="right">
+            <Button type="link" shape="circle" icon={<WechatOutlined />} />
+          </Popover>
         </div>
       </div>
 

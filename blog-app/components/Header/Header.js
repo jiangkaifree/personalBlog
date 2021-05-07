@@ -54,7 +54,7 @@ const Header = () => {
   return (
     <header className={styles.headerWrap}>
       <Row align="middle" justify="space-around">
-        <Col xxl={16} xl={12} lg={12} md={8} sm={24} xs={24}>
+        <Col xxl={14} xl={10} lg={10} md={8} sm={24} xs={24}>
           <Space>
             <Avatar
               icon={<UserOutlined />}

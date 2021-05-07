@@ -2,7 +2,7 @@
  * @Author: jk 
  * @Date: 2021-01-13 10:12:14 
  * @Last Modified by: 小菜鸡
- * @Last Modified time: 2021-05-05 11:39:24
+ * @Last Modified time: 2021-05-07 22:49:14
  */
 .left {
   // background-color: #fff;
@@ -56,8 +56,40 @@
     }
   }
 
+  @keyframes shake{
+ 0% {
+        transform: scale(1);
+        transform: scale(1)
+    }
+
+    70%,73%{
+        transform: scale(0.9) rotate(-3deg);
+        transform: scale(0.9) rotate(-3deg)
+    }
+
+    77%,83%,90%,97%  {
+        transform: scale(1.1) rotate(3deg);
+        transform: scale(1.1) rotate(3deg)
+    }
+
+    80%,87%,93%{
+        transform: scale(1.1) rotate(-3deg);
+        transform: scale(1.1) rotate(-3deg)
+    }
+
+    100% {
+        transform: scale(1) rotate(0);
+        transform: scale(1) rotate(0)
+    }
+}
+
   .loadMore{
     margin: 50px auto;
+    animation: shake 2s ease infinite;
+    &:hover{
+    animation: none;
+
+    }
   }
  
 }

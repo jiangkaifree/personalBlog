@@ -67,10 +67,10 @@ const Header = () => {
           {/* <Avatar icon={<UserOutlined />}  src={process.env.avatarURL}/> */}
         </Col>
         <Col
-          xxl={2}
-          xl={3}
-          lg={3}
-          md={4}
+          xxl={1}
+          xl={2}
+          lg={2}
+          md={3}
           sm={0}
           xs={0}
           className={styles.headerItem}

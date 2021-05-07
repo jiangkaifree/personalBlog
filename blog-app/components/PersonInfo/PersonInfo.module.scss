@@ -1,13 +1,10 @@
 .personInfo {
   // width: 30%;
   min-width: 330px;
-  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
-    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-    0 100px 80px rgba(0, 0, 0, 0.12);
-  margin-top: 85px;
+  box-shadow: 20px 20px 60px #ced1d6, -20px -20px 60px #fff;
+  margin-top: 110px;
   margin-bottom: 30px;
-  padding: 20px 30px;
+  padding: 20px 40px;
   background-color: #151515;
   color: #fff;
   border-radius: 30px;
@@ -33,5 +30,44 @@
     display: flex;
     justify-content: flex-end;
     padding-top: 50px;
+
+    @keyframes transZ {
+      0%,
+      100%,
+      20%,
+      50%,
+      80% {
+        transition-timing-function: cubic-bezier(
+          0.215,
+          0.61,
+          0.355,
+          1
+        ); /*贝塞尔曲线 ： X1 Y1 X2 Y2*/
+        transform: translate3d(0, 0, 0); /*设置只在Z轴上移动*/
+      }
+      40%,
+      43% {
+        transition-timing-function: cubic-bezier(0.755, 0.5, 0.855, 0.06);
+        transform: translate3d(0, -22px, 0);
+      }
+      70% {
+        transition-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+        transform: translate3d(0, -13px, 0);
+      }
+      90% {
+        transform: translate3d(0, -4px, 0);
+      }
+    }
+
+    .storageBtn{
+      // animation: transZ 2s ease-in-out infinite;
+
+    }
+
+    .msgBtn {
+      // box-shadow: 20px 20px 60px #5555,-20px -20px 60px #111;
+      // animation: transZ 2s ease-in-out infinite;
+      animation: transZ 2s ease-in-out infinite;
+    }
   }
 }

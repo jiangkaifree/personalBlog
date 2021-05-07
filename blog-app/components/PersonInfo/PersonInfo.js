@@ -18,12 +18,13 @@ const PersonInfo = () => {
         </div>
       </Space>
       <p className={styles.job}>我是一个小菜鸡，从事前端工作</p>
-      <p>这是我的个人BLOG网站,记录日常,希望你可以找到对你有用的东西!</p>
+      <p>这是我的个人BLOG网站,记录日常开发工作以及学习笔记内容,欢迎浏览，下方有此项目仓库地址。希望你可以找到对你有用的东西!</p>
 
       <div className={styles.contact}>
         <Space size="middle">
-          <Button type="link" target='_blank' href='https://gitee.com/JK-2462870727'>我的仓库</Button>
+          <Button type="link" target='_blank' className={styles.storageBtn} href='https://gitee.com/JK-2462870727'>我的仓库</Button>
           <Button
+            className={styles.msgBtn}
             type="primary"
             shape="round"
             icon={<CommentOutlined />}

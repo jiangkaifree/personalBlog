@@ -1,5 +1,14 @@
 .personInfo {
   // width: 30%;
+  .platform{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    width: 60%;
+    
+  }
+
   min-width: 330px;
   box-shadow: 20px 20px 60px #ced1d6, -20px -20px 60px #fff;
   margin-top: 110px;

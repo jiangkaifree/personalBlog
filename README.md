@@ -5,6 +5,8 @@
  [前端项目预览](https://blog.happynewball.com)
  [管理后台预览](https://admin.happynewball.com)
  
+ 全栈个人blog项目，前端使用 `next.js + antd + fetch` 来搭建利于seo ，管理后台使用 `react hook + antd `来搭建。后端使用 `egg + mysql`
+ 
 
 ### 文件介绍
 *  admin ······ **使用React Hook + Andt + Axios 搭建的blog管理后台**
@@ -17,7 +19,7 @@
 
 ### 安装
 
-```javascript
+
 
 	1.  安装依赖
 
@@ -41,7 +43,8 @@
 	
 	2.1 service 文件夹下有 mysql 的连接配置, 具体在 service > config 文件夹中
 		
-		```
+		```javascript
+		
 		config.mysql = {
 		    // database configuration
 		    client: {
@@ -57,6 +60,7 @@
 		      database: 'blog',			// 填写连接数据库名称
 		    },
 		  };
+			
 		```
 		
 		注意： config 下的不同文件对应不同的环境配置 default 是默认配置 本地开发环境配置，local 是线上测试环境 prod是 生成环境配置
@@ -65,7 +69,7 @@
 
 	2.3  接下来就是运行 `service` 项目了。
 
-#### 后续慢慢完善功能与页面，敬请期待感谢
+### 后续慢慢完善功能与页面，敬请期待感谢
 
 
 

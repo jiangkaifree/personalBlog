@@ -143,7 +143,7 @@ class MainController extends Controller {
   /** 测试 */
   async index() {
     // 首页的文章列表数据
-    this.ctx.body = 'hi api';
+    this.ctx.body = 'Hi Blog Api';
   }
 }
 

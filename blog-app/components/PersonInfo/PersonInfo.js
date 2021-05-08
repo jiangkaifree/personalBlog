@@ -71,7 +71,7 @@ const PersonInfo = () => {
             className={styles.storageBtn}
             href="https://gitee.com/JK-2462870727"
           >
-            我的仓库
+            此项目仓库
           </Button>
           <Button
             className={styles.msgBtn}

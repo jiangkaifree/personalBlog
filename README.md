@@ -19,57 +19,40 @@
 
 ### 安装
 
+1.  安装依赖
 
+`npm i or yarn `
+	
+2. 运行项目
 
-	1.  安装依赖
+前端项目使用 `npm run dev` or `yarn dev`
+	
+管理后台使用 `npm run start` or `yarn start`
+	
+后端项目： 该项目我配置了三个环境， `dev` 是部署线上的远程调试，`start`是生产环境，`debug` 本地开发请使用。运行项目前请确认是否有安装mysql，如果你是前端开发者，对后端的了解不深，建议你使用mysql 5.0的版本。mysql8 的版本会因为加密方式不同 需要你进行配置。当然了，如果你很了解后端，我相信您很快就可以运行起来了。下面我说不了解后端的运行步骤(默认已安装好 `mysql` )：
+	
+2.1 service 文件夹下有 mysql 的连接配置, 具体在 service > config 文件夹中
 
-	`npm i or yarn `
+```javascript
+config.mysql = {
+    client: {
+        host: 'localhost',   // 填写你的连接地址
+        //   host: "39.104.66.213",				// 这是我部署阿里云的公网ip
+        port: '3306',			// 填写连接端口 默认3306
+        user: 'root',			// 填写连接用户名 默认 root 需根据自己情况填写
+        password: '123456',		// 填写连接密码 需根据自己情况填写
+        database: 'blog',			// 填写连接数据库名称
+    },
+ }
+```
 	
-	2. 运行项目
-
-	前端项目使用 `npm run dev` or `yarn dev`
-	
-	管理后台使用 `npm run start` or `yarn start`
-	
-	后端项目： 该项目我配置了三个环境， 
-	
-	`dev` 是部署线上的远程调试，
-	
-	`start`是生产环境，
-	
-	`debug` 本地开发请使用
-	
-	运行项目前请确认是否有安装mysql，如果你是前端开发者，对后端的了解不深，建议你使用mysql 5.0的版本。mysql8 的版本会因为加密方式不同 需要你进行配置。当然了，如果你很了解后端，我相信您很快就可以运行起来了。下面我说不了解后端的运行步骤(默认已安装好 `mysql` )：
-	
-	2.1 service 文件夹下有 mysql 的连接配置, 具体在 service > config 文件夹中
+注意： config 下的不同文件对应不同的环境配置 default 是默认配置 本地开发环境配置，local 是线上测试环境 prod是 生成环境配置
 		
-		```javascript
-		
-		config.mysql = {
-		    // database configuration
-		    client: {
-		      host: 'localhost',   // 填写你的连接地址
-		      //   host: "39.104.66.213",				// 这是我部署阿里云的公网ip
-		      port: '3306',			// 填写连接端口 默认3306
-		      // username
-		      user: 'root',			// 填写连接用户名 默认 root 需根据自己情况填写
-		      // user: "admin",
-		      // password
-		      password: '123456',		// 填写连接密码 需根据自己情况填写
-		      // database
-		      database: 'blog',			// 填写连接数据库名称
-		    },
-		  };
-			
-		```
-		
-		注意： config 下的不同文件对应不同的环境配置 default 是默认配置 本地开发环境配置，local 是线上测试环境 prod是 生成环境配置
-		
-	2.2  项目根目录下有一个 `blog.sql` 文件 使用工具导入即可。里面有简单的三张表格
+2.2  项目根目录下有一个 `blog.sql` 文件 使用工具导入即可。里面有简单的三张表格
 
-	2.3  接下来就是运行 `service` 项目了。
+2.3  接下来就是运行 `service` 项目了。
 
-### 后续慢慢完善功能与页面，敬请期待感谢
+### 后续慢慢完善追加新的功能与页面，敬请期待感谢
 
 
 

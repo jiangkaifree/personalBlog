@@ -252,6 +252,12 @@ const AddArticle = (props) => {
     saveArticleApi({
       articleTitle: title,
       articleContent,
+      articleId: props.match.params.id,
+      articleDesc: desContent,
+      articleOrder,
+      articleType,
+      articleDate: date,
+      articleTags: tags? JSON.stringify(tags):JSON.stringify([]),
     }).then((res) => {
       console.log(res.message);
       notification.success({
@@ -266,7 +272,12 @@ const AddArticle = (props) => {
       if(res) setTypeList(res);
     });
   };
-  // 获取文章内容
+
+
+  /**
+   * TODO 获取文章内容
+   * @param {String ｜ Number} id  文章id
+   */
   const getArticleInfo = (id) => {
     if (!id) return;
     articleInfoApi(id).then((res) => {

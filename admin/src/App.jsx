@@ -1,8 +1,8 @@
 /*
  * @Author: jk
  * @Date: 2020-12-14 10:57:56
- * @Last Modified by: jk
- * @Last Modified time: 2021-03-01 17:06:47
+ * @Last Modified by: 小菜鸡
+ * @Last Modified time: 2021-05-09 17:53:39
  */
 
 import { useState, useEffect } from "react";
@@ -98,7 +98,7 @@ function App(props) {
   const menuList = [
     {
       path: "/admin/data",
-      title: "可视化数据",
+      title: "访问数据",
       icon: <RadarChartOutlined />,
     },
     {

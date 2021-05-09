@@ -205,7 +205,7 @@ const AddArticle = (props) => {
 
     /**请求接口 */
     postArticleApi({
-      // articleId: "11",
+      articleId: props.match.params.id,
       articleTitle: title,
       articleContent,
       articleDesc: desContent,

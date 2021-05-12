@@ -13,7 +13,9 @@ const Login = (props) => {
   const onKeyup = (e)=>{
     console.log(e)
   }
-  // 登录
+  /**
+   * TODO 登录
+   */
   const checkLogin = () => {
     setIsLoading(true);
     if (!userName) {
@@ -42,6 +44,7 @@ const Login = (props) => {
       }
     });
   };
+
   return (
     <div className={styles.loginDiv}>
       <Spin tip="Loading..." spinning={isLoading}>

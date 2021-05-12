@@ -33,9 +33,8 @@ import {
 
 import styles from "./App.module.scss";
 import screenfull from "screenfull"; // 导入全屏插件
-import Routes from "./router";
-// 登录页面
-import Login from "./views/Login/Login";
+import Routes from "./router";      // 导入子路由配置
+import Login from "./views/Login/Login";    // 登录页面
 import AddArticle from "./views/AddArticle/AddArticle"; // 添加文章页面
 import NotFound from "./views/NotFound/NotFound"; //404
 import ResultPage from "./views/ResultPage/ResultPage"; // 结果页面
@@ -143,10 +142,7 @@ function App(props) {
     screenfull.toggle();
   };
 
-  /**
-   * TODO 切换菜单栏
-   * 
-   */
+  
 
   return (
     <div className={styles.App}>

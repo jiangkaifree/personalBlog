@@ -1,4 +1,4 @@
-import { useState, useEffect, } from "react";
+import { useState, useEffect } from "react";
 import {
   Row,
   Col,
@@ -58,9 +58,8 @@ const AddArticle = (props) => {
     },
   });
   const [visible, setVisible] = useState(false); //抽屉显示隐藏
-  const [desHTMLContent, setDesHTMLContent] = useState(
-    "这里是简介markDown预览"
-  ); // 简介HTML内容
+  const [desHTMLContent, setDesHTMLContent] =
+    useState("这里是简介markDown预览"); // 简介HTML内容
   const [desContent, setDesContent] = useState(""); // 简介内容
   const [articleContent, setArticleContent] = useState(""); //文章内容
   const [HTMLContent, setHTMLContent] = useState("这里预览markDown"); // markDown转换后文本
@@ -74,13 +73,18 @@ const AddArticle = (props) => {
   const [title, setTitle] = useState(""); // 文字标题
   const [articleOrder, setArticleOrder] = useState(true);
 
-  /**删除标签 */
+  /**
+   * TODO 删除标签
+   * @param{Number} idx 当前项索引
+   */
   const cutTags = (idx) => {
     tags.splice(idx, 1);
     setTags([...tags]);
   };
 
-  /**标签列表 */
+  /**
+   * TODO 渲染标签列表
+   */
   const tagItem = tags.map((item, index) => {
     const tagElem = (
       <Tag
@@ -96,12 +100,16 @@ const AddArticle = (props) => {
     return <span key={item.title}>{tagElem}</span>;
   });
 
-  // 点击Tag展示输入框
+  /**
+   * TODO 点击Tag展示输入框
+   */
   const showInput = () => {
     setInputVisible(true);
   };
 
-  // Tag输入框失焦或者回车事件
+  /**
+   * TODO Tag输入框失焦或者回车事件
+   */
   const handleInputConfirm = () => {
     // for (let item of tags) {
     if (inputValue) {
@@ -111,50 +119,14 @@ const AddArticle = (props) => {
         title: inputValue,
         color: hexcolor(),
       });
+
+      // 清空重置操作
       setInputVisible(false);
       setTags(tags);
       setInputValue("");
       console.log(tags);
-      // return;
     }
-    // }
-    // if (inputValue && tags.indexOf(inputValue) === -1) {
-    // const hexcolor = randomcolor.HEXColor;
-    // tags.push( {
-    //   title: inputValue,
-    //   color: hexcolor(),
-    // });
-    // setInputVisible(false);
-    // setTags(tags);
-    // setInputValue("");
-    // console.log(tags);
-    // }
   };
-
-  // 导入markDown
-  // const props = {
-  //   name: "file",
-  //   action: "https://www.mocky.io/v2/5cc8019d300000980a055e76",
-  //   headers: {
-  //     authorization: "authorization-text",
-  //   },
-  //   onChange(info) {
-  //     if (info.file.status !== "uploading") {
-  //       console.log(info.file, info.fileList);
-  //     }
-  //     if (info.file.status === "done") {
-  //       message.success(`${info.file.name} file uploaded successfully`);
-  //     } else if (info.file.status === "error") {
-  //       message.error(`${info.file.name} file upload failed.`);
-  //     }
-  //   },
-  //   beforeUpload: file => {
-  //     this.setState(state => ({
-  //       fileList: [...state.fileList, file],
-  //     }));
-  //     return false;
-  //   },
-  // };
 
   /**
    * 获取文本内容
@@ -219,8 +191,8 @@ const AddArticle = (props) => {
         message: res.message,
       });
       // 清空数据
-      setDate(moment().format("L"))
-      setDesContent('')
+      setDate(moment().format("L"));
+      setDesContent("");
       setVisible(false);
       setArticleContent("");
       setInputVisible(false);
@@ -257,7 +229,7 @@ const AddArticle = (props) => {
       articleOrder,
       articleType,
       articleDate: date,
-      articleTags: tags? JSON.stringify(tags):JSON.stringify([]),
+      articleTags: tags ? JSON.stringify(tags) : JSON.stringify([]),
     }).then((res) => {
       console.log(res.message);
       notification.success({
@@ -266,13 +238,14 @@ const AddArticle = (props) => {
     });
   };
 
-  // 获取文章类型
+  /**
+   * TODO 获取文章类型
+   */
   const getArticleType = async () => {
     await articleTypeApi().then((res) => {
-      if(res) setTypeList(res);
+      if (res) setTypeList(res);
     });
   };
-
 
   /**
    * TODO 获取文章内容
@@ -290,7 +263,7 @@ const AddArticle = (props) => {
         articleDate,
       } = res[0];
       console.log(articleDesc);
-      setDesContent(articleDesc)
+      setDesContent(articleDesc);
       setTitle(articleTitle); // 设置文章标题
       setArticleContent(articleContent); //设置文章内容
       setHTMLContent(marked(articleContent)); // 设置文章markdown
@@ -308,20 +281,27 @@ const AddArticle = (props) => {
     getArticleInfo(props.match.params.id);
   }, [props.match.params.id]);
 
-  //  开启Drawer
+  /**
+   * TODO 开启Drawer
+   */
   const showDrawer = () => {
     setVisible(true);
   };
 
-  //  关闭Drawer
+  /**
+   * TODO 关闭Drawer
+   */
   const onClose = () => {
     setVisible(false);
   };
 
-  // 返回上一页
+  /**
+   * TODO 返回上一页
+   */
   const backPage = () => {
     props.history.goBack();
   };
+  
   return (
     <main>
       <div className={styles.titleWrap}>
@@ -387,15 +367,8 @@ const AddArticle = (props) => {
         className={styles.drawerWrap}
         getContainer={false}
       >
-        <Form
-          size="large"
-          layout="vertical"
-          onFinish={postArticle}
-        >
-          
-          <Form.Item
-            label="BLOG简介"
-          >
+        <Form size="large" layout="vertical" onFinish={postArticle}>
+          <Form.Item label="BLOG简介">
             <TextArea
               showCount
               value={desContent}

@@ -10,10 +10,13 @@ import styles from "./NotFound.module.scss";
 
 const NotFound = (props) => {
   
-  //返回上一页
+  /**
+   * TODO 返回上一页
+   */
   const goBack = ()=> {
     props.history.go(-1)
   }
+  
   return (
     <Result
     className={styles.resultWrap}

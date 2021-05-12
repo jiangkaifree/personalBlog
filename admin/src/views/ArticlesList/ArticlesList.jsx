@@ -11,19 +11,23 @@ import { articleListApi, delArticleApi } from "../../api/api";
 
 const ArticlesList = (props) => {
   const [articleList, setArticleList] = useState([]);
-  // 获取文章列表列表数据
+  /**
+   * TODO 获取文章列表列表数据
+   */
   const getArticleList = () => {
     articleListApi().then((res) => {
       setArticleList(res);
     });
   };
   
-
   useEffect(() => {
     getArticleList()
   }, []);
 
-  // 进入编辑页面
+  /**
+   * TODO 进入编辑页面
+   * @param {String ｜ Number} id 文章id
+   */
   const editArticle = (id) => {
     console.log(id);
     props.history.push({
@@ -31,7 +35,10 @@ const ArticlesList = (props) => {
     });
   };
 
-  // 删除文章
+  /**
+   * TODO 删除文章
+   * @param {String ｜ Number} id 文章id 
+   */
   const delArticle = (id) => {
     console.log(id);
     delArticleApi(id).then((res) => {

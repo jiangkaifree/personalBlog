@@ -25,10 +25,10 @@
     "node": ">=10.0.0"
   },
   "scripts": {
-    "dev": "egg-scripts start --env=local --daemon",
+    "dev": "egg-scripts start --env=default",
     "start": "egg-scripts start --daemon",
     "stop": "egg-scripts stop",
-    "debug": "egg-bin debug --env=default",
+    "debug": "egg-bin debug --env=local",
     "test": "npm run lint -- --fix && npm run test-local",
     "test-local": "egg-bin test",
     "cov": "egg-bin cov",

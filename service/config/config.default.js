@@ -54,7 +54,8 @@ module.exports = appInfo => {
       // password
       password: '123456',
       // database
-      database: 'blog_test',
+      // database: 'blog_test',
+      database: 'blog',
     },
     // load into app, default is open
   };

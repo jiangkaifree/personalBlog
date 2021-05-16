@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import Router from "next/router";
-import { List, Card, Button, Divider, Row, Col, Pagination, Tag } from "antd";
+import { List, Card, Button, Divider, Row, Col, message, Tag } from "antd";
 import { VideoCameraTwoTone, EyeTwoTone, BellTwoTone } from "@ant-design/icons";
 import styles from "../styles/blogs.module.scss"; // 样式
 import Head from '../components/Head/Head'
@@ -22,16 +22,20 @@ const blogList = ({ articleList }) => {
   };
 
   /**
-   * TODO 列表数据切换
+   * TODO 列表数据分页
    * @param {Number | String} page  页数索引
    */
   const changePageIndex = async () => {
     // 请求获取列表下一页数据
+    console.log(pages,'这是page')
     const res = await fetch(
       process.env.baseURL + `/client/blogList/?pageIndex=${pages}`
     );
     const { data } = await res.json();
     console.log(data,list)
+    if(data.length == 0){
+      return message.warning('只写了这么多啦！');
+    }
     setList([...list,...data])
     setPages(pages + 1)
   };

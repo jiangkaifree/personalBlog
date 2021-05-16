@@ -29,7 +29,7 @@ class HomeController extends Controller {
     // 获取页数索引
     console.log(ctx);
     const { pageIndex } = ctx.query;
-    const sql = `SELECT articleTitle,articleId,articleType,articleDate,articleTags,articleDesc,viewCount FROM article_info ORDER BY articleId limit ${pageIndex},6`;
+    const sql = `SELECT articleTitle,articleId,articleType,articleDate,articleTags,articleDesc,viewCount FROM article_info ORDER BY articleId DESC limit ${pageIndex * 6},6`;
     const data = await app.mysql.query(sql);
     // 处理数据
     for (const item of data) {

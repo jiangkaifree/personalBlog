@@ -2,7 +2,7 @@
  * @Author: jk
  * @Date: 2020-12-07 16:37:57
  * @Last Modified by: 小菜鸡
- * @Last Modified time: 2021-06-14 23:26:54
+ * @Last Modified time: 2021-05-05 11:11:14
  */
 import { createContext } from "react";
 import { Row, Col, Breadcrumb, Divider, Tag, BackTop } from "antd";
@@ -125,7 +125,7 @@ const articlesInfo = ({ blogInfo }) => {
 // 获取BLOG详情
 export const getServerSideProps = async (ctx) => {
   const { id } = ctx.query; // 获取BLOG Id
-  const res = await fetch(process.env.baseURL + `/blogInfo/${id}`);
+  const res = await fetch(process.env.baseURL + `/client/blogInfo/${id}`);
   const { data } = await res.json();
   return {
     props: {

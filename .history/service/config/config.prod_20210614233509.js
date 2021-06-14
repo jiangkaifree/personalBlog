@@ -2,7 +2,7 @@
  * @Author: jk
  * @Date: 2021-01-08 15:57:24
  * @Last Modified by: 小菜鸡
- * @Last Modified time: 2021-06-14 23:36:04
+ * @Last Modified time: 2021-06-14 23:35:08
  * @desc 这是成产环境配置
  */
 
@@ -26,7 +26,7 @@ module.exports = appInfo => {
       enable: false,
       ignoreJSON: true,
     },
-    domainWhiteList: [ 'http://39.104.66.213:3000','https://blog.happynewball.com' ], // []中放放出的白名单，*代表所有
+    domainWhiteList: [ 'http://39.104.66.213:3000','' ], // []中放放出的白名单，*代表所有
   };
   config.cors = {
     // origin:'http://localhost:3000',

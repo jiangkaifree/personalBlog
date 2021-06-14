@@ -64,7 +64,7 @@ const Index = ({ articleList }) => {
 
 // 获取页面数据
 export const getStaticProps = async () => {
-  const res = await fetch(process.env.baseURL + "/index");
+  const res = await fetch(process.env.baseURL + "/client/index");
   const { data } = await res.json();
   for (let idx in data) {
     data[idx].img = process.env.indexImgList[idx];

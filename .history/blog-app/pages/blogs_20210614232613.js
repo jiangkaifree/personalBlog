@@ -107,7 +107,7 @@ const blogList = ({ articleList }) => {
 // 获取页面数据
 export const getServerSideProps = async () => {
   const res = await fetch(
-    process.env.baseURL + `/blogList/?pageIndex=${0}`
+    process.env.baseURL + `/client/blogList/?pageIndex=${0}`
   );
   const { data } = await res.json();
   // console.log(data);

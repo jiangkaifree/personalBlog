@@ -26,7 +26,7 @@ module.exports = appInfo => {
       enable: false,
       ignoreJSON: true,
     },
-    domainWhiteList: [ 'http://39.104.66.213:3000','https://blog.happynewball.com','https://admin.happynewball.com' ], // []中放放出的白名单，*代表所有
+    domainWhiteList: [ 'http://39.104.66.213:3000','https://blog.happynewball.com','https://blog.happynewball.com' ], // []中放放出的白名单，*代表所有
   };
   config.cors = {
     // origin:'http://localhost:3000',

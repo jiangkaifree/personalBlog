@@ -146,6 +146,7 @@ function App(props) {
   return (
     <div className={styles.App}>
       <RouterSwitch>
+        di
         <Redirect to="/user/login" from="/" exact></Redirect>
         <Route path="/user/login" exact component={Login}></Route>
         <Route path="/admin/addArticle/:id?" component={AddArticle}></Route>

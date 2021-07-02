@@ -2,7 +2,7 @@
  * @Author: jk
  * @Date: 2020-12-07 16:37:57
  * @Last Modified by: 小菜鸡
- * @Last Modified time: 2021-06-14 23:26:54
+ * @Last Modified time: 2021-07-02 23:27:03
  */
 import { createContext } from "react";
 import { Row, Col, Breadcrumb, Divider, Tag, BackTop } from "antd";
@@ -16,7 +16,7 @@ import {
 } from "@ant-design/icons";
 import marked from "marked"; // 导入marked
 import hljs from "highlight.js"; // 导入高亮插件
-import "highlight.js/styles/monokai-sublime.css"; //导入highlight的css
+import "highlight.js/styles/Github.css"; //导入highlight的css
 import styles from "styles/articlesInfo.module.scss";
 import Header from "components/Header/Header";
 import ArticleIndexs from "components/ArticleIndexs/ArticleIndexs";

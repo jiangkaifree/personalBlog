@@ -2,7 +2,7 @@
  * @Author: jk 
  * @Date: 2020-12-07 16:46:26 
  * @Last Modified by: 小菜鸡
- * @Last Modified time: 2021-07-02 23:43:04
+ * @Last Modified time: 2021-07-02 23:41:16
  */
 
 .main {
@@ -50,14 +50,15 @@
         line-height: 30px;
         background: #f8f8f8;
         color: #ff502c;
-        font-size: .87em;
+        font-size: 。86rem;
         overflow-y: auto;
         word-break: break-word;
         border-radius: 2px;
         overflow-x: auto;
       }
       p {
-        margin: 22px 0;
+        margin: 10px 0;
+        letter-spacing: 1px;
         font-size: 15px;
         word-break: break-all;
       }

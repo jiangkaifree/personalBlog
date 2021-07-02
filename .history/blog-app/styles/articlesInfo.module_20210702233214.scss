@@ -2,7 +2,7 @@
  * @Author: jk 
  * @Date: 2020-12-07 16:46:26 
  * @Last Modified by: 小菜鸡
- * @Last Modified time: 2021-07-02 23:43:04
+ * @Last Modified time: 2021-07-02 23:31:26
  */
 
 .main {
@@ -46,18 +46,20 @@
       color: #666;
       code {
         // display: block;
+        margin: 0 5px;
         padding: 5px;
         line-height: 30px;
         background: #f8f8f8;
         color: #ff502c;
-        font-size: .87em;
+        font-size: 13px;
         overflow-y: auto;
         word-break: break-word;
         border-radius: 2px;
         overflow-x: auto;
       }
       p {
-        margin: 22px 0;
+        margin: 10px 0;
+        letter-spacing: 1px;
         font-size: 15px;
         word-break: break-all;
       }
@@ -72,18 +74,41 @@
       h6 {
         margin: 20px 0;
         font-weight: 600;
+        code {
+          // display: block;
+          margin: 0 5px;
+          padding: 3px 5px;
+          line-height: 30px;
+          overflow-y: auto;
+          font-weight: 550;
+          word-break: break-word;
+          border-radius: 2px;
+          overflow-x: auto;
+          background-color: #fff5f5;
+          color: #ff502c;
+        }
       }
       pre {
+        // position: relative;
         border-radius: 8px;
+        // // margin: 10px 0;
         background-color: #f8f8f8;
+        // color: #ff502c;
+        // color: #333;
         font-size: 14px;
+        // overflow: hidden;
         padding: 15px 12px;
         margin: 10px 5px;
+        // word-break: normal;
+        // display: block;
+        // overflow-x: auto;
+        // color: #eee;
         background: rgb(40, 44, 52);
         code {
           padding: 0;
           margin: 0;
           background-color: transparent;
+          //  color: rgb(197, 165, 197);
         }
       }
     }

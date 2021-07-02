@@ -16,7 +16,7 @@ import {
 } from "@ant-design/icons";
 import marked from "marked"; // 导入marked
 import hljs from "highlight.js"; // 导入高亮插件
-import "highlight.js/styles/monokai-sublime.css"; //导入highlight的css
+import "highlight.js/styles/.css"; //导入highlight的css
 import styles from "styles/articlesInfo.module.scss";
 import Header from "components/Header/Header";
 import ArticleIndexs from "components/ArticleIndexs/ArticleIndexs";

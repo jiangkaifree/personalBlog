@@ -1,28 +1,31 @@
 import React from "react";
-import Router from "next/router";
+import {useRouter} from "next/router";
 import { Row, Col, Avatar, Switch, notification, Space } from "antd";
 import styles from "./header.module.scss";
 import {
   EditTwoTone,
   FireTwoTone,
-  CustomerServiceTwoTone,
   FlagTwoTone,
   UserOutlined,
 } from "@ant-design/icons";
 // import logo from '../../images/logo.svg'
 
 const Header = () => {
-  // 进入BLOG页面
+
+  const router = useRouter()
+  
+  /**
+   * TODO 进入blog页面
+   */
   const goBlogPages = () => {
-    Router.replace({
+    router.push({
       pathname: "/blogs",
-      // redirect: './blogList'
     });
   };
 
   // 返回首页
   const goIndexPage = () => {
-    Router.replace({
+    router.replace({
       pathname: "/",
     });
   };
@@ -50,6 +53,15 @@ const Header = () => {
     //   pathname
     // })
   };
+
+  /**
+   * TODO 进去工具周边页面
+   */
+  const goToolPage = () => {
+    router.push({
+      pathname: '/tools'
+    })
+  }
 
   return (
     <header className={styles.headerWrap}>
@@ -126,7 +138,7 @@ const Header = () => {
           xs={0}
           className={styles.headerItem}
         >
-          <span onClick={goVideoPage}>
+          <span onClick={goToolPage}>
             <FlagTwoTone twoToneColor="#68b0ab" />
             工具周边
           </span>

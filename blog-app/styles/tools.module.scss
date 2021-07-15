@@ -1,0 +1,25 @@
+.toolsWrap {
+  .toolsItem {
+    display: flex;
+    margin: 20px;
+    border-radius: 8px;
+    .title {
+      margin-left: 10px;
+      margin-bottom: 0;
+      font-size: 18px;
+      font-weight: 500;
+    }
+    .desc {
+      display: block;
+      margin-left: 10px;
+      width: 170px;
+      height: 30px;
+      line-height: 30px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  }
+
+  margin: 20px 7%;
+}
